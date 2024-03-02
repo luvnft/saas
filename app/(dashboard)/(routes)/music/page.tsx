@@ -17,7 +17,7 @@ import { Loader } from "@/components/loader";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
-import { formSchema } from "./constants";
+import { formSchema,} from "./constants";
 
 const MusicPage = () => {
   const proModal = useProModal();
@@ -94,6 +94,8 @@ const MusicPage = () => {
                 </FormItem>
               )}
             />
+            
+            
             <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
               Generate
             </Button>

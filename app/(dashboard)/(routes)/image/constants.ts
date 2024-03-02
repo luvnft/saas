@@ -1,3 +1,4 @@
+import exp from "constants";
 import * as z from "zod";
 
 export const formSchema = z.object({
@@ -6,6 +7,7 @@ export const formSchema = z.object({
   }),
   amount: z.string().min(1),
   resolution: z.string().min(1),
+  speechModel: z.string().min(1),
 });
 
 export const amountOptions = [
@@ -32,6 +34,28 @@ export const amountOptions = [
 ];
 
 
+export const speechModel = [
+  {
+    value: "tts-1",
+    label: "tts-1",
+  },
+  {
+    value: "tts-2",
+    label: "tts-2",
+  },
+  {
+    value: "tts-3",
+    label: "tts-3",
+  },
+  {
+    value: "tts-4",
+    label: "tts-4",
+  },
+  {
+    value: "tts-5",
+    label: "tts-5",
+  }
+];
 
 export const resolutionOptions = [
   {
