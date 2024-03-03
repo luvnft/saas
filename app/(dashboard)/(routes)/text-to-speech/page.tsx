@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Music, Send } from "lucide-react";
+import { Megaphone, Music, Send } from "lucide-react";
 
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
@@ -56,9 +56,9 @@ const MusicPage = () => {
   return ( 
     <div>
       <Heading
-        title="Music Generation"
-        description="Turn your prompt into music."
-        icon={Music}
+        title="Text to speech Generation"
+        description="Turn your prompt into Real speech."
+        icon={Megaphone}
         iconColor="text-emerald-500"
         bgColor="bg-emerald-500/10"
       />
@@ -87,15 +87,13 @@ const MusicPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
-                      placeholder="Piano solo" 
+                      placeholder="Hi!! I am a genius AI. I can generate speech from text. Try me!!" 
                       {...field}
                     />
                   </FormControl>
                 </FormItem>
               )}
             />
-            
-            
             <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
               Generate
             </Button>
@@ -107,7 +105,7 @@ const MusicPage = () => {
           </div>
         )}
         {!music && !isLoading && (
-          <Empty label="No music generated." />
+          <Empty label="No speech generated." />
         )}
         {music && (
           <audio controls className="w-full mt-8">
