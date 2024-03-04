@@ -22,6 +22,21 @@ import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
+import { questionsByPage } from './questions';
+
+const getRandomQuestion = () => {
+  // Randomly select a page
+  const pages = Object.keys(questionsByPage);
+  const randomPageIndex = Math.floor(Math.random() * pages.length);
+  const randomPage = pages[randomPageIndex];
+  
+  // Randomly select a question from that page
+  const questionsOnSelectedPage = questionsByPage[randomPage as keyof typeof questionsByPage];
+  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
+  const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
+  
+  return randomQuestion;
+};
 
 const ConversationPage = () => {
   const router = useRouter();
@@ -34,10 +49,12 @@ const ConversationPage = () => {
       prompt: ""
     }
   });
-
+  
   const isLoading = form.formState.isSubmitting;
   
+  
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    
     try {
       const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = { role: "user", content: values.prompt };
       const newMessages = [...messages, userMessage];
@@ -56,6 +73,8 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
+  const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
+  
 
   return ( 
     <div>
@@ -92,7 +111,7 @@ const ConversationPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading} 
-                        placeholder="How do I calculate the radius of a circle?" 
+                        placeholder={randomQuestion} 
                         {...field}
                       />
                     </FormControl>
@@ -117,17 +136,17 @@ const ConversationPage = () => {
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (
               <div 
-              key={String(message.content)} 
-              className={cn(
-                "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-              )}
-            >
-              {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-              <p className="text-sm">
-                {message.content}
-              </p>
-            </div>            
+                key={String(message.content)} 
+                className={cn(
+                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
+                  message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
+                )}
+              >
+                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                <p className="text-sm">
+                  {message.content}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -137,4 +156,3 @@ const ConversationPage = () => {
 }
  
 export default ConversationPage;
-

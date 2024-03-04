@@ -1,5 +1,3 @@
-
-import Replicate from "replicate";
 import OpenAI from "openai";
 
 import { auth } from "@clerk/nextjs";
@@ -17,7 +15,7 @@ export async function POST(
   try {
     const { userId } = auth();
     const body = await req.json();
-    const { prompt  } = body;
+    const { prompt, model = "alloy"  } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -25,6 +23,9 @@ export async function POST(
 
     if (!prompt) {
       return new NextResponse("Prompt is required", { status: 400 });
+    }
+    if (!model) {
+      return new NextResponse("model is required", { status: 400 });
     }
 
     const freeTrial = await checkApiLimit();
@@ -36,7 +37,7 @@ export async function POST(
 
     const mp3 = await openai.audio.speech.create({
       model: "tts-1",
-      voice: "alloy",
+      voice: model,
       input: prompt,
     });
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { Code, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
+import { Code, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -12,6 +12,15 @@ import { FreeCounter } from "@/components/free-counter";
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
 const routes = [
+  
+    {
+      label: 'Home',
+      icon: HomeIcon, // Assuming you have a Home icon imported from somewhere
+      href: '/', // Link to the homepage
+      color: "text-blue-500" // Adjust the color according to your design
+    },
+  
+  
   {
     label: 'Dashboard',
     icon: LayoutDashboard,
@@ -73,7 +82,7 @@ export const Sidebar = ({
             <Image fill alt="Logo" src="/logo.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
-            Genius
+            Cogify
           </h1>
         </Link>
         <div className="space-y-1">

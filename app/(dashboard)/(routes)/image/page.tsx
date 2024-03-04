@@ -22,6 +22,21 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 
+import { audioquestionsByPage } from "./audioquestion";
+const getRandomQuestion = () => {
+  // Randomly select a page
+  const pages = Object.keys(audioquestionsByPage);
+  const randomPageIndex = Math.floor(Math.random() * pages.length);
+  const randomPage = pages[randomPageIndex];
+  
+  // Randomly select a question from that page
+  const questionsOnSelectedPage = audioquestionsByPage[randomPage as keyof typeof audioquestionsByPage];
+  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
+  const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
+  
+  return randomQuestion;
+};
+
 const PhotoPage = () => {
   const proModal = useProModal();
   const router = useRouter();
@@ -57,6 +72,7 @@ const PhotoPage = () => {
       router.refresh();
     }
   }
+  const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
 
   return ( 
     <div>
@@ -92,7 +108,7 @@ const PhotoPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
-                      placeholder="A picture of a horse in Swiss alps" 
+                      placeholder={randomQuestion} 
                       {...field}
                     />
                   </FormControl>
