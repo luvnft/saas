@@ -9,6 +9,7 @@ body,
 }
  
 @layer base {
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
@@ -40,6 +41,40 @@ body,
     --ring: 248 90% 66%;
  
     --radius: 0.5rem;
+    .line {
+      border: 0;
+      border-top: 1px solid #757575; /* zinc-700 */
+      margin: 20px 0;
+    }
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .left, .right {
+      flex: 1;
+    }
+    
+    .logo img {
+      width: 30px; /* Adjust size as needed */
+      height: auto;
+    }
+    
+    .text {
+      margin-bottom: 10px;
+    }
+    
+    .right button {
+      margin-right: 10px;
+    }
+    
+    .social-icons img {
+      width: 30px; /* Adjust size as needed */
+      height: auto;
+    }
+    
   }
  
   .dark {
@@ -82,3 +117,10 @@ body,
     @apply bg-background text-foreground;
   }
 }
+@media only screen and (max-width: 1200px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+

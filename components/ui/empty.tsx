@@ -11,12 +11,11 @@ export const Empty = ({
   const gifFilenames = [
     "1.gif",
     "2.gif",
-    "3.gif",
+    
     "4.gif",
     "5.gif",
-    "6.gif",
-    "7.gif",
-    "8.gif",
+    
+   
     "9.gif",
     // Add more filenames here as needed
   ];

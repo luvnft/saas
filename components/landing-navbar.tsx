@@ -19,15 +19,16 @@ export const LandingNavbar = () => {
         <div className="relative h-8 w-8 mr-4">
           <Image fill alt="Logo" src="/logo.png" />
         </div>
-        <h1 className={cn("text-2xl font-bold text-white", font.className)}>
+        <h1 className={cn("text-2xl font-bold ", font.className)}>
           Cogify
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-          <Button variant="outline" className="rounded-full">
+          <Button className="px-8 py-2 rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500">
             Get Started
           </Button>
+          
         </Link>
       </div>
     </nav>

@@ -15,14 +15,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 import {
-  Card1,
-  Card2,
-  Card3,
-  Card4
-} from "@/components/ui/landing-items";
+    AnimatedPin0, AnimatedPin1, AnimatedPin2, AnimatedPin3, 
+} from "./pins";
 
-export function LandingContent() {
-  const cardComponents = [Card1, Card2, Card3, Card4];
+export function AnimatedPinDemo() {
+  const cardComponents = [AnimatedPin0, AnimatedPin1, AnimatedPin2, AnimatedPin3];
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
