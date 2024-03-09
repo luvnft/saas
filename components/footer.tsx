@@ -48,12 +48,12 @@ export const Footer = () => {
             </Link>
             
 
-            <Link href="/" className="flex items-center">
+            <Link href="/privacy-policy" className="flex items-center">
             <button className="px-4 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
                 Privacy Policy
                 </button>
             </Link>
-            <Link href="/" className="flex items-center">
+            <Link href="/term-of-service" className="flex items-center">
             <button className="px-4 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
     Terms of Service
 </button>

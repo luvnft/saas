@@ -16,7 +16,7 @@ export function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center font-light tracking-tight text-transparent md:text-7xl"
       >
-        We enables the world to <br /> ship the best products.
+        We respect your privacy <br /> at esteem.
       </motion.h1>
     </LampContainer>
   );
