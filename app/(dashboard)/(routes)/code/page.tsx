@@ -135,10 +135,9 @@ const CodePage = () => {
                     <code className="bg-black/10 rounded-lg p-1" {...props} />
                   )
                 }} className="text-sm overflow-hidden leading-7">
-                  {message.content || ""}
+                  {message.content?.toString()}
                 </ReactMarkdown>
-              </div>
-              
+                </div>
             ))}
           </div>
         </div>

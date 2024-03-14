@@ -45,12 +45,6 @@ const routes = [
     color: "text-pink-700",
     href: '/image',
   },
-  {
-    label: 'Video Generation',
-    icon: VideoIcon,
-    color: "text-orange-700",
-    href: '/video',
-  },
   
   {
     label: 'Code Generation',
