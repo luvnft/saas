@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { PinContainer } from "@/app/components/pages/3d-pin";
+import { PinContainer } from "@/components/pages/3d-pin";
 
 export function AnimatedPin0() {
   return (

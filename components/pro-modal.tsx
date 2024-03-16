@@ -12,12 +12,12 @@ import {
   DialogTitle, 
   DialogDescription,
   DialogFooter
-} from "@/app/components/ui/dialog";
-import { Badge } from "@/app/components/ui/badge";
-import { Button } from "@/app/components/ui/button";
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { tools } from "@/constants";
-import { Card } from "@/app/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const ProModal = () => {

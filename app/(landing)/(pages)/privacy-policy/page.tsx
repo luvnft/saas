@@ -1,12 +1,12 @@
 "use client";
 
-import { LandingNavbar } from "@/app/components/landing-navbar";
-import { LandingContent } from "@/app/components/Landing-content";
+import { LandingNavbar } from "@/components/landing-navbar";
+import { LandingContent } from "@/components/Landing-content";
 import { PrivacyPolicy } from "./(routes)/privacy";
-import { Footer } from "@/app/components/footer";
-import {TypewriterEffectSmoothDemo} from "@/app/components/typing-effect";
+import { Footer } from "@/components/footer";
+import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 import { SparklesPreview } from "./(routes)/sparks";
-import { LandingMiddle } from "@/app/components/landing-navmiddle";
+import { LandingMiddle } from "@/components/landing-navmiddle";
 
 const LandingPage = () => {
   return ( 

@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import { Card } from "@/app/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 import { tools } from "@/constants";

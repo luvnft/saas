@@ -1,5 +1,5 @@
 
-import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-cards";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
 
 "use client"
 
@@ -17,7 +17,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/app/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
 
 const components: { title: string; href: string; description: string }[] = [
   {

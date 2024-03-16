@@ -1,16 +1,16 @@
 "use client";
 
-import { LandingNavbar } from "@/app/components/landing-navbar";
-import { LandingHero } from "@/app/components/landing-hero";
-import { LandingContent } from "@/app/components/Landing-content";
-import { TabsDemo } from "@/app/components/tabs-middle";
-import { Footer } from "@/app/components/footer";
-import {TypewriterEffectSmoothDemo} from "@/app/components/typing-effect";
+import { LandingNavbar } from "@/components/landing-navbar";
+import { LandingHero } from "@/components/landing-hero";
+import { LandingContent } from "@/components/Landing-content";
+import { TabsDemo } from "@/components/tabs-middle";
+import { Footer } from "@/components/footer";
+import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 import { SparklesPreview } from "./(routes)/sparks";
 import { CardHoverEffectDemo } from "./(routes)/card-hover";
 import { AnimatedTooltipPreview} from "./(routes)/founder";
 import { AnimatedPinDemo } from "./(routes)/casouselabout";
-import { LandingMiddle } from "@/app/components/landing-navmiddle";
+import { LandingMiddle } from "@/components/landing-navmiddle";
 
 const LandingPage = () => {
   return ( 

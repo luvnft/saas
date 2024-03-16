@@ -1,4 +1,4 @@
-import { LandingNavbar } from "@/app/components/landing-navbar";
+import { LandingNavbar } from "@/components/landing-navbar";
 
 
 export default function LandingPage() {
