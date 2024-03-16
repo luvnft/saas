@@ -1,5 +1,6 @@
 import { LandingNavbar } from "@/components/landing-navbar";
 import { LandingHero } from "@/components/landing-hero";
+import { LandingContent } from "@/components/Landing-content";
 import { LandingMiddle } from "@/components/landing-navmiddle";
 import { TabsDemo } from "@/components/tabs-middle";
 import { Footer } from "@/components/footer";
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center ">
         Start exploring the power of AI
       </div>
+      <LandingContent />
       
       <TabsDemo />
       
