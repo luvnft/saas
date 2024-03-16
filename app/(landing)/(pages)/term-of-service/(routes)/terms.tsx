@@ -37,7 +37,7 @@ export const Terms = () => {
   You retain ownership of the content you provide to the Services. By providing content to the Services, you grant
   Cogify a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use, reproduce,
   distribute, prepare derivative works of, display, and perform the content in connection with the Services and
-  Cogify's business, including for promoting and redistributing part or all of the Services in any media formats and
+  Cogify&apos;s business, including for promoting and redistributing part or all of the Services in any media formats and
   through any media channels.<br/><br/>
 
 
@@ -73,7 +73,7 @@ export const Terms = () => {
 <strong>Changes</strong><br/><br/>
 
   Cogify reserves the right, at its sole discretion, to modify or replace these Terms at any time. If a revision is
-  material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a
+  material, we will provide at least 30 days&apos; notice prior to any new terms taking effect. What constitutes a
   material change will be determined at our sole discretion.
   <br/><br/>
 <strong>Contact Us</strong><br/><br/>
