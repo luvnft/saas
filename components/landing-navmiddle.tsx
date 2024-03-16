@@ -60,7 +60,7 @@ const components: { title: string; href: string; description: string }[] = [
 export function LandingMiddle() {
   return (
     
-<div className="flex  justify-center" > 
+<div className="flex desktop-only justify-center" > 
     <NavigationMenu className="fixed top-5 w-full z-50">
       <NavigationMenuList>
         <NavigationMenuItem>

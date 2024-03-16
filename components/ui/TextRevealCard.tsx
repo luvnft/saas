@@ -10,15 +10,14 @@ export function TextRevealCardPreview() {
   return (
     <div className="desktop-only">
       <TextRevealCard
-        text="You know the business"
-        revealText="I know the chemistry "
+        text="Your goals set the stage"
+        revealText="we'll script the story."
       >
         <TextRevealCardTitle>
-          Sometimes, you just need to see it.
+        Experience the Unveiling.
         </TextRevealCardTitle>
         <TextRevealCardDescription>
-          This is a text reveal card. Hover over the card to reveal the hidden
-          text.
+        Delve into the mystery; uncover the secrets hidden beneath the surface.
         </TextRevealCardDescription>
       </TextRevealCard>
     </div>

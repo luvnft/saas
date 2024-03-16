@@ -8,7 +8,7 @@ import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 import { SparklesPreview } from "./(routes)/sparks";
 import { LandingMiddle } from "@/components/landing-navmiddle";
 
-const LandingPage = () => {
+const termPage = () => {
   return ( 
     <div className="h-full ">
             <LandingNavbar /> 
@@ -23,4 +23,4 @@ const LandingPage = () => {
    );
 }
  
-export default LandingPage;
+export default termPage;
