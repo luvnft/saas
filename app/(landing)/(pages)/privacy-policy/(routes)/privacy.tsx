@@ -10,12 +10,12 @@ export const PrivacyPolicy = () => {
     <div className="items-center" style={styles.container}>
       <p > <br/><br/>
         Welcome to <strong>Cogify.com</strong> and/or{' '}
-        {/* <strong>nextjs.org</strong> (each a &quot;Site&quot;), hosted by Cogify Inc. (&quot;Cogify&quot;, &quot;we&quot;, &quot;us&quot; and/or &quot;our&quot;). Cogify provides a cloud platform for on-demand deployment, related hosting and sharing services and analytics tools (&quot;Services&quot;).<br></br> In order to provide our Site and Services (collectively, &quot;Platform&quot;), we collect personal data from our customers (&quot;Customers&quot;). <br></br>We also collect and/or host the personal data of our Customer's end users (&quot;End Users&quot;) when our Customers' websites are hosted by Cogify or our Customers use our Services. Throughout this Privacy Policy, &quot;personal information&quot; or &quot;personal data&quot; refers to any information that is unique to an individual, such as name, address, email address, phone number, IP address and other information that can reasonably identify an individual.
+         <strong>nextjs.org</strong> (each a &quot;Site&quot;), hosted by Cogify Inc. (&quot;Cogify&quot;, &quot;we&quot;, &quot;us&quot; and/or &quot;our&quot;). Cogify provides a cloud platform for on-demand deployment, related hosting and sharing services and analytics tools (&quot;Services&quot;).<br></br> In order to provide our Site and Services (collectively, &quot;Platform&quot;), we collect personal data from our customers (&quot;Customers&quot;). <br></br>We also collect and/or host the personal data of our Customer's end users (&quot;End Users&quot;) when our Customers' websites are hosted by Cogify or our Customers use our Services. Throughout this Privacy Policy, &quot;personal information&quot; or &quot;personal data&quot; refers to any information that is unique to an individual, such as name, address, email address, phone number, IP address and other information that can reasonably identify an individual.
         <br/>
         
-        This Privacy Policy, along with our Cookie Policy, covers how we collect, handle and disclose personal data on our Platform, including any affiliated websites, software or platforms owned or operated by Cogify on which this Privacy Policy appears. Even though we store End Users' personal data, it does not cover how or why our Customers may collect, handle and disclose their End Users' personal data when they visit or use their websites or platforms. . <br/><br/> */}
+        This Privacy Policy, along with our Cookie Policy, covers how we collect, handle and disclose personal data on our Platform, including any affiliated websites, software or platforms owned or operated by Cogify on which this Privacy Policy appears. Even though we store End Users' personal data, it does not cover how or why our Customers may collect, handle and disclose their End Users' personal data when they visit or use their websites or platforms. . <br/><br/>
 
-{/* If you are located in the <strong> European Economic Area ("EEA") or the United Kingdom ("UK"), </strong>  this entire Privacy Policy applies to you. However, please see the Section titled "Additional Information for Users in the EEA and the UK.", which will provide more detail information about which rights you have regarding the processing of your personal data.
+If you are located in the <strong> European Economic Area ("EEA") or the United Kingdom ("UK"), </strong>  this entire Privacy Policy applies to you. However, please see the Section titled "Additional Information for Users in the EEA and the UK.", which will provide more detail information about which rights you have regarding the processing of your personal data.
 recommend that you read this Privacy Policy and our Cookie Policy carefully as both provide important information about your personal information and your rights under the law. . <br/><br/>
 
 If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Policy and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at privacy@Cogify.com or see our information below. . <br/><br/>
@@ -215,11 +215,11 @@ Writing to address. <br/><br/>
 
 <strong> UK Representative </strong> <br/><br/>
 Pursuant to the UK GDPR, Cogify has appointed EDPO UK Ltd as its UK GDPR representative in the UK. You can contact EDPO UK regarding matters pertaining to the UK GDPR: <br/><br/>
-Using EDPO's UK online request form at https://edpo.com/gdpr-data-request/; or */}
-{/* Writing to EDPO UK at 8 Northumberland Avenue, London WC2N 5BY, United Kingdom.
+Using EDPO's UK online request form at https://edpo.com/gdpr-data-request/; or */
+ Writing to EDPO UK at 8 Northumberland Avenue, London WC2N 5BY, United Kingdom.
 Contact Us <br/><br/>
 If you have any questions or suggestions regarding this Privacy Policy, please contact us at mail <br/><br/>
-Last updated: March 15, 2024 <br/><br/> */}
+Last updated: March 15, 2024 <br/><br/> 
 
 
 
