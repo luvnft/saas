@@ -1,10 +1,10 @@
-import { LandingNavbar } from "@/components/landing-navbar";
-import { LandingHero } from "@/components/landing-hero";
-import { LandingContent } from "@/components/Landing-content";
-import { LandingMiddle } from "@/components/landing-navmiddle";
-import { TabsDemo } from "@/components/tabs-middle";
-import { Footer } from "@/components/footer";
-import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
+import { LandingNavbar } from "@/app/components/landing-navbar";
+import { LandingHero } from "@/app/components/landing-hero";
+import { LandingContent } from "@/app/components/Landing-content";
+import { LandingMiddle } from "@/app/components/landing-navmiddle";
+import { TabsDemo } from "@/app/components/tabs-middle";
+import { Footer } from "@/app/components/footer";
+import {TypewriterEffectSmoothDemo} from "@/app/components/typing-effect";
 const LandingPage = () => {
   return ( 
     <div className="h-full ">

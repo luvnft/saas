@@ -1,6 +1,6 @@
 "use client";
 
-import { Empty } from "@/components/ui/empty";
+import { Empty } from "@/app/components/ui/empty";
 
 const Error = () => {
   return ( 

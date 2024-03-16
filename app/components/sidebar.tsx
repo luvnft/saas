@@ -7,7 +7,7 @@ import { Code, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, M
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { FreeCounter } from "@/components/free-counter";
+import { FreeCounter } from "@/app/components/free-counter";
 
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 

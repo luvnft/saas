@@ -2,18 +2,18 @@
 
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { type CarouselApi } from "@/components/ui/carousel";
+import { type CarouselApi } from "@/app/components/ui/carousel";
 import {
   Card,
   CardContent
-} from "@/components/ui/card";
+} from "@/app/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious
-} from "@/components/ui/carousel";
+} from "@/app/components/ui/carousel";
 import {
     AnimatedPin0, AnimatedPin1, AnimatedPin2, AnimatedPin3, 
 } from "./pins";

@@ -10,16 +10,16 @@ import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 
 
-import { BotAvatar } from "@/components/bot-avatar";
-import { Heading } from "@/components/heading";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { BotAvatar } from "@/app/components/bot-avatar";
+import { Heading } from "@/app/components/heading";
+import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/app/components/ui/form";
 import { cn } from "@/lib/utils";
-import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { Empty } from "@/components/ui/empty";
+import { Loader } from "@/app/components/loader";
+import { UserAvatar } from "@/app/components/user-avatar";
+import { Empty } from "@/app/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";

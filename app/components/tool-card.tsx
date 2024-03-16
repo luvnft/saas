@@ -8,8 +8,8 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+} from "@/app/components/ui/card";
+import { Badge } from "@/app/components/ui/badge";
 import { useRouter } from "next/navigation";
 
 interface ToolCardProps {

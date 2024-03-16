@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
+import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-cards";
 
 export function Card1() {
   return (

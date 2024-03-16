@@ -9,14 +9,14 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Megaphone, } from "lucide-react";
 
-import { Heading } from "@/components/heading";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Heading } from "@/app/components/heading";
+import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
+import { Form, FormControl, FormField, FormItem } from "@/app/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select";
 
-import { Loader } from "@/components/loader";
-import { Empty } from "@/components/ui/empty";
+import { Loader } from "@/app/components/loader";
+import { Empty } from "@/app/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema, modelSelected } from "./constants";
