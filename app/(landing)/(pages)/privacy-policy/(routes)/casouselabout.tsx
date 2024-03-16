@@ -4,10 +4,6 @@ import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { type CarouselApi } from "@/components/ui/carousel";
 import {
-  Card,
-  CardContent
-} from "@/components/ui/card";
-import {
   Carousel,
   CarouselContent,
   CarouselItem,

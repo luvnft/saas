@@ -2,20 +2,20 @@
 
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { type CarouselApi } from "./ui/carousel";
+import { type CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious
-} from "./ui//carousel";
+} from "@/components/ui/carousel";
 import {
   Card1,
   Card2,
   Card3,
   Card4
-} from "./ui/landing-items";
+} from "@/components/ui/landing-items";
 
 export function LandingContent() {
   const cardComponents = [Card1, Card2, Card3, Card4];
