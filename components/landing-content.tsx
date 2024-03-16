@@ -71,3 +71,5 @@ export function LandingContent() {
     </div>
   );
 }
+
+export default LandingContent;
