@@ -15,7 +15,6 @@ const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   content: "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations."
 };
 
-export const runtime = 'edge';
 
 export async function POST(
   req: Request

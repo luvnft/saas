@@ -23,7 +23,6 @@ import { formSchema, modelSelected } from "./constants";
 
 import { imagequestionsByPage } from './imagequestion';
 
-export const runtime = 'edge';
 
 
 const getRandomQuestion = () => {

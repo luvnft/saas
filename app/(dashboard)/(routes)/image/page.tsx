@@ -37,7 +37,6 @@ const getRandomQuestion = () => {
   return randomQuestion;
 };
 
-export const runtime = 'edge';
 
 const PhotoPage = () => {
   const proModal = useProModal();

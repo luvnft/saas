@@ -7,7 +7,6 @@ import { Footer } from "@/components/footer";
 import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 
 
-export const runtime = 'edge';
 
 const LandingPage = () => {
   return ( 

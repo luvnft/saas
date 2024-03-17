@@ -26,7 +26,6 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { formSchema } from "./constants";
 import { questionsByPage } from './questions';
 
-export const runtime = 'edge';
 
 const getRandomQuestion = () => {
   // Randomly select a page

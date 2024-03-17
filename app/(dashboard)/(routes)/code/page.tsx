@@ -24,7 +24,6 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
-export const runtime = 'edge';
 
 const CodePage = () => {
   const router = useRouter();
