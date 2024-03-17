@@ -5,6 +5,9 @@ import { LandingMiddle } from "@/components/landing-navmiddle";
 import { TabsDemo } from "@/components/tabs-middle";
 import { Footer } from "@/components/footer";
 import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
+
+import { Analytics } from '@vercel/analytics/react';
+
 const LandingPage = () => {
   return ( 
     <div className="h-full ">
@@ -20,6 +23,8 @@ const LandingPage = () => {
       <TypewriterEffectSmoothDemo />
       <Footer/>
       
+
+      <Analytics />
     </div>
    );
 }
