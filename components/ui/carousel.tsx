@@ -6,6 +6,8 @@ import useEmblaCarousel, {
 } from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
+import { useLayoutEffect, useState } from 'react';
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -148,6 +150,8 @@ const Carousel = React.forwardRef<
     )
   }
 )
+
+
 Carousel.displayName = "Carousel"
 
 const CarouselContent = React.forwardRef<
@@ -228,6 +232,24 @@ const CarouselNext = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useLayoutEffect(() => {
+      const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
+      };
+
+      handleResize(); // Initial check
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
+    if (isSmallScreen) {
+      return null; // Don't render the next button on small screens
+    }
 
   return (
     <Button

@@ -39,8 +39,8 @@ export const Footer = () => {
           <TextRevealCardPreview />
         </div> 
         
-        <div >
-          <div className="right flex-col space-y-2 flex px-12">
+        <div className="flex-col space-y-2 flex " >
+          <div className="right flex-col space-y-2 flex ">
             <Link href="/about-us" >
             <button className="px-4 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
                 About us 
