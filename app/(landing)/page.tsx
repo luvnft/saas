@@ -6,7 +6,7 @@ import { TabsDemo } from "@/components/tabs-middle";
 import { Footer } from "@/components/footer";
 import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 
-import { Analytics } from '@vercel/analytics/react';
+
 
 const LandingPage = () => {
   return ( 
@@ -24,7 +24,6 @@ const LandingPage = () => {
       <Footer/>
       
 
-      <Analytics />
     </div>
    );
 }
