@@ -31,7 +31,6 @@
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    
     "add": "^2.0.6",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
@@ -52,6 +51,7 @@
     "openai": "^4.28.4",
     "postcss": "^8.4.35",
     "postcss-nesting": "^12.0.4",
+    "preact": "^10.19.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.1",
