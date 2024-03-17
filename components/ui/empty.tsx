@@ -9,12 +9,6 @@ export const Empty = ({
 }: EmptyProps) => {
   // Array of GIF filenames in the /public/think folder
   const gifFilenames = [
-    "1.gif",
-    "2.gif",
-    
-    "4.gif",
-    "5.gif",
-    
    
     "9.gif",
     // Add more filenames here as needed
