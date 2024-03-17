@@ -10,7 +10,7 @@ export const Empty = ({
   // Array of GIF filenames in the /public/think folder
   const gifFilenames = [
    
-    "9.gif",
+    "7.gif",
     // Add more filenames here as needed
   ];
 
