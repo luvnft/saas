@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 
 import { tools } from "@/constants";
 
+export const runtime = 'edge';
+
 export default function HomePage() {
   const router = useRouter();
 

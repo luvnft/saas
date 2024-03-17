@@ -12,6 +12,7 @@ import { AnimatedTooltipPreview} from "./(routes)/founder";
 import { AnimatedPinDemo } from "./(routes)/casouselabout";
 import { LandingMiddle } from "@/components/landing-navmiddle";
 
+export const runtime = 'edge';
 const LandingPage = () => {
   return ( 
     <div className="h-full ">

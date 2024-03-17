@@ -7,6 +7,7 @@ import { LandingMiddle } from "@/components/landing-navmiddle";
 
 import { Footer } from "@/components/footer";
 
+export const runtime = 'edge';
 
 
 const LandingPage = () => {

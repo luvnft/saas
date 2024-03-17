@@ -4,6 +4,8 @@ import { Heading } from "@/components/heading";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
 
+export const runtime = 'edge';
+
 const SettingsPage = async () => {
   const isPro = await checkSubscription();
 
