@@ -9,7 +9,14 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
+export const maxDuration = 20;// This function can run for a maximum of 15 seconds
+export const dynamic = 'force-dynamic';
+ 
+export function GET(request: Request) {
+  return new Response('Vercel', {
+    status: 200,
+  });
+}
 export async function POST(
   req: Request
 ) {
