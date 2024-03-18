@@ -1,15 +1,13 @@
-"use client";
-
+"use client"
 import * as z from "zod";
 import axios from "axios";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
-
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
@@ -25,20 +23,14 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { modelOption } from "./constants";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-
-
-
 import { formSchema } from "./constants";
 import { questionsByPage } from './questions';
 
-
 const getRandomQuestion = () => {
-  // Randomly select a page
   const pages = Object.keys(questionsByPage);
   const randomPageIndex = Math.floor(Math.random() * pages.length);
   const randomPage = pages[randomPageIndex];
   
-  // Randomly select a question from that page
   const questionsOnSelectedPage = questionsByPage[randomPage as keyof typeof questionsByPage];
   const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
   const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
@@ -50,20 +42,18 @@ const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
-
+  const [selectedModel, setSelectedModel] = useState("gpt-3.5-turbo");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      model: "gpt-3.5-turbo",
+      model: selectedModel,
     }
   });
   
   const isLoading = form.formState.isSubmitting;
-  
-  
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    
     try {
       const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = { role: "user", content: values.prompt };
       const newMessages = [...messages, userMessage];
@@ -71,7 +61,7 @@ const ConversationPage = () => {
       const response = await axios.post('/api/conversation', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
       
-      form.reset();
+      form.reset({ model: selectedModel }); // Only reset the model field
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
@@ -82,8 +72,20 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
+
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
   
+  const handleModelChange = (value: string) => {
+    const selectedModelData = modelOption.find(option => option.value === value);
+    if (selectedModelData) {
+      toast.success(selectedModelData.data);
+    }
+    setSelectedModel(value);
+  };
+
+  useEffect(() => {
+    form.setValue('model', selectedModel);
+  }, [selectedModel]);
 
   return ( 
     <div>
@@ -129,40 +131,45 @@ const ConversationPage = () => {
               />
             
               <FormField
-              control={form.control}
-              name="model"
-              render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2 ">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-
-                    value={field.value} 
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue defaultValue={field.value} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {modelOption.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </FormItem>
-              )}
-            />
+                control={form.control}
+                name="model"
+                render={({ field }) => (
+                  <FormItem className="col-span-12 lg:col-span-2 ">
+                    <Select 
+                      disabled={isLoading} 
+                      onValueChange={(value) => {
+                        field.onChange(value);
+                        handleModelChange(value);
+                      }} 
+                      value={field.value} 
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue defaultValue={field.value} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {modelOption.map((option) => (
+                          <SelectItem 
+                            key={option.value} 
+                            value={option.value}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
             
               <Button 
-              
-              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+                className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" 
+                type="submit" 
+                disabled={isLoading} 
+                size="icon"
+              >
                 Generate
               </Button>
             </form>
@@ -198,5 +205,5 @@ const ConversationPage = () => {
     </div>
    );
 }
- 
+
 export default ConversationPage;
