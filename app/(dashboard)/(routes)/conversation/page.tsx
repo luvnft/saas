@@ -6,6 +6,7 @@ import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 
@@ -23,6 +24,7 @@ import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { modelOption } from "./constants";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 
 
 
@@ -125,14 +127,16 @@ const ConversationPage = () => {
                   </FormItem>
                 )}
               />
+            
               <FormField
               control={form.control}
               name="model"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
+                <FormItem className="col-span-12 lg:col-span-2 ">
                   <Select 
                     disabled={isLoading} 
                     onValueChange={field.onChange} 
+
                     value={field.value} 
                     defaultValue={field.value}
                   >
@@ -155,7 +159,10 @@ const ConversationPage = () => {
                 </FormItem>
               )}
             />
-              <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+            
+              <Button 
+              
+              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
                 Generate
               </Button>
             </form>

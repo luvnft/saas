@@ -7,6 +7,7 @@ export const formSchema = z.object({
   }),
   amount: z.string().min(1),
   resolution: z.string().min(1),
+  modelImage: z.string().min(1)
 });
 
 export const amountOptions = [
@@ -32,7 +33,16 @@ export const amountOptions = [
   }
 ];
 
-
+export const modelforImage = [
+  {
+    value: "dall-e-2",
+    label: "dall-e-2"
+  },
+  {
+    value: "dall-e-3",
+    label: "dall-e-3"
+  },
+];
 
 export const resolutionOptions = [
   {

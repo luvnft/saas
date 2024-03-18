@@ -3,7 +3,7 @@
 import * as z from "zod";
 import axios from "axios";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -20,7 +20,8 @@ import { Empty } from "@/components/ui/empty";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useProModal } from "@/hooks/use-pro-modal";
 
-import { amountOptions, formSchema, resolutionOptions } from "./constants";
+
+import { amountOptions, modelforImage, formSchema, resolutionOptions } from "./constants";
 
 import { audioquestionsByPage } from "./audioquestion";
 const getRandomQuestion = () => {
@@ -48,7 +49,8 @@ const PhotoPage = () => {
     defaultValues: {
       prompt: "",
       amount: "1",
-      resolution: "512x512"
+      resolution: "512x512",
+      modelImage: "dall-e-2"
     }
   });
 
@@ -104,7 +106,7 @@ const PhotoPage = () => {
             <FormField
               name="prompt"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-6">
+                <FormItem className="col-span-12 lg:col-span-4">
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
@@ -173,6 +175,39 @@ const PhotoPage = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="modelImage"
+              render={({ field }) => (
+                <FormItem className="col-span-12 lg:col-span-2">
+                  <Select 
+                    disabled={isLoading} 
+                    onValueChange={field.onChange} 
+                    value={field.value} 
+                    defaultValue={field.value}
+                    
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue defaultValue={field.value} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {modelforImage.map((option) => (
+                        <SelectItem 
+                          key={option.value} 
+                          value={option.value}
+                        >
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                     
+                    </SelectContent>
+                  </Select>
+                  
                 </FormItem>
               )}
             />
