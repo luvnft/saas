@@ -9,9 +9,8 @@ const nextConfig = {
       "assets.aceternity.com",
     ]
   },
-  // Add the target configuration
-  target: 'experimental-serverless-trace',
   // Add the output configuration for static HTML export
+  // This is the correct approach for exporting static HTML
   output: 'export',
 };
 
