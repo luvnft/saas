@@ -10,6 +10,11 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
+  role: "system",
+  content: "You are a helpful assistant and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning"
+};
+
 export async function POST(
   req: Request
 ) {
@@ -43,7 +48,7 @@ export async function POST(
 
     const response = await openai.chat.completions.create({
       model: "gpt-4-turbo-preview",
-      messages
+      messages: [instructionMessage, ...messages], 
     });
 
     if (!isPro) {

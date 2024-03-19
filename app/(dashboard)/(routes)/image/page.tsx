@@ -3,6 +3,7 @@
 import * as z from "zod";
 import axios from "axios";
 import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, ImageIcon } from "lucide-react";
@@ -15,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Loader } from "@/components/loader";
+import { Loaderimage} from "@/components/loader";
 import { Empty } from "@/components/ui/empty";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useProModal } from "@/hooks/use-pro-modal";
@@ -24,6 +25,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { amountOptions, modelforImage, formSchema, resolutionOptions } from "./constants";
 
 import { audioquestionsByPage } from "./audioquestion";
+
 const getRandomQuestion = () => {
   // Randomly select a page
   const pages = Object.keys(audioquestionsByPage);
@@ -76,6 +78,17 @@ const PhotoPage = () => {
     }
   }
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
+  useEffect(() => {
+    if (form.getValues("modelImage") === "dall-e-3") {
+      form.setValue("amount", "1");
+      form.setValue("resolution", "1024x1024");
+    } else {
+      // Reset default values for other models
+      form.setValue("amount", "1");
+      form.setValue("resolution", "512x512");
+    }
+  }, [form.getValues("modelImage")]);
+
 
   return ( 
     <div>
@@ -120,36 +133,6 @@ const PhotoPage = () => {
             />
             <FormField
               control={form.control}
-              name="amount"
-              render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue defaultValue={field.value} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {amountOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="resolution"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2">
@@ -165,14 +148,56 @@ const PhotoPage = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {resolutionOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
-                          {option.label}
+                      {form.getValues("modelImage") === "dall-e-3" ? (
+                        <SelectItem key="1024x1024" value="1024x1024">
+                          1024x1024
                         </SelectItem>
-                      ))}
+                      ) : (
+                        resolutionOptions.map((option) => (
+                          <SelectItem 
+                            key={option.value} 
+                            value={option.value}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))
+                      )}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="amount"
+              render={({ field }) => (
+                <FormItem className="col-span-12 lg:col-span-2">
+                  <Select 
+                    disabled={isLoading} 
+                    onValueChange={field.onChange} 
+                    value={field.value} 
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue defaultValue={field.value} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {form.getValues("modelImage") === "dall-e-3" ? (
+                        <SelectItem key="1" value="1">
+                          1 Photo
+                        </SelectItem>
+                      ) : (
+                        amountOptions.map((option) => (
+                          <SelectItem 
+                            key={option.value} 
+                            value={option.value}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))
+                      )}
                     </SelectContent>
                   </Select>
                 </FormItem>
@@ -216,9 +241,10 @@ const PhotoPage = () => {
             </Button>
           </form>
         </Form>
+        
         {isLoading && (
           <div className="p-20">
-            <Loader />
+            <Loaderimage />
           </div>
         )}
         {photos.length === 0 && !isLoading && (

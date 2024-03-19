@@ -2,15 +2,17 @@ import { auth } from "@clerk/nextjs";
 import prismadb from "@/lib/prismadb";
 import { MAX_FREE_COUNTS } from "@/constants";
 
-const MILLIS_PER_DAY = 24 * 60 * 60 * 1000; // milliseconds in a day
 
-// Function to reset count to 0 if more than 24 hours have passed
 const resetCountIfExpired = async (userId: string) => {
+  
+  // Ensure MILLIS_PER_DAY is defined, representing the number of milliseconds in a day
+  const MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
+
   const userApiLimit = await prismadb.userApiLimit.findUnique({
     where: { userId },
   });
 
-  if (userApiLimit && userApiLimit.count > 1) {
+  if (userApiLimit && userApiLimit.count >= 1) { // Check if count is greater than or equal to 1
     const lastUpdatedTime = userApiLimit.updatedAt.getTime();
     const currentTime = new Date().getTime();
     const timeDifference = currentTime - lastUpdatedTime;
@@ -18,11 +20,12 @@ const resetCountIfExpired = async (userId: string) => {
     if (timeDifference >= MILLIS_PER_DAY) {
       await prismadb.userApiLimit.update({
         where: { userId },
-        data: { count: 0 },
+        data: { count: 0, updatedAt: new Date() }, // Reset count and update the updatedAt field
       });
     }
   }
 };
+
 
 export const incrementApiLimit = async () => {
   const { userId } = auth();

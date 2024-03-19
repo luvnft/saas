@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-import { Loader } from "@/components/loader";
+import { LoaderAudio } from "@/components/loader";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
@@ -154,7 +154,7 @@ const MusicPage = () => {
         </Form>
         {isLoading && (
           <div className="p-20">
-            <Loader />
+            <LoaderAudio />
           </div>
         )}
         {!music && !isLoading && (

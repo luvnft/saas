@@ -157,6 +157,7 @@ const ConversationPage = () => {
                 <p className="text-sm">
                   {message.content?.toString()}
                 </p>
+                
               </div>
             ))}
           </div>
