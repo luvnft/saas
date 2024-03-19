@@ -6,7 +6,7 @@ import { MAX_FREE_COUNTS } from "@/constants";
 const resetCountIfExpired = async (userId: string) => {
   
   // Ensure MILLIS_PER_DAY is defined, representing the number of milliseconds in a day
-  const MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
+  const MILLIS_PER_DAY = 60 * 60 * 1000;
 
   const userApiLimit = await prismadb.userApiLimit.findUnique({
     where: { userId },

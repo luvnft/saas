@@ -44,7 +44,7 @@ export const LoaderAudio = () => {
         />
       </div>
       <p className="text-sm text-muted-foreground">
-      Cogify is cheking it's vocal...
+      Cogify is cheking it&apos;s vocal...
       </p>
     </div>
   );

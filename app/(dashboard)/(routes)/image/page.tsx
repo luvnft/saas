@@ -78,16 +78,18 @@ const PhotoPage = () => {
     }
   }
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
-  useEffect(() => {
-    if (form.getValues("modelImage") === "dall-e-3") {
-      form.setValue("amount", "1");
-      form.setValue("resolution", "1024x1024");
-    } else {
-      // Reset default values for other models
-      form.setValue("amount", "1");
-      form.setValue("resolution", "512x512");
-    }
-  }, [form.getValues("modelImage")]);
+  const modelImage = form.getValues("modelImage"); // Extracted variable
+
+useEffect(() => {
+  if (modelImage === "dall-e-3") {
+    form.setValue("amount", "1");
+    form.setValue("resolution", "1024x1024");
+  } else {
+    // Reset default values for other models
+    form.setValue("amount", "1");
+    form.setValue("resolution", "512x512");
+  }
+}, [modelImage, form]);
 
 
   return ( 
