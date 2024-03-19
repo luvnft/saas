@@ -17,7 +17,6 @@ export async function POST(
     const { userId } = auth();
     const body = await req.json();
     const { messages  } = body;
-    const { model = "gpt-3.5-turbo", } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -43,7 +42,7 @@ export async function POST(
     });
 
     const response = await openai.chat.completions.create({
-      model: model,
+      model: "gpt-4-turbo-preview",
       messages
     });
 
