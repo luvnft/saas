@@ -9,9 +9,5 @@ const nextConfig = {
       "assets.aceternity.com",
     ]
   },
-  // Add the output configuration for static HTML export
-  // This is the correct approach for exporting static HTML
-  output: 'export',
-};
-
-module.exports = nextConfig;
+}
+module.exports = nextConfig
