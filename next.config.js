@@ -9,7 +9,10 @@ const nextConfig = {
       "assets.aceternity.com",
     ]
   },
-}
-module.exports = nextConfig
+  // Add the target configuration
+  target: 'experimental-serverless-trace',
+  // Add the output configuration for static HTML export
+  output: 'export',
+};
 
-
+module.exports = nextConfig;
