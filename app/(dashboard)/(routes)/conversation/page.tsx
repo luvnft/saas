@@ -180,17 +180,21 @@ const ConversationPage = () => {
         message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
       )}
     >
+      <div className="flex items-start gap-x-8">
       {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-      <p className="text-sm whitespace-pre-wrap">
+      <p className="text-sm whitespace-pre-wrap flex-1">
         {message.content?.toString()}
       </p>
+     
       
-      <div className="flex justify-left gap-x-2">
-      <button className="text-xs" onClick={() => copyToClipboard(message.content?.toString() ?? '')}>Copy</button>
-        <button className="text-xs" onClick={() => handleShare(message.content?.toString() ?? '')}>Share</button>
+      <div className="flex justify gap-x-2">
+      <button className="px-1 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200" onClick={() => copyToClipboard(message.content?.toString() ?? '')}>Copy</button>
+        <button className="px-1 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200" onClick={() => handleShare(message.content?.toString() ?? '')}>Share</button>
         </div>
     </div>
+    </div>
   ))}
+  
 </div>
         </div>
       </div>
