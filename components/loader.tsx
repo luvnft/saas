@@ -26,7 +26,7 @@ export const Loader = () => {
         <Image alt="Logo" src="/logo.png" fill />
       </div>
       <p className="text-sm text-muted-foreground">Cogify is thinking...</p>
-      <div className="w-[100%]" style={{ backgroundColor: 'white', height: '10px' }}>
+      <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
         <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
       </div>
           </div>
@@ -59,7 +59,7 @@ export const Loaderimage = () => {
       <p className="text-sm text-muted-foreground">
       Cogify is generating image...
       </p>
-      <div className="w-[100%]" style={{ backgroundColor: 'white', height: '10px' }}>
+      <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
         <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
       </div>
           </div>
@@ -91,7 +91,7 @@ export const LoaderAudio = () => {
       <p className="text-sm text-muted-foreground">
       Cogify is cheking it&apos;s vocal...
       </p>
-      <div className="w-[100%]" style={{ backgroundColor: 'white', height: '10px' }}>
+      <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
         <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
       </div>
     </div>
