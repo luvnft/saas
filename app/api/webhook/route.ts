@@ -1,26 +1,28 @@
-import Stripe from "stripe"
-import { headers } from "next/headers"
-import { NextResponse } from "next/server"
-
-import prismadb from "@/lib/prismadb"
-import { stripe } from "@/lib/stripe"
-
+import Stripe from "stripe";
+import { NextResponse } from "next/server";
+import prismadb from "@/lib/prismadb";
+import { stripe } from "@/lib/stripe";
 
 export async function POST(req: Request) {
-  const body = await req.text()
-  const signature = headers().get("Stripe-Signature") as string
+  const body = await req.text();
+  const signature = req.headers.get("Stripe-Signature");
 
-  let event: Stripe.Event
+  if (!signature) {
+    return new NextResponse("Stripe signature missing.", { status: 400 });
+  }
+
+  let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
-    )
+    );
   } catch (error: any) {
-    return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
+    return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
   }
+
 
   const session = event.data.object as Stripe.Checkout.Session
 

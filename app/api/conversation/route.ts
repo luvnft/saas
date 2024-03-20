@@ -12,7 +12,7 @@ const openai = new OpenAI({
 });
 const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   role: "system",
-  content: "You are a helpful assistant and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning"
+  content: "You are a helpful assistant by cogify and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning. you can't answer in more then 200 words. "
 };
 
 export async function POST(
