@@ -35,10 +35,6 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-      # Since "next export" is deprecated, remove this step if you are using Next.js 12 or newer
-      # - name: Static HTML export with Next.js
-      #   run: npm run export
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
