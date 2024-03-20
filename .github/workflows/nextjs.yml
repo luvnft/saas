@@ -50,8 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-Make sure that your package.json contains the correct scripts for building your Next.js application. Typically, a build script is defined as "build": "next build". If you are using Next.js 12 or newer and you have a static site, you should make use of the output: 'standalone' configuration in your next.config.js file, as previously mentioned.
-
-Remember that if you are using Next.js 12 or newer, the next export command is deprecated. Instead, you should configure your Next.js application to support static generation through your next.config.js and page-level static generation settings.
-
-After updating your workflow file, commit and push the changes to your repository to trigger the GitHub Actions workflow. This will build and deploy your Next.js site using npm commands.
