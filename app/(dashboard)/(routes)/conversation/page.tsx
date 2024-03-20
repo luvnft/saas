@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
+
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 
@@ -82,6 +83,32 @@ const ConversationPage = () => {
     }
   }
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success("Message copied to clipboard");
+    }, () => {
+      toast.error("Failed to copy message");
+    });
+  };
+  
+  // Example share functionality (this is a simple implementation and may vary depending on requirements)
+  const handleShare = (message: string) => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Conversation Message',
+        text: message,
+      }).then(() => {
+        toast.success("Message shared successfully");
+      }).catch((error) => {
+        toast.error("Error sharing the message");
+      });
+    } else {
+      // Fallback for browsers that do not support the Share API
+      copyToClipboard(message);
+    }
+  };
+
   
 
   return ( 
@@ -157,6 +184,11 @@ const ConversationPage = () => {
       <p className="text-sm whitespace-pre-wrap">
         {message.content?.toString()}
       </p>
+      
+      <div className="flex justify-left gap-x-2">
+      <button className="text-xs" onClick={() => copyToClipboard(message.content?.toString() ?? '')}>Copy</button>
+        <button className="text-xs" onClick={() => handleShare(message.content?.toString() ?? '')}>Share</button>
+        </div>
     </div>
   ))}
 </div>
