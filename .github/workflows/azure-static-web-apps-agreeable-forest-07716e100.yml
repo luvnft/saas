@@ -34,6 +34,7 @@ jobs:
           output_location: "" # Built app content directory - optional
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IS_STATIC_EXPORT: true
           ###### End of Repository/Build Configurations ######
           
 
