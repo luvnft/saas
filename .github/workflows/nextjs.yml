@@ -77,6 +77,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
               OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
      
         
       - name: Upload artifact
