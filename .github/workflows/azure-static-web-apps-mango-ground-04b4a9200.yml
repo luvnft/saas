@@ -33,8 +33,6 @@ jobs:
           ###### End of Repository/Build Configurations ######
       - name: Set up OpenAI Key
         run: echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
-      - name: Build And Deploy
-        # ... other configuration ...
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
