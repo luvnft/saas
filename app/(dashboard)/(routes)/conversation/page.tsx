@@ -4,8 +4,23 @@ import * as z from "zod";
 import axios from "axios";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import { toast } from "react-hot-toast";
+import { Clipboard, Share, Speaker, EditIcon, Pause } from 'lucide-react';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Textarea } from "@/components/ui/textarea"
+
+
 
 
 import { useRouter } from "next/navigation";
@@ -32,19 +47,9 @@ import { formSchema } from "./constants";
 import { questionsByPage } from './questions';
 
 
-const getRandomQuestion = () => {
-  // Randomly select a page
-  const pages = Object.keys(questionsByPage);
-  const randomPageIndex = Math.floor(Math.random() * pages.length);
-  const randomPage = pages[randomPageIndex];
-  
-  // Randomly select a question from that page
-  const questionsOnSelectedPage = questionsByPage[randomPage as keyof typeof questionsByPage];
-  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
-  const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
-  
-  return randomQuestion;
-};
+
+
+
 
 const ConversationPage = () => {
   const router = useRouter();
@@ -82,7 +87,22 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
-  const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
+const getRandomQuestion = () => {
+  // Randomly select a page
+  const pages = Object.keys(questionsByPage);
+  const randomPageIndex = Math.floor(Math.random() * pages.length);
+  const randomPage = pages[randomPageIndex];
+  
+  // Randomly select a question from that page
+  const questionsOnSelectedPage = questionsByPage[randomPage as keyof typeof questionsByPage];
+  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
+  const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
+  
+  return randomQuestion;
+};
+const [randomQuestion,] = useState(getRandomQuestion());
+
+
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -92,6 +112,7 @@ const ConversationPage = () => {
     });
   };
   
+
   // Example share functionality (this is a simple implementation and may vary depending on requirements)
   const handleShare = (message: string) => {
     if (navigator.share) {
@@ -101,14 +122,60 @@ const ConversationPage = () => {
       }).then(() => {
         toast.success("Message shared successfully");
       }).catch((error) => {
-        toast.error("Error sharing the message");
+        toast.error("Message did not share.");
       });
     } else {
       // Fallback for browsers that do not support the Share API
       copyToClipboard(message);
     }
   };
+  //Speaking//
 
+    const [speaking, setSpeaking] = useState(false);
+    const [paused, setPaused] = useState(false);
+    const speak = (text: string) => {
+      if (!speaking && text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        setSpeaking(true);
+        utterance.onend = () => setSpeaking(false);
+        speechSynthesis.speak(utterance);
+      } else if (paused) { // If paused, resume speaking
+        speechSynthesis.resume();
+        setPaused(false);
+      } else { // If speaking, pause
+        speechSynthesis.pause();
+        setPaused(true);
+      }
+    };
+  
+    useEffect(() => {
+      const handleSpeechEnd = () => {
+        setSpeaking(false);
+      };
+  
+      speechSynthesis.addEventListener("end", handleSpeechEnd);
+  
+      return () => {
+        speechSynthesis.removeEventListener("end", handleSpeechEnd);
+      };
+    }, []);
+    
+    
+//Edit Message//
+
+    const [editedMessage, setEditedMessage] = useState<string>(''); // State to hold the edited message
+    const editedMessageRef = useRef<HTMLTextAreaElement>(null);
+    const handleSaveEditedMessage = () => {
+      // Get the edited message from the Textarea
+      const newMessage = editedMessageRef.current?.value ?? '';
+      // Update the prompt input with the edited message
+      form.setValue('prompt', newMessage);
+      // Close the drawer
+      // You can also clear the edited message state here if needed
+      setEditedMessage('');
+    };
+    
+  
   
 
   return ( 
@@ -163,37 +230,69 @@ const ConversationPage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started." />
-          )}
-          <div className="flex flex-col-reverse gap-y-4">
-  {messages.map((message, index) => (
-    <div 
-      key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
-      className={cn(
-        "p-8 w-full flex items-start gap-x-8 rounded-lg",
-        message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-      )}
-    >
-      <div className="flex items-start gap-x-8">
-      {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-      <p className="text-sm whitespace-pre-wrap flex-1">
-        {message.content?.toString()}
-      </p>
-     
-      
-      <div className="flex justify gap-x-2">
-      <button className="px-1 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200" onClick={() => copyToClipboard(message.content?.toString() ?? '')}>Copy</button>
-        <button className="px-1 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200" onClick={() => handleShare(message.content?.toString() ?? '')}>Share</button>
+  {isLoading && (
+    <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+      <Loader />
+    </div>
+  )}
+  {messages.length === 0 && !isLoading && (
+    <Empty label="No conversation started." />
+  )}
+  <div className="flex flex-col-reverse gap-y-4">
+    {messages.map((message, index) => (
+      <div 
+        key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
+        className={cn(
+          "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
+          message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
+        )}
+      >
+        <div className="flex items-start gap-x-8">
+          {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+          <p className="text-sm whitespace-pre-wrap flex-1">
+            {message.content?.toString()}
+          </p>
+          <div className="absolute top-0 right-0 flex gap-x-2">
+            <Clipboard onClick={() => copyToClipboard(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
+            <Share  onClick={() => handleShare(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
+            {speaking && !paused ? (
+            <Pause onClick={() => speak(message.content?.toString() ?? '')} size={24}
+              className="cursor-pointer text-red-500 hover:text-red-700"/>) : (
+            <Speaker onClick={() => speak(message.content?.toString() ?? '')} size={24}
+              className={cn("cursor-pointer", {"text-neutral-700 hover:text-neutral-900": !speaking || paused,})}/>)}
+            <Drawer>
+              <DrawerTrigger asChild>
+                <EditIcon size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="mx-auto w-full max-w-sm">
+                  <DrawerHeader>
+                    <DrawerTitle>Edit Message</DrawerTitle>
+                    <DrawerDescription>Edit the message and click save.</DrawerDescription>
+                  </DrawerHeader>
+                  <Textarea defaultValue={message.content?.toString() ?? ''} ref={editedMessageRef} />
+                  <DrawerFooter>
+                    <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" 
+                     onClick={handleSaveEditedMessage}>Save</Button>
+                    <DrawerClose />
+                    <DrawerClose asChild>
+                    <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </div>
+                  </DrawerContent>
+                  </Drawer>
+                  
+
+
+                </div>
+            
+          </div>
         </div>
-    </div>
-    </div>
-  ))}
+     
+    ))}
+
+
   
 </div>
         </div>
