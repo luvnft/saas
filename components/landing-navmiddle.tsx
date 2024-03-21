@@ -1,5 +1,4 @@
 
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
 
 "use client"
 
@@ -61,7 +60,7 @@ export function LandingMiddle() {
   return (
     
 <div className="flex desktop-only justify-center" > 
-    <NavigationMenu className="fixed top-5 w-full z-50">
+    <NavigationMenu className="fixed top-5 w-full z-60">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -85,27 +84,31 @@ export function LandingMiddle() {
                     </div>
   
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
+                    Your AI-powered assistant for conversations, 
+                    image generation, 
+                    text-to-speech, and more.
+
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/docs" title="Conversation">
+              Engage in enlightening dialogues with AI where curiosity meets intelligence
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/docs/installation" title="Text to Speech generation ">
+              Transform text into lifelike speech with our advanced Text-to-Speech generation.     
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/docs/primitives/typography" title="Image generation">
+              Bring your ideas to life with our powerful Image Generation tool.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Code Generation ">
+              Efficiently create code with our streamlined Code Generation tool.     
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -123,8 +126,17 @@ export function LandingMiddle() {
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Feedback
             </NavigationMenuLink>
+            
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Help
+            </NavigationMenuLink>
+            
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
