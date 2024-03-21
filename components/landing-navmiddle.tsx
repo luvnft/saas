@@ -7,6 +7,8 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { useState, useEffect } from 'react';
+
 
 import {
   NavigationMenu,
@@ -17,6 +19,30 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+
+
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+  });
+
+  useEffect(() => {
+      function handleResize() {
+          setWindowSize({
+              width: window.innerWidth,
+              height: window.innerHeight,
+          });
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,10 +83,15 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function LandingMiddle() {
+  const screenSize = useWindowSize(); // Assuming you have a custom hook to get the window size
+
   return (
     
-<div className="flex desktop-only justify-center" > 
-    <NavigationMenu className="fixed top-5 w-full z-60">
+    
+<div className={cn("flex", {
+            'justify-center': screenSize.width >= 700,
+            'justify-end ': screenSize.width < 700,
+        })} style={{ zIndex: 999 }}>    <NavigationMenu className="fixed top-4 w-full z-60">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>

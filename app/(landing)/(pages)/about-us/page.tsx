@@ -1,11 +1,7 @@
 "use client";
 
 import { LandingNavbar } from "@/components/landing-navbar";
-import { LandingHero } from "@/components/landing-hero";
-import { LandingContent } from "@/components/Landing-content";
-import { TabsDemo } from "@/components/tabs-middle";
 import { Footer } from "@/components/footer";
-import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 import { SparklesPreview } from "./(routes)/sparks";
 import { CardHoverEffectDemo } from "./(routes)/card-hover";
 import { AnimatedTooltipPreview} from "./(routes)/founder";
