@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 
 import { toast } from "react-hot-toast";
-import { Clipboard, Share, Speaker, EditIcon, Pause } from 'lucide-react';
+import { Clipboard, Share, Speaker, EditIcon, Pause,Download } from 'lucide-react';
 import {
   Drawer,
   DrawerClose,
@@ -18,7 +18,27 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+import html2canvas from "html2canvas";
+
+import jsPDF from "jspdf";
+
+
+
 import { Textarea } from "@/components/ui/textarea"
+
 
 
 
@@ -55,6 +75,7 @@ const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -174,6 +195,45 @@ const [randomQuestion,] = useState(getRandomQuestion());
       // You can also clear the edited message state here if needed
       setEditedMessage('');
     };
+      const [message, setMessage] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage | null>(null); // Define message state
+
+    
+    //Download //
+    const handleConvertToJPG = () => {
+      if (editedMessageRef.current) {
+        html2canvas(editedMessageRef.current).then((canvas) => {
+          const imgData = canvas.toDataURL("image/jpeg");
+          const downloadLink = document.createElement("a");
+          downloadLink.href = imgData;
+          downloadLink.download = "message.jpg";
+          downloadLink.click();
+        });
+      }
+    };
+  
+    const handleConvertToPDF = () => {
+      try {
+        if (editedMessageRef.current && message !== null && message !== undefined) {
+          const textContent = message.content?.toString() ?? '';
+    
+          // Create a new jsPDF instance
+          const pdf = new jsPDF();
+    
+          // Add text content to the PDF
+          pdf.text(textContent, 10, 10);
+    
+          pdf.save('message.pdf');
+        } else {
+          console.error('Either editedMessageRef is not defined or message is null or undefined.');
+        }
+      } catch (error) {
+        console.error('An error occurred while generating PDF:', error);
+      }
+    };
+    
+    
+
+    
     
   
   
@@ -252,12 +312,16 @@ const [randomQuestion,] = useState(getRandomQuestion());
           <p className="text-sm whitespace-pre-wrap flex-1">
             {message.content?.toString()}
           </p>
+
+
+
+          
           <div className="absolute top-0 right-0 flex gap-x-2">
             <Clipboard onClick={() => copyToClipboard(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
             <Share  onClick={() => handleShare(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
             {speaking && !paused ? (
             <Pause onClick={() => speak(message.content?.toString() ?? '')} size={24}
-              className="cursor-pointer text-red-500 hover:text-red-700"/>) : (
+              className="cursor-pointer text-red-500 hover:text-purple-700"/>) : (
             <Speaker onClick={() => speak(message.content?.toString() ?? '')} size={24}
               className={cn("cursor-pointer", {"text-neutral-700 hover:text-neutral-900": !speaking || paused,})}/>)}
             <Drawer>
@@ -282,6 +346,27 @@ const [randomQuestion,] = useState(getRandomQuestion());
                 </div>
                   </DrawerContent>
                   </Drawer>
+                  <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Download />
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Download the following text</AlertDialogTitle>
+          <AlertDialogDescription>
+          <Textarea defaultValue={message.content?.toString() ?? ''} ref={editedMessageRef} />
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          {/* Convert to JPG action */}
+        <AlertDialogAction onClick={handleConvertToJPG}>As JPG</AlertDialogAction>
+        {/* Convert to PDF action */}
+        <AlertDialogAction onClick={handleConvertToPDF}>As PDF</AlertDialogAction>
+
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
                   
 
 
