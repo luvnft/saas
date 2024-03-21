@@ -20,16 +20,16 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
+    title: "Conversation",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Engage in enlightening dialogues with AI where curiosity meets intelligence",
   },
   {
-    title: "Hover Card",
+    title: "Text-to-Speech generation",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
   },
   {
     title: "Progress",
