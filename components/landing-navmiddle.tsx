@@ -91,7 +91,7 @@ export function LandingMiddle() {
 <div className={cn("flex", {
             'justify-center': screenSize.width >= 700,
             'justify-end ': screenSize.width < 700,
-        })} style={{ zIndex: 999 }}>    <NavigationMenu className="fixed top-4 w-full z-60">
+        })} >    <NavigationMenu className="fixed top-4 w-full z-60">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -138,6 +138,7 @@ export function LandingMiddle() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        {screenSize.width >= 480 && (
         <NavigationMenuItem>
           <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -154,15 +155,19 @@ export function LandingMiddle() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        )}
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              
               Feedback
             </NavigationMenuLink>
             
           </Link>
         </NavigationMenuItem>
+        {screenSize.width >= 480 && (
         <NavigationMenuItem>
+          
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Help
@@ -170,6 +175,7 @@ export function LandingMiddle() {
             
           </Link>
         </NavigationMenuItem>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
     </div>
