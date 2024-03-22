@@ -88,10 +88,10 @@ export function LandingMiddle() {
   return (
     
     
-<div className={cn("flex top", {
+<div className={cn("flex", {
             'justify-center': screenSize.width >= 700,
             'justify-end ': screenSize.width < 700,
-        })} >    <NavigationMenu className="fixed top-4 w-full z-60">
+        })} style={{ position: 'fixed', top: '4rem', width: '100%', zIndex: 60 }}>    <NavigationMenu className="fixed top-4 w-full z-60">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
