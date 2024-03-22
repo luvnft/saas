@@ -58,21 +58,21 @@ const components: { title: string; href: string; description: string }[] = [
       "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
   },
   {
-    title: "Progress",
+    title: "Image Generation",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Bring your ideas to life with our powerful Image Generation tool.      .",
   },
   {
-    title: "Scroll-area",
+    title: "Code Generation",
     href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    description: "Efficiently create code with our streamlined Code Generation tool.     ",
   },
   {
-    title: "Tabs",
+    title: "Movie or Series suggestion",
     href: "/docs/primitives/tabs",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Intelligently suggest movies or series based on your preferences. ",
   },
   {
     title: "Tooltip",
@@ -88,7 +88,7 @@ export function LandingMiddle() {
   return (
     
     
-<div className={cn("flex", {
+<div className={cn("flex top", {
             'justify-center': screenSize.width >= 700,
             'justify-end ': screenSize.width < 700,
         })} >    <NavigationMenu className="fixed top-4 w-full z-60">
@@ -132,9 +132,6 @@ export function LandingMiddle() {
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Image generation">
               Bring your ideas to life with our powerful Image Generation tool.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Code Generation ">
-              Efficiently create code with our streamlined Code Generation tool.     
               </ListItem>
             </ul>
           </NavigationMenuContent>

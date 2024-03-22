@@ -359,9 +359,11 @@ const [randomQuestion,] = useState(getRandomQuestion());
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           {/* Convert to JPG action */}
+          
         <AlertDialogAction onClick={handleConvertToJPG}>As JPG</AlertDialogAction>
         {/* Convert to PDF action */}
         <AlertDialogAction onClick={handleConvertToPDF}>As PDF</AlertDialogAction>
+        
 
         </AlertDialogFooter>
       </AlertDialogContent>
