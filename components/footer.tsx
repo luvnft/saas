@@ -17,7 +17,7 @@ export const Footer = () => {
         <div className=" flex-col space-y-2 flex px-2">
           <Link href="/" className="flex items-center">
             <div className="relative h-8 w-8 mr-4">
-              <Image fill alt="Logo" src="/logo.png" />
+              <Image fill alt="Logo" src="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             </div>
             <h1 className={cn("text-2xl font-light ", font.className)}>
               Cogify

@@ -108,6 +108,7 @@ export function LandingMiddle() {
                          alt="Logo"
                           src="/logo.png"
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                      </div>
                      <div className="mb-2 mt-4 text-lg font-medium">

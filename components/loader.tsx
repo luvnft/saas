@@ -54,6 +54,7 @@ export const Loaderimage = () => {
           alt="Logo"
           src="/logo.png"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <p className="text-sm text-muted-foreground">
@@ -85,6 +86,7 @@ export const LoaderAudio = () => {
         <Image
           alt="Logo"
           src="/logo.png"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
         />
       </div>
