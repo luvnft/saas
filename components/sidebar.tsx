@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { Code, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
+import { Code, Film, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -45,6 +45,13 @@ const routes = [
     color: "text-pink-700",
     href: '/image',
   },
+  {
+    label: 'Entertainment Suggestions',
+    icon: Film,
+    color: "text-green-700",
+    bgColor: "bg-green-700/10",
+    href: '/entertainment',
+  },
   
   {
     label: 'Code Generation',
@@ -52,6 +59,7 @@ const routes = [
     color: "text-green-700",
     href: '/code',
   },
+  
   {
     label: 'Settings',
     icon: Settings,

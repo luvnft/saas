@@ -1,4 +1,7 @@
-import { Code, ImageIcon, Megaphone, MessageSquare, Music, VideoIcon } from "lucide-react";
+import { Label } from "@radix-ui/react-label";
+import { Icon } from "@radix-ui/react-select";
+import { color } from "framer-motion";
+import { Code, Film, ImageIcon, Megaphone, MessageSquare } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 500;
 
@@ -24,6 +27,13 @@ export const tools = [
     bgColor: "bg-pink-700/10",
     href: '/image',
   },
+  {
+    label: 'Entertainment Suggestions',
+    icon: Film,
+    color: "text-green-700",
+    bgColor: "bg-green-700/10",
+    href: '/entertainment',
+  },
   
   {
     label: 'Code Generation',
@@ -32,4 +42,6 @@ export const tools = [
     bgColor: "bg-green-700/10",
     href: '/code',
   },
+  
 ];
+
