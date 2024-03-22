@@ -12,7 +12,7 @@ const openai = new OpenAI({
 
 const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   role: "system",
-  content: "You are a Movie and series suggestion. You must answer only about web-series or Movies. Just name and about geners and plot-2 lines"
+  content: "You must answer only about web-series or Movies. Give name and geners and plot-2 lines. Otherwise say try another feature."
 };
 
 
