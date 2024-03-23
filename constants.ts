@@ -1,6 +1,4 @@
-import { Label } from "@radix-ui/react-label";
-import { Icon } from "@radix-ui/react-select";
-import { color } from "framer-motion";
+
 import { Code, Film, ImageIcon, Megaphone, MessageSquare } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 500;

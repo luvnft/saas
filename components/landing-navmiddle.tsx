@@ -47,7 +47,7 @@ function useWindowSize() {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Conversation",
-    href: "/docs/primitives/alert-dialog",
+    href: "/features/conversation",
     description:
       "Engage in enlightening dialogues with AI where curiosity meets intelligence",
   },
@@ -75,10 +75,10 @@ const components: { title: string; href: string; description: string }[] = [
       "Intelligently suggest movies or series based on your preferences. ",
   },
   {
-    title: "Tooltip",
+    title: "More",
     href: "/docs/primitives/tooltip",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "More stunning features comming soon.",
   },
 ]
 
@@ -138,7 +138,7 @@ export function LandingMiddle() {
         </NavigationMenuItem>
         {screenSize.width >= 480 && (
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Features</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
