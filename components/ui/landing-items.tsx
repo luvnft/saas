@@ -66,7 +66,7 @@ export function Card2() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hey people, how are you doing? Let's see how we can peal a banana with our teeth only
+          Hey people, how are you doing? Let&apos;s see how we can peal a banana with our teeth only
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
