@@ -298,20 +298,33 @@ const [randomQuestion,] = useState(getRandomQuestion());
     <Empty label="No conversation started." />
   )}
   <div className="flex flex-col-reverse gap-y-4">
-    {messages.map((message, index) => (
-      <div 
-        key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
-        className={cn(
-          "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
-          message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-        )}
-      >
-        <div className="flex items-start gap-x-8">
-          {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-          <p className="text-sm whitespace-pre-wrap flex-1">
-            {message.content?.toString()}
-          </p>
-
+  {messages.map((message, index) => (
+  <div 
+    key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
+    className={cn(
+      "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
+      message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
+    )}
+  >
+    <div className="flex items-start gap-x-8">
+      {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+      <div className="text-sm whitespace-pre-wrap flex-1">
+        {message.content?.toString().split('\n').map((line, lineIndex) => {
+          if (line.includes("###")) {
+            return <h1 key={lineIndex}><strong>{line.replace(/###/g, '')}</strong></h1>;
+          } else if (line.includes("####")) {
+            return <h2 key={lineIndex}><strong>{line.replace(/####/g, '')}</strong></h2>;
+          } else {
+            return (
+              <p key={lineIndex}>
+                {line.split(/\*\*(.*?)\*\*/g).map((text, textIndex) => {
+                  return textIndex % 2 === 0 ? text : <strong key={textIndex}>{text}</strong>;
+                })}
+              </p>
+            );
+          }
+        })}
+      </div>
 
 
           

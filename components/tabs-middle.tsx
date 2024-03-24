@@ -6,52 +6,52 @@ import { Tabs } from "./ui/tabs";
 export function TabsDemo() {
   const tabs = [
     {
-      title: "Product",
+      title: "Conversation",
       value: "product",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Product Tab</p>
-          <DummyContent />
+          <p>Conversation Tab</p>
+          <DummyContent src="/2.svg" />
         </div>
       ),
     },
     {
-      title: "Services",
+      title: "Text-to-Speech Generation",
       value: "services",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Services tab</p>
-          <DummyContent />
+          <p>Text-to-Speech Generation</p>
+          <DummyContent src="/3.svg" />
         </div>
       ),
     },
     {
-      title: "Playground",
+      title: "Image Generation",
       value: "playground",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Playground tab</p>
-          <DummyContent />
+          <p>Image Generation</p>
+          <DummyContent src="/1.svg" />
         </div>
       ),
     },
     {
-      title: "Content",
+      title: "Entertainment Suggestion",
       value: "content",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Content tab</p>
-          <DummyContent />
+          <p>Entertainment Suggestion</p>
+          <DummyContent src="/4.svg" />
         </div>
       ),
     },
     {
-      title: "Random",
+      title: "Code Generation",
       value: "random",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Random tab</p>
-          <DummyContent />
+          <p>Code Generation</p>
+          <DummyContent src="/5.svg" />
         </div>
       ),
     },
@@ -65,10 +65,10 @@ export function TabsDemo() {
   
 }
 
-const DummyContent = () => {
+const DummyContent = ({ src }: { src: string }) => {
   return (
     <Image
-      src="/linear.webp"
+      src={src}
       alt="dummy image"
       width="1000"
       height="1000"

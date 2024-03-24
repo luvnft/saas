@@ -12,18 +12,18 @@ export function Card1() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Make things float in air
+          Try our conversation tool
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hover over this card to unleash the power of CSS perspective
+          Write a poem with moderate english words
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/image.jpeg"
+            src="/2.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -59,18 +59,18 @@ export function Card2() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          This is card 2
+          Try our text to speech
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hover over this card to unleash the power of CSS perspective
+          Hey people, how are you doing? Let's see how we can peal a banana with our teeth only
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/image.jpeg"
+            src="/3.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -89,8 +89,8 @@ export function Card2() {
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-          >
-            Sign up
+        >
+            Get start →
           </CardItem>
         </div>
       </CardBody>
@@ -105,18 +105,18 @@ export function Card3() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          This is card 3
+          Try our entertainment suggestion
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hover over this card to unleash the power of CSS perspective
+          Suggest a great movie with awesome direction
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/image.jpeg"
+            src="/4.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -136,7 +136,7 @@ export function Card3() {
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
-            Sign up
+            Get start →
           </CardItem>
         </div>
       </CardBody>
@@ -151,18 +151,18 @@ export function Card4() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          This is card 4
+          Try our Image generation 
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hover over this card to unleash the power of CSS perspective
+          Indian boy going school
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/image.jpeg"
+            src="/1.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -182,7 +182,7 @@ export function Card4() {
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
-            Sign up
+            Get start →
           </CardItem>
         </div>
       </CardBody>
