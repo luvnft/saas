@@ -58,9 +58,9 @@ export const Footer = () => {
     Terms of Service
 </button>
             </Link>
-            <Link href="/" className="flex items-center">
+            <Link href="/refund" className="flex items-center">
             <button className="px-4 py-2 rounded-md border border-black bg-white text-neutarl-700 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
-    Contact Us
+    Refund 
 </button>
 
             </Link>

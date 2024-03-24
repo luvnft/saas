@@ -124,14 +124,14 @@ export function LandingMiddle() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Conversation">
-              Engage in enlightening dialogues with AI where curiosity meets intelligence
+              <ListItem href="/feedback" title="Feedback">
+              Your feedback fuels our innovation at Cogify. Share your thoughts and help us improve!
               </ListItem>
-              <ListItem href="/docs/installation" title="Text to Speech generation ">
-              Transform text into lifelike speech with our advanced Text-to-Speech generation.     
+              <ListItem href="/help" title="Help ">
+              Need assistance? We're here to help! Fill out the form below and let us guide you through any questions or concerns you have with Cogify.     
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Image generation">
-              Bring your ideas to life with our powerful Image Generation tool.
+              <ListItem href="/affiliation" title="Affiliation">
+              "Interested in affiliating with Cogify? Submit your request here and let's explore partnership opportunities together."
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -155,7 +155,7 @@ export function LandingMiddle() {
         </NavigationMenuItem>
         )}
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/feedback" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               
               Feedback

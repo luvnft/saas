@@ -24,14 +24,14 @@ const helpPage: React.FC = () => {
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>
             <p style={{ textAlign: 'center',  }}>
-          Write us at <a  href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> for urgent help
+          Write us at <a style={{ textAlign: 'center',  }} href="mailto:connect@cogify.social?subject=I%20want%20to%20raise%20a%20refund%20request.">connect@cogify.social</a> for urgent help
              
              </p>
              <div className="flex justify-center" style={{ width: '100%', marginTop: '20px' }}> 
-             <Link href={'mailto:help@cogify.social?subject=I%20need%20help%20related%20to'}>
+             <Link href={'mailto:connect@cogify.social?subject=I%20want%20to%20raise%20a%20refund%20request'}>
 
              <Button className="px-8 py-2 rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500">
-          Help
+          Raise Refund Request
           </Button> 
 
           </Link>

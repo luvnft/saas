@@ -5,9 +5,10 @@ import { Footer } from "@/components/footer";
 import { LandingMiddle } from "@/components/landing-navmiddle";
 import { SparklesPreview } from "./(routes)/sparks";
 
+
 import React from 'react';
 import GoogleForm from './(routes)/GoogleForm';
-import {  Mail, } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 
@@ -23,15 +24,16 @@ const helpPage: React.FC = () => {
             
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>
-            <p style={{ textAlign: 'center',  }}>
-          Write us at <a  href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> for urgent help
+        
+          <p style={{ textAlign: 'center',  }}>
+          Write us at <a  href="mailto:feedback@cogify.social?subject=I%20have%20a%20suggestion%20to.">feedback@cogify.social</a> for strong feedback
              
              </p>
              <div className="flex justify-center" style={{ width: '100%', marginTop: '20px' }}> 
-             <Link href={'mailto:help@cogify.social?subject=I%20need%20help%20related%20to'}>
+             <Link href={'mailto:mailto:feedback@cogify.social?subject=I%20have%20a%20suggestion%20to.'}>
 
              <Button className="px-8 py-2 rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500">
-          Help
+          Feedback
           </Button> 
 
           </Link>
