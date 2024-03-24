@@ -16,7 +16,7 @@ This Privacy Policy, along with our Cookie Policy, covers how we collect, handle
 If you are located in the <strong> European Economic Area (&quot;EEA&quot;) or the United Kingdom (&quot;UK&quot;), </strong>  this entire Privacy Policy applies to you. However, please see the Section titled &quot;Additional Information for Users in the EEA and the UK.&quot;, which will provide more detail information about which rights you have regarding the processing of your personal data.
 recommend that you read this Privacy Policy and our Cookie Policy carefully as both provide important information about your personal information and your rights under the law. . <br/><br/>
 
-If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Policy and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at privacy@Cogify.com or see our information below. . <br/><br/>
+If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Policy and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at help@cogify.studio or see our information below. . <br/><br/>
 
 
 <strong>Who We Are and How To Contact Us. <br/><br/>
@@ -145,7 +145,7 @@ To keep your information accurate, current, and complete, please contact us as s
 
 <strong>Access and Accuracy </strong><br/><br/>
 Cogify uses reasonable efforts to keep your personal information accurate. We will provide you with online access to your personal information so that you may review, update or correct personal information that we hold. <br/><br/>
-Note that in order to protect your privacy and security, we will also take reasonable steps to verify your identity before granting you access or enabling you to make corrections. To access your personal information, please visit the relevant account management sections of our Platform. If you cannot access your personal information on the Platform, please send an email to mail <br/><br/>
+Note that in order to protect your privacy and security, we will also take reasonable steps to verify your identity before granting you access or enabling you to make corrections. To access your personal information, please visit the relevant account management sections of our Platform. If you cannot access your personal information on the Platform, please send an help@cogify.studio to mail <br/><br/>
 
 
 
@@ -197,7 +197,7 @@ Rights in relation to automated decision-making and profiling: our obligation to
 These rights are subject to certain rules around when you can exercise them. <br/><br/>
 
 <strong> Customers, Site Visitors in the EEA or the UK. </strong> <br/><br/>
-If you are located in the EEA or the UK and you are a Customer, Site Visitor and wish to exercise any of the rights set out above, you may contact us at mail using the term &quot;DSR&quot; as your email subject line. <br/><br/>
+If you are located in the EEA or the UK and you are a Customer, Site Visitor and wish to exercise any of the rights set out above, you may contact us at mail using the term &quot;DSR&quot; as your help@cogify.studio subject line. <br/><br/>
 You will not have to pay a fee to access your personal data (or to exercise any of the other rights) unless your request is clearly unfounded, repetitive or excessive. <br/><br/>Alternatively, we may refuse to comply with your request under those circumstances.
 If we cannot reasonably verify your identity, we will not be able to comply with your request(s). We may need to request specific information from you to help us confirm your identity. This is a security measure to ensure that personal data is not disclosed to any person who has no right to receive it. Note that this is especially true when you engage a third party to assist you in exercising your rights. <br/><br/>
 We will respond to all legitimate requests within one month. Occasionally it may take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated as required by law. In addition, we will always balance your rights against those of other data subjects in connection with any requests, and in some cases this may require us to redact our responses or deny a request. <br/><br/>
@@ -217,7 +217,7 @@ UK Representative <br/><br/>
 Pursuant to the UK GDPR, Cogify has appointed EDPO UK Ltd as its UK GDPR representative in the UK. You can contact EDPO UK regarding matters pertaining to the UK GDPR: <br/><br/>
 Using EDPO&apos;s UK online request form at https://edpo.com/gdpr-data-request/; or
 Writing to EDPO UK at 8 Northumberland Avenue, London WC2N 5BY, United Kingdom.
-Contact Us <br/><br/>
+help@cogify.studio <br/><br/>
 If you have any questions or suggestions regarding this Privacy Policy, please contact us at mail <br/><br/>
 Last updated: March 15, 2024 <br/><br/>
 

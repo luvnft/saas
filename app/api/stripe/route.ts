@@ -41,10 +41,10 @@ export async function GET() {
       line_items: [
         {
           price_data: {
-            currency: "USD",
+            currency: "INR",
             product_data: {
               name: "Cogify Pro",
-              description: "Unlimited AI Generations"
+              description: "Unlimited AI Generations, Image generation, and more!"
             },
             unit_amount: 2000,
             recurring: {
