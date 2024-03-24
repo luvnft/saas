@@ -166,7 +166,7 @@ export function LandingMiddle() {
         {screenSize.width >= 480 && (
         <NavigationMenuItem>
           
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/help" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Help
             </NavigationMenuLink>
