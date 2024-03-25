@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Cogify',
     template: '%s - Cogify',
   },
-  description: "Unleash AI Creativity",
+  description: "Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code",
 }
 
 export default async function RootLayout({
