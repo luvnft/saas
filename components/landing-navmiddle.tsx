@@ -131,7 +131,7 @@ export function LandingMiddle() {
               <ListItem href="/help" title="Help ">
               Need assistance? We&apos;ar here to help! Fill out the form below and let us guide you through any questions or concerns you have with Cogify.     
               </ListItem>
-              <ListItem href="/affiliation" title="Join Ua">
+              <ListItem href="/join-us" title="Join Ua">
               Interested in Joining us at Cogify? Submit your request here and let&apos;s explore partnership opportunities together!
               </ListItem>
             </ul>
