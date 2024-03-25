@@ -23,10 +23,9 @@ const helpPage: React.FC = () => {
             
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>
-            <p style={{ textAlign: 'center',  }}>
-          Write us at <a  href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> for urgent help
-             
-             </p>
+            <p style={{ textAlign: 'center' }}>
+              Write us at <a style={{ color: '#A020F0', fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> for urgent help
+            </p>
              <div className="flex justify-center" style={{ width: '100%', marginTop: '20px' }}> 
              <Link href={'mailto:help@cogify.social?subject=I%20need%20help%20related%20to'}>
 
@@ -36,10 +35,12 @@ const helpPage: React.FC = () => {
 
           </Link>
           </div>
-        <div style={{ textAlign: 'center', marginTop: '10px' }}>
-          
-        </div>
-        <hr style={{ borderColor: 'black', borderWidth: '1px', marginTop: '10px', marginBottom: '10px' }} />
+          <p style={{ textAlign: 'center', marginTop: '10px' }}>
+            <strong>Or fill this form</strong>
+            </p>
+            <hr style={{ borderColor: 'black', borderWidth: '1px', marginTop: '10px', marginBottom: '10px' }} />
+
+        
       </div>
       
       <GoogleForm />

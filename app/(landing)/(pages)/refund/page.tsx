@@ -24,7 +24,7 @@ const helpPage: React.FC = () => {
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>
             <p style={{ textAlign: 'center',  }}>
-          Write us at <a style={{ textAlign: 'center',  }} href="mailto:connect@cogify.social?subject=I%20want%20to%20raise%20a%20refund%20request.">connect@cogify.social</a> for urgent help
+          Write us at <a style={{ color: '#A020F0', fontWeight: 'bold' }} href="mailto:connect@cogify.social?subject=I%20want%20to%20raise%20a%20refund%20request.">connect@cogify.social</a> for urgent help
              
              </p>
              <div className="flex justify-center" style={{ width: '100%', marginTop: '20px' }}> 
@@ -36,9 +36,10 @@ const helpPage: React.FC = () => {
 
           </Link>
           </div>
-        <div style={{ textAlign: 'center', marginTop: '10px' }}>
-          
-        </div>
+          <p style={{ textAlign: 'center', marginTop: '10px' }}>
+            <strong>Or fill this form</strong>
+            </p> 
+            
         <hr style={{ borderColor: 'black', borderWidth: '1px', marginTop: '10px', marginBottom: '10px' }} />
       </div>
       
