@@ -47,36 +47,37 @@ function useWindowSize() {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Conversation",
-    href: "/features/conversation",
+    href: "/conversation",
     description:
       "Engage in enlightening dialogues with AI where curiosity meets intelligence",
   },
   {
     title: "Text-to-Speech generation",
-    href: "/docs/primitives/hover-card",
+    href: "/text-to-speech",
     description:
       "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
   },
   {
     title: "Image Generation",
-    href: "/docs/primitives/progress",
+    href: "/image",
     description:
       "Bring your ideas to life with our powerful Image Generation tool.      .",
   },
   {
     title: "Code Generation",
     href: "/docs/primitives/scroll-area",
-    description: "Efficiently create code with our streamlined Code Generation tool.     ",
+    description: 
+    "Efficiently create code with our streamlined Code Generation tool.     ",
   },
   {
     title: "Movie or Series suggestion",
-    href: "/docs/primitives/tabs",
+    href: "/entertainment",
     description:
       "Intelligently suggest movies or series based on your preferences. ",
   },
   {
     title: "More",
-    href: "/docs/primitives/tooltip",
+    href: "/coming-soon",
     description:
       "More stunning features comming soon.",
   },
@@ -130,8 +131,8 @@ export function LandingMiddle() {
               <ListItem href="/help" title="Help ">
               Need assistance? We&apos;ar here to help! Fill out the form below and let us guide you through any questions or concerns you have with Cogify.     
               </ListItem>
-              <ListItem href="/affiliation" title="Affiliation">
-              Interested in affiliating with Cogify? Submit your request here and let&apos;s explore partnership opportunities together!
+              <ListItem href="/affiliation" title="Join Ua">
+              Interested in Joining us at Cogify? Submit your request here and let&apos;s explore partnership opportunities together!
               </ListItem>
             </ul>
           </NavigationMenuContent>

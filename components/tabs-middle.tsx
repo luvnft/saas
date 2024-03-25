@@ -11,7 +11,7 @@ export function TabsDemo() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Conversation Tab</p>
-          <DummyContent src="/2.svg" />
+          <DummyContent src="/con.svg" />
         </div>
       ),
     },
@@ -21,7 +21,7 @@ export function TabsDemo() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Text-to-Speech Generation</p>
-          <DummyContent src="/3.svg" />
+          <DummyContent src="/spe.svg" />
         </div>
       ),
     },
@@ -31,7 +31,7 @@ export function TabsDemo() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Image Generation</p>
-          <DummyContent src="/1.svg" />
+          <DummyContent src="/imag.svg" />
         </div>
       ),
     },
@@ -41,7 +41,7 @@ export function TabsDemo() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Entertainment Suggestion</p>
-          <DummyContent src="/4.svg" />
+          <DummyContent src="/ent.svg" />
         </div>
       ),
     },
@@ -51,7 +51,7 @@ export function TabsDemo() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Code Generation</p>
-          <DummyContent src="/5.svg" />
+          <DummyContent src="/code.svg" />
         </div>
       ),
     },

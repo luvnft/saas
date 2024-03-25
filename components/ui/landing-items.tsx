@@ -12,18 +12,18 @@ export function Card1() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Try our conversation tool
+          AI generated Image
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Write a poem with moderate english words
+          Create an alien planet&apos;s ecosystem, featuring bizarre flora and fauna, strange geology, and atmospheric anomalies
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/2.svg"
+            src="/1.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -59,18 +59,18 @@ export function Card2() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Try our text to speech
+          AI generated Image
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Hey people, how are you doing? Let&apos;s see how we can peal a banana with our teeth only
+          Craft mandalas incorporating vibrant colors and unique patterns that will inspire feelings of happiness and well-being.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/3.svg"
+            src="/2.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -105,18 +105,18 @@ export function Card3() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Try our entertainment suggestion
+          AI generated Image
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Suggest a great movie with awesome direction
+          Reimagine scenes from the literary classic 1700's, blending indian traditional and modern elements to add a unique artistic touch for a marriage.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/4.svg"
+            src="/3.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -151,18 +151,18 @@ export function Card4() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Try our Image generation 
+          AI generated Image
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Indian boy going school
+          Create an anime character with large, detailed eyes and distinctive Japanese anime aesthetics
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="/1.svg"
+            src="/4.svg"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

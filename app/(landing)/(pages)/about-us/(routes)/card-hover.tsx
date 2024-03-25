@@ -9,39 +9,40 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Stripe",
+    title: "Conversation",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "/dashboard",
+    "Engage in enlightening dialogues with AI where curiosity meets intelligence",
+    link: "/conversation",
   },
   {
-    title: "Netflix",
+    title: "Text-to-Speech Generation",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+    "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
+    link: "/text-to-speech",
   },
   {
-    title: "Google",
+    title: "Image Generation",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+    "Bring your ideas to life with our powerful Image Generation tool.      .",
+    link: "/image",
+  },
+  
+  {
+    title: "Code Generation",
+    description:
+    "Efficiently create code with our streamlined Code Generation tool.     ",
+    link: "/code",
   },
   {
-    title: "Meta",
+    title: "Entertainment Suggestion",
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
+    "Intelligently suggest movies or series based on your preferences. ",
+    link: "/entertainment",
   },
   {
-    title: "Amazon",
+    title: "More?",
     description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
-  },
-  {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+    "More stunning features comming soon.",
+        link: "/coming-soon",
   },
 ];

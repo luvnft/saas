@@ -19,7 +19,7 @@ const LandingPage = () => {
       <SparklesPreview />    
       <AnimatedTooltipPreview />
       <div className="flex flex-row items-center justify-center  w-full md:text-1xl text-1xl lg:text-2xl font-semibold ">
-      <p> Meet out developers</p>
+      <p> Meet our Founder and CEO</p>
       </div>
       <CardHoverEffectDemo />  
       <AnimatedPinDemo />
