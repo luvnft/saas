@@ -1,6 +1,5 @@
 import React from 'react';
 import { Montserrat } from "next/font/google";
-import { cn } from "@/lib/utils";
 
 const font = Montserrat({ weight: '500', subsets: ['latin'] });
 
