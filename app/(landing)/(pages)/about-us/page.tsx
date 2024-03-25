@@ -8,6 +8,7 @@ import { AnimatedTooltipPreview} from "./(routes)/founder";
 import { AnimatedPinDemo } from "./(routes)/casouselabout";
 import { LandingMiddle } from "@/components/landing-navmiddle";
 
+
 const LandingPage = () => {
   return ( 
     <div className="h-full ">

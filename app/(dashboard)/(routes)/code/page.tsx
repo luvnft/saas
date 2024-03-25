@@ -4,6 +4,8 @@ import * as z from "zod";
 import axios from "axios";
 import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
+import Head from 'next/head'; // Import Head from next/head
+
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
@@ -61,6 +63,10 @@ const CodePage = () => {
 
   return ( 
     <div>
+      <Head>
+        <title>Code Generation - Your Website Name</title>
+        <meta name="description" content="Generate code snippets from descriptive text." />
+      </Head>
       <Heading
         title="Code Generation"
         description="Generate code using descriptive text."

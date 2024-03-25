@@ -11,8 +11,11 @@ import './globals.css'
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Cogify',
-  description: 'AI Platform',
+  title:  {
+    default: 'Cogify',
+    template: '%s - Cogify',
+  },
+  description: "Unleash AI Creativity",
 }
 
 export default async function RootLayout({

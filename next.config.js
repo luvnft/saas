@@ -13,5 +13,23 @@ const nextConfig = {
   },
   
 }
+module.exports = {
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/about-us': { page: '/about-us' },
+      '/privacy-policy': { page: '/privacy-policyt', query: { title: 'privacy-policy' } },
+      '/feedback': { page: '/feedback', query: { title: 'feedback' } },
+      '/help': { page: '/help', query: { title: 'help' } },
+      '/join-us': { page: '/join-us', query: { title: 'join us' } },
+      '/refund': { page: '/refund', query: { title: 'refund' } },
+      '/setting': { page: '/setting', query: { title: 'setting' } },
+      '/conversation': { page: 'conversation', query: { title: 'conversation' } },
+    }
+  },
+}
 
 module.exports = nextConfig;

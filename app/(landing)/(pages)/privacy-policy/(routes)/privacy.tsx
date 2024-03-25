@@ -9,14 +9,17 @@ export const PrivacyPolicy = () => {
     
     <div className="items-center" style={styles.container}>
       <p > <br/><br/>
-      Welcome to https://Cogify.com and/or https://nextjs.org (each a &quot;Site&quot;), hosted by Cogify Inc. (&quot;Cogify&quot;, &quot;we&quot;, &quot;us&quot; and/or &quot;our&quot;). Cogify provides a cloud platform for on-demand deployment, related hosting and sharing services and analytics tools (&quot;Services&quot;). In order to provide our Site and Services (collectively, &quot;Platform&quot;), we collect personal data from our customers (&quot;Customers&quot;). We also collect and/or host the personal data of our Customer&apos;s end users (&quot;End Users&quot;) when our Customers&apos; websites are hosted by Cogify or our Customers use our Services. 
-Throughout this Privacy Policy, &quot;personal information&quot; or &quot;personal data&quot; refers to any information that is unique to an individual, such as name, address, email address, phone number, IP address and other information that can reasonably identify an individual. <br/><br/>
+      Welcome to <a style={{ fontWeight: 'bold' }} href='https://Cogify.studio/'> https://Cogify.studio </a> and/or we&apos;re passionate about pushing the boundaries of artificial intelligence to enhance creativity and productivity. Our mission is to empower users with cutting edge AI tools for various tasks, from generating prompts to creating stunning images and converting text to speech seamlessly.<br/><br/>
+      With a dedicated team of experts in AI and machine learning, we strive to provide innovative solutions that simplify complex processes. Cogify is more than just a platform; it&apos;s a gateway to limitless possibilities, whether you&apos;re a writer seeking inspiration, a designer in need of visuals, or a developer looking for efficient code generation.<br/><br/>
+      
+We believe in democratizing AI, making advanced technologies accessible to everyone. Transparency, reliability, and user satisfaction are at the core of everything we do. Join us on the journey to harness the power of AI and unlock your creativity with Cogify<br/><br/>
+Throughout this <a style={{ fontWeight: 'bold' }}> Privacy Policy </a>, &quot;personal information&quot; or &quot;personal data&quot; refers to any information that is unique to an individual, such as name, address, email address, phone number, IP address and other information that can reasonably identify an individual. <br/><br/>
 This Privacy Policy, along with our Cookie Policy, covers how we collect, handle and disclose personal data on our Platform, including any affiliated websites, software or platforms owned or operated by Cogify on which this Privacy Policy appears. Even though we store End Users&apos; personal data, it does not cover how or why our Customers may collect, handle and disclose their End Users&apos; personal data when they visit or use their websites or platforms. . <br/><br/>
 
 If you are located in the <strong> European Economic Area (&quot;EEA&quot;) or the United Kingdom (&quot;UK&quot;), </strong>  this entire Privacy Policy applies to you. However, please see the Section titled &quot;Additional Information for Users in the EEA and the UK.&quot;, which will provide more detail information about which rights you have regarding the processing of your personal data.
 recommend that you read this Privacy Policy and our Cookie Policy carefully as both provide important information about your personal information and your rights under the law. . <br/><br/>
 
-If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Policy and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at help@cogify.studio or see our information below. . <br/><br/>
+If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Policy and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at <a style={{color: '#0000FF' ,fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> or see our information below. . <br/><br/>
 
 
 <strong>Who We Are and How To Contact Us. <br/><br/>
@@ -145,7 +148,9 @@ To keep your information accurate, current, and complete, please contact us as s
 
 <strong>Access and Accuracy </strong><br/><br/>
 Cogify uses reasonable efforts to keep your personal information accurate. We will provide you with online access to your personal information so that you may review, update or correct personal information that we hold. <br/><br/>
-Note that in order to protect your privacy and security, we will also take reasonable steps to verify your identity before granting you access or enabling you to make corrections. To access your personal information, please visit the relevant account management sections of our Platform. If you cannot access your personal information on the Platform, please send an help@cogify.studio to mail <br/><br/>
+Note that in order to protect your privacy and security, we will also take reasonable steps to verify your identity before granting you access or enabling you to make corrections. To access your personal information, please visit the relevant account management sections of our Platform. If you cannot access your personal information on the Platform, please send an 
+<a style={{fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> 
+to mail <br/><br/>
 
 
 
@@ -160,7 +165,8 @@ The amount, nature and sensitivity of your information; <br/><br/>
 The reasons for which we collect and process the personal data; <br/><br/>
 The length of time we have an ongoing relationship with you and provide you with access to our Platform; and <br/><br/>
 applicable legal requirements. <br/><br/>
-We retain personal information for as long as needed to provide our Services. Note, however, that with respect to our Customers with active accounts, we may retain certain essential account information, but otherwise regularly delete other information that is less essential to the provision of our Services in order to minimize our storage of data.We also will retain personal information that we&apos;ve collected from you where we have an ongoing legitimate business need to do so (for example, to comply with applicable legal, tax or accounting requirements). Additionally, we cannot delete information when it is needed for the establishment, exercise or defense of legal claims (also known as a &quot;litigation hold&quot;). In this case, the information must be retained as long as needed for exercising respective potential legal claims.When we no longer have an ongoing legitimate business need to process your personal information, we will either delete or anonymize it or, if this is not possible (for example, because your personal information has been stored in backup archives), we will securely store your personal information and isolate it from any further processing until deletion is possible.For any questions about data retention, please contact privacy@Cogify.com. <br/><br/>
+We retain personal information for as long as needed to provide our Services. Note, however, that with respect to our Customers with active accounts, we may retain certain essential account information, but otherwise regularly delete other information that is less essential to the provision of our Services in order to minimize our storage of data.We also will retain personal information that we&apos;ve collected from you where we have an ongoing legitimate business need to do so (for example, to comply with applicable legal, tax or accounting requirements). Additionally, we cannot delete information when it is needed for the establishment, exercise or defense of legal claims (also known as a &quot;litigation hold&quot;). In this case, the information must be retained as long as needed for exercising respective potential legal claims.When we no longer have an ongoing legitimate business need to process your personal information, we will either delete or anonymize it or, if this is not possible (for example, because your personal information has been stored in backup archives), we will securely store your personal information and isolate it from any further processing until deletion is possible.For any questions about data retention, please contact <a style={{fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> 
+ <br/><br/>
 
 <strong>Anonymization </strong><br/><br/>
 In some instances, we may choose to anonymize your personal data instead of deleting it, for statistical use, for instance. When we choose to anonymize, we make sure that there is no way that the personal data can be linked back to you or any specific user.
@@ -197,7 +203,8 @@ Rights in relation to automated decision-making and profiling: our obligation to
 These rights are subject to certain rules around when you can exercise them. <br/><br/>
 
 <strong> Customers, Site Visitors in the EEA or the UK. </strong> <br/><br/>
-If you are located in the EEA or the UK and you are a Customer, Site Visitor and wish to exercise any of the rights set out above, you may contact us at mail using the term &quot;DSR&quot; as your help@cogify.studio subject line. <br/><br/>
+If you are located in the EEA or the UK and you are a Customer, Site Visitor and wish to exercise any of the rights set out above, you may contact us at mail using the term &quot;DSR&quot; as your <a style={{fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> 
+ subject line. <br/><br/>
 You will not have to pay a fee to access your personal data (or to exercise any of the other rights) unless your request is clearly unfounded, repetitive or excessive. <br/><br/>Alternatively, we may refuse to comply with your request under those circumstances.
 If we cannot reasonably verify your identity, we will not be able to comply with your request(s). We may need to request specific information from you to help us confirm your identity. This is a security measure to ensure that personal data is not disclosed to any person who has no right to receive it. Note that this is especially true when you engage a third party to assist you in exercising your rights. <br/><br/>
 We will respond to all legitimate requests within one month. Occasionally it may take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated as required by law. In addition, we will always balance your rights against those of other data subjects in connection with any requests, and in some cases this may require us to redact our responses or deny a request. <br/><br/>
@@ -217,7 +224,7 @@ UK Representative <br/><br/>
 Pursuant to the UK GDPR, Cogify has appointed EDPO UK Ltd as its UK GDPR representative in the UK. You can contact EDPO UK regarding matters pertaining to the UK GDPR: <br/><br/>
 Using EDPO&apos;s UK online request form at https://edpo.com/gdpr-data-request/; or
 Writing to EDPO UK at 8 Northumberland Avenue, London WC2N 5BY, United Kingdom.
-help@cogify.studio <br/><br/>
+<a style={{color: '#0000FF' ,fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> <br/><br/>
 If you have any questions or suggestions regarding this Privacy Policy, please contact us at mail <br/><br/>
 Last updated: March 15, 2024 <br/><br/>
 

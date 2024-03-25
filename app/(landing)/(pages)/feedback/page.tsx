@@ -1,5 +1,4 @@
 // pages/somepage.tsx
-"use client";
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Footer } from "@/components/footer";
 import { LandingMiddle } from "@/components/landing-navmiddle";
@@ -11,8 +10,12 @@ import GoogleForm from './(routes)/GoogleForm';
 
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+  title: "Feedback", 
+  description: "Unleash AI Creativity",
+}
 
 const helpPage: React.FC = () => {
   return (

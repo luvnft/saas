@@ -78,7 +78,8 @@ export const Terms = () => {
   <br/><br/>
 <strong>Contact Us</strong><br/><br/>
 
-  If you have any questions about these Terms, please contact us at help@cogify.studio
+  If you have any questions about these Terms, please contact us at <a style={{fontWeight: 'bold' }} href="mailto:help@cogify.social?subject=I%20need%20help%20related%20to.">help@cogify.social</a> 
+
   <br/><br/>
 
 </>
