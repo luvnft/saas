@@ -27,7 +27,6 @@ module.exports = {
       '/join-us': { page: '/join-us', query: { title: 'join us' } },
       '/refund': { page: '/refund', query: { title: 'refund' } },
       '/setting': { page: '/setting', query: { title: 'setting' } },
-      '/conversation': { page: 'conversation', query: { title: 'conversation' } },
     }
   },
 }
