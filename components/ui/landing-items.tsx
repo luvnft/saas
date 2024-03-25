@@ -112,7 +112,7 @@ export function Card3() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Reimagine scenes from the literary classic 1700's, blending indian traditional and modern elements to add a unique artistic touch for a marriage.
+          Reimagine scenes from the literary classic 1700&apos;s, blending indian traditional and modern elements to add a unique artistic touch for a marriage.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
