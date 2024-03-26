@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     default: 'Cogify',
     template: '%s - Cogify',
   },
+  
   description: "Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code",
   url: 'https://cogify.studio',
     siteName: 'Cogify',
@@ -103,8 +104,8 @@ export const metadata: Metadata = {
 }
 
 
-  
 
+  
 export default async function RootLayout({
   children,
 }: {
