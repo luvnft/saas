@@ -4,7 +4,6 @@ import { ClerkProvider } from '@clerk/nextjs'
 
 import { ToasterProvider } from '@/components/toaster-provider'
 import { ModalProvider } from '@/components/modal-provider'
-import { CrispProvider } from '@/components/crisp-provider'
 
 import './globals.css'
 import type { Viewport } from 'next'
@@ -117,7 +116,7 @@ export default async function RootLayout({
         <head>
           <link rel="shortcut icon" href="/logo.png" />
         </head>
-        <CrispProvider />
+        
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
