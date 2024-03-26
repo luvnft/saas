@@ -33,8 +33,6 @@ const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   category: 'technology',
-
-  manifest: 'https:/cogify.social/manifest.json',
   robots: {
     index: false,
     follow: true,
