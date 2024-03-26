@@ -32,15 +32,13 @@ export function generateViewport(): Viewport {
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  
-
   title:  {
     default: 'Cogify',
     template: '%s - Cogify',
   },
   
   description: "Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code",
-  viewport: generateViewport(),
+  metadataBase: new URL('https://cogify.social'),
 }
 
 

@@ -11,8 +11,9 @@ import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 
 const LandingPage = () => {
   return ( 
-    <div className="h-full ">
-      <LandingNavbar /><LandingMiddle />
+    <div >
+      <LandingNavbar />
+     
       <LandingHero />
       <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center ">
         Start exploring the power of AI
