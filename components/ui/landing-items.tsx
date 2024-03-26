@@ -12,7 +12,13 @@ export function Card1() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          AI generated Image
+          Image Generation
+        </CardItem>
+        <CardItem
+          translateZ="50"
+          className="text-xl text-neutral-600 dark:text-white"
+        >
+          Prompt:
         </CardItem>
         <CardItem
           as="p"
@@ -59,7 +65,13 @@ export function Card2() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          AI generated Image
+          Image Generation
+        </CardItem>
+        <CardItem
+          translateZ="50"
+          className="text-xl text-neutral-600 dark:text-white"
+        >
+          Prompt:
         </CardItem>
         <CardItem
           as="p"
@@ -105,7 +117,13 @@ export function Card3() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          AI generated Image
+          Image Generation
+        </CardItem>
+        <CardItem
+          translateZ="50"
+          className="text-xl text-neutral-600 dark:text-white"
+        >
+          Prompt:
         </CardItem>
         <CardItem
           as="p"
@@ -149,9 +167,15 @@ export function Card4() {
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
-          className="text-xl font-bold text-neutral-600 dark:text-white"
+          className="text-xl font-semibold text-neutral-600 dark:text-white"
         >
-          AI generated Image
+          Image Generation
+        </CardItem>
+        <CardItem
+          translateZ="50"
+          className="text-xl text-neutral-600 dark:text-white"
+        >
+          Prompt:
         </CardItem>
         <CardItem
           as="p"
