@@ -16,9 +16,10 @@ const LandingPage = () => {
       <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center ">
         Start exploring the power of AI
       </div>
+      <TabsDemo />
       <LandingContent />
       
-      <TabsDemo />
+      
       
       <TypewriterEffectSmoothDemo />
       <Footer/>
