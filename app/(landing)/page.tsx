@@ -8,6 +8,7 @@ import {TypewriterEffectSmoothDemo} from "@/components/typing-effect";
 
 
 
+
 const LandingPage = () => {
   return ( 
     <div className="h-full ">
