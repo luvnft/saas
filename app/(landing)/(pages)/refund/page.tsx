@@ -1,7 +1,7 @@
 
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Footer } from "@/components/footer";
-import { LandingMiddle } from "@/components/landing-navmiddle";
+// import { LandingMiddle } from "@/components/landing-navmiddle";
 import { SparklesPreview } from "./(routes)/sparks";
 
 import React from 'react';
@@ -21,7 +21,7 @@ const helpPage: React.FC = () => {
     <div>
       <LandingNavbar /> 
             
-            <LandingMiddle />   
+            {/* <LandingMiddle />    */}
             <SparklesPreview/>   
             
             <div>

@@ -3,7 +3,7 @@ import { LandingNavbar } from "@/components/landing-navbar";
 import { PrivacyPolicy } from "./(routes)/privacy";
 import { Footer } from "@/components/footer";
 import { SparklesPreview } from "./(routes)/sparks";
-import { LandingMiddle } from "@/components/landing-navmiddle";
+// import { LandingMiddle } from "@/components/landing-navmiddle";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 const termPage = () => {
   return ( 
     <div className="h-full ">
-            <LandingNavbar /> <LandingMiddle />      
+            <LandingNavbar />
+            {/* <LandingMiddle />       */}
       <SparklesPreview />  
       <PrivacyPolicy />  
       <Footer/>
