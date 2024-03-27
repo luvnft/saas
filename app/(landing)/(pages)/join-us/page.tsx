@@ -1,11 +1,9 @@
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Footer } from "@/components/footer";
-// import { LandingMiddle } from "@/components/landing-navmiddle";
 import { SparklesPreview } from "./(routes)/sparks";
 
 import React from 'react';
 import GoogleForm from './(routes)/GoogleForm';
-import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Metadata } from "next";

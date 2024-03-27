@@ -20,7 +20,7 @@ function Navbar({ className }: { className?: string }) {
   
         <Menu setActive={setActive}>
           <MenuItem setActive={setActive} active={active} item="AI Services">
-            <div className="  text-sm grid grid-cols-2 gap-10 p-">
+            <div className="  text-sm grid grid-cols-2 gap-10 p-2">
               <ProductItem
                 title="Conversation"
                 href="/conversation"
