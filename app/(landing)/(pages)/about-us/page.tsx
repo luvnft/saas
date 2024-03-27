@@ -6,13 +6,14 @@ import { SparklesPreview } from "./(routes)/sparks";
 import { CardHoverEffectDemo } from "./(routes)/card-hover";
 import { AnimatedTooltipPreview} from "./(routes)/founder";
 import { AnimatedPinDemo } from "./(routes)/casouselabout";
+import React from 'react';
+
 
 
 type Props = {}
 
 
-const LandingPage = async (props: Props)  => {
-
+const LandingPage: React.FC = () => {
   return ( 
     <div className="h-full ">
             <LandingNavbar /> 
