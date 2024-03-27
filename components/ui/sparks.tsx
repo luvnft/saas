@@ -1,12 +1,15 @@
-"use client";
-import React from "react";
-import { SparklesCore } from "@/components/pages/sparkles";
+import React from 'react';
+import { SparklesCore } from '@/components/pages/sparkles';
 
-export function SparklesPreview() {
+interface SparklesPreviewProps {
+  buttonText: string;
+}
+
+const SparklesPreview: React.FC<SparklesPreviewProps> = ({ buttonText }) => {
   return (
     <div className="h-[17rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
-        Privacy Policy
+      <h1 className="md:text-7xl text-3xl lg:text-7xl font-bold text-center text-white relative z-20">
+        {buttonText}
       </h1>
       <div className="w-[40rem] h-40 relative">
         {/* Gradients */}
@@ -30,4 +33,6 @@ export function SparklesPreview() {
       </div>
     </div>
   );
-}
+};
+
+export default SparklesPreview;

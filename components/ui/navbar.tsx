@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { SheetDemo } from "./mainsidear";
 import { MenuIcon } from 'lucide-react'
 import { UserButton, currentUser } from '@clerk/nextjs'
 import { Montserrat } from 'next/font/google';
@@ -44,7 +45,7 @@ const Navbar = async (props: Props) => {
           </span>
         </Link>
         {user ? <UserButton afterSignOutUrl="/" /> : null}
-        <MenuIcon  className="md:hidden" />
+        <SheetDemo/>
       </aside>
     </header>
   )

@@ -1,10 +1,8 @@
 import  Navbar  from "@/components/ui/navbar";
 import { Footer } from "@/components/footer";
 // import { LandingMiddle } from "@/components/landing-navmiddle";
-import { SparklesPreview } from "./(routes)/sparks";
 
 import React from 'react';
-import GoogleForm from './(routes)/GoogleForm';
 import { Metadata } from "next";
 import  { Plans } from '@/components/infinite-scroll'
 

@@ -1,6 +1,6 @@
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Terms } from "./(routes)/terms";
-import { SparklesPreview } from "./(routes)/sparks";
+import  SparklesPreview  from "@/components/ui/sparks";
 // import { LandingMiddle } from "@/components/landing-navmiddle";
 
 import { Footer } from "@/components/footer";
@@ -18,7 +18,7 @@ const LandingPage = () => {
         <div className="h-full ">
             <LandingNavbar />
             {/* <LandingMiddle /> */}
-            <SparklesPreview/>
+            <SparklesPreview buttonText="Join Us" />
             <Terms />
             <Footer/>
         </div>

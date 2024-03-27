@@ -2,7 +2,7 @@
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Footer } from "@/components/footer";
 // import { LandingMiddle } from "@/components/landing-navmiddle";
-import { SparklesPreview } from "./(routes)/sparks";
+import  SparklesPreview  from "@/components/ui/sparks";
 
 import React from 'react';
 import GoogleForm from './(routes)/GoogleForm';
@@ -22,7 +22,7 @@ const helpPage: React.FC = () => {
       <LandingNavbar /> 
             
             {/* <LandingMiddle />    */}
-            <SparklesPreview/>   
+            <SparklesPreview buttonText="Join Us" />
             
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>

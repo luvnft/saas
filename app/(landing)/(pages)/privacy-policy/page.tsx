@@ -2,7 +2,7 @@
 import { LandingNavbar } from "@/components/landing-navbar";
 import { PrivacyPolicy } from "./(routes)/privacy";
 import { Footer } from "@/components/footer";
-import { SparklesPreview } from "./(routes)/sparks";
+import  SparklesPreview  from "@/components/ui/sparks";
 // import { LandingMiddle } from "@/components/landing-navmiddle";
 import { Metadata } from "next";
 
@@ -16,7 +16,7 @@ const termPage = () => {
     <div className="h-full ">
             <LandingNavbar />
             {/* <LandingMiddle />       */}
-      <SparklesPreview />  
+            <SparklesPreview buttonText="Join Us" />
       <PrivacyPolicy />  
       <Footer/>
 
