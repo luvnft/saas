@@ -6,15 +6,17 @@ import { SparklesPreview } from "./(routes)/sparks";
 import { CardHoverEffectDemo } from "./(routes)/card-hover";
 import { AnimatedTooltipPreview} from "./(routes)/founder";
 import { AnimatedPinDemo } from "./(routes)/casouselabout";
-// import { LandingMiddle } from "@/components/landing-navmiddle";
 
 
-const LandingPage = () => {
+type Props = {}
+
+
+const LandingPage = async (props: Props)  => {
+
   return ( 
     <div className="h-full ">
             <LandingNavbar /> 
             
-            {/* <LandingMiddle />       */}
 
 
       <SparklesPreview />    
