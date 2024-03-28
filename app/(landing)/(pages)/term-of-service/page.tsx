@@ -18,7 +18,7 @@ const LandingPage = () => {
         <div className="h-full ">
             <LandingNavbar />
             {/* <LandingMiddle /> */}
-            <SparklesPreview buttonText="Join Us" />
+            <SparklesPreview buttonText="Terms of Service" />
             <Terms />
             <Footer/>
         </div>

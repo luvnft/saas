@@ -16,7 +16,7 @@ const termPage = () => {
     <div className="h-full ">
             <LandingNavbar />
             {/* <LandingMiddle />       */}
-            <SparklesPreview buttonText="Join Us" />
+            <SparklesPreview buttonText="Privacy Policy" />
       <PrivacyPolicy />  
       <Footer/>
 
