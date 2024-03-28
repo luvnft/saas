@@ -22,6 +22,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { formSchema, modelSelected } from "./constants";
 
 import { imagequestionsByPage } from './imagequestion';
+import { Textarea } from "@/components/ui/textarea";
 
 
 
@@ -107,7 +108,7 @@ const MusicPage = () => {
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-8">
                   <FormControl className="m-0 p-0">
-                    <Input
+                    <Textarea
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
                       placeholder={randomQuestion} 
@@ -121,7 +122,7 @@ const MusicPage = () => {
               control={form.control}
               name="model"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
+                <FormItem className="col-span-12 lg:col-span-2 mt-5">
                   <Select 
                     disabled={isLoading} 
                     onValueChange={field.onChange} 
@@ -147,7 +148,8 @@ const MusicPage = () => {
                 </FormItem>
               )}
             />
-              <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+              <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5 " 
+              type="submit" disabled={isLoading} size="icon">
               Generate
             </Button>
           </form>
