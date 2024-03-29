@@ -66,7 +66,7 @@ export const Plans = () =>{
                 className="text-xl font-bold text-neutral-600 dark:text-white "
               >
                 Pro Plan
-                <h2 className="text-6xl ">$29</h2>
+                <h2 className="text-6xl ">₹299</h2>
               </CardItem>
               <CardItem
                 translateZ="60"
@@ -118,7 +118,7 @@ export const Plans = () =>{
                 className="text-xl font-bold text-neutral-600 dark:text-white "
               >
                 Unlimited
-                <h2 className="text-6xl ">$99</h2>
+                <h2 className="text-6xl ">₹999</h2>
               </CardItem>
               <CardItem
                 translateZ="60"
