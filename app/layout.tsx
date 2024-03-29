@@ -52,7 +52,7 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <link rel="shortcut icon" href="/logo.png" />
+          <link rel="shortcut icon" href="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
         </head>
         <CrispProvider />
         <body className={font.className}>

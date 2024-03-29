@@ -6,7 +6,6 @@ import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 
-
 import { toast } from "react-hot-toast";
 import { Clipboard, Share, Speaker, EditIcon, Pause,Download } from 'lucide-react';
 import {
@@ -57,7 +56,6 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 
@@ -86,7 +84,6 @@ const ConversationPage = () => {
   
   const isLoading = form.formState.isSubmitting;
   
-  
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     
     try {
@@ -95,7 +92,6 @@ const ConversationPage = () => {
       
       const response = await axios.post('/api/conversation', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
-      
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
@@ -107,6 +103,7 @@ const ConversationPage = () => {
       router.refresh();
     }
   }
+
 const getRandomQuestion = () => {
   // Randomly select a page
   const pages = Object.keys(questionsByPage);
@@ -404,3 +401,5 @@ const [randomQuestion,] = useState(getRandomQuestion());
     </div>
    );
 }
+ 
+export default ConversationPage;

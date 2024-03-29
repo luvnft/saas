@@ -23,7 +23,10 @@ export const Loader = () => {
   return (
     <div className="h-full flex flex-col gap-y-4 items-center justify-center">
       <div className="w-10 h-10 relative animate-spin">
-        <Image alt="Logo" src="/logo.png" fill />
+        <Image alt="Logo" 
+        src="/logo.png" 
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        fill />
       </div>
       <p className="text-sm text-muted-foreground">Cogify is thinking...</p>
       <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
@@ -53,6 +56,7 @@ export const Loaderimage = () => {
         <Image
           alt="Logo"
           src="/logo.png"
+          
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />

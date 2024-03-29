@@ -58,7 +58,7 @@ export const FreeCounter = ({
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">
           <Avatar>
-            <AvatarImage src="/logo.png" />
+            <AvatarImage src="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
