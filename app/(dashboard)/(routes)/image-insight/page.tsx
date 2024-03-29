@@ -105,8 +105,8 @@ function Minimal() {
         title="Image Insight"
         description="Our most advanced take in images and answer questions model."
         icon={Eye}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
+        iconColor="text-blue-500"
+        bgColor="bg-blue-500/10"
       />
       <hr className={st.separator} />
       

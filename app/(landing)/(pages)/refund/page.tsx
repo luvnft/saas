@@ -22,7 +22,7 @@ const helpPage: React.FC = () => {
       <LandingNavbar /> 
             
             {/* <LandingMiddle />    */}
-            <SparklesPreview buttonText="Help" />
+            <SparklesPreview buttonText="Refund Form" />
             
             <div>
             <div style={{ textAlign: 'left', marginLeft: '25%', marginRight: '25%', marginTop: '5vh' }}>

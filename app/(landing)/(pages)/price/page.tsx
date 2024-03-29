@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 
 import React from 'react';
 import { Metadata } from "next";
-import  { Plans } from '@/components/infinite-scroll'
+import  { Plans } from '@/components/plans'
 
 export const metadata: Metadata = {
   title: "Join-Us", 

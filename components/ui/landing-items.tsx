@@ -3,6 +3,8 @@
 import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
+import Link from 'next/link';
+
 
 export function Card1() {
   return (
@@ -37,6 +39,7 @@ export function Card1() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
+          <Link href='/dashboard'>
           <CardItem
             translateZ={20}
             as="button"
@@ -44,6 +47,8 @@ export function Card1() {
           >
             Try now →
           </CardItem>
+          </Link>
+          <Link href='/dashboard'>
           <CardItem
             translateZ={20}
             as="button"
@@ -51,6 +56,7 @@ export function Card1() {
           >
             Get start →
           </CardItem>
+          </Link>
         </div>
       </CardBody>
     </CardContainer>
@@ -90,6 +96,7 @@ export function Card2() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
+        <Link href='/dashboard'> 
           <CardItem
             translateZ={20}
             as="button"
@@ -97,6 +104,8 @@ export function Card2() {
           >
             Try now →
           </CardItem>
+          </Link>
+          <Link href='/dashboard'>
           <CardItem
             translateZ={20}
             as="button"
@@ -104,6 +113,7 @@ export function Card2() {
         >
             Get start →
           </CardItem>
+          </Link>
         </div>
       </CardBody>
     </CardContainer>
@@ -142,6 +152,7 @@ export function Card3() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
+        <Link href='/dashboard'> 
           <CardItem
             translateZ={20}
             as="button"
@@ -149,6 +160,8 @@ export function Card3() {
           >
             Try now →
           </CardItem>
+          </Link>
+          <Link href='/dashboard'> 
           <CardItem
             translateZ={20}
             as="button"
@@ -156,6 +169,7 @@ export function Card3() {
           >
             Get start →
           </CardItem>
+          </Link>
         </div>
       </CardBody>
     </CardContainer>
@@ -194,6 +208,7 @@ export function Card4() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
+        <Link href='/dashboard'> 
           <CardItem
             translateZ={20}
             as="button"
@@ -201,6 +216,8 @@ export function Card4() {
           >
             Try now →
           </CardItem>
+          </Link>
+          <Link href='/dashboard'> 
           <CardItem
             translateZ={20}
             as="button"
@@ -208,6 +225,7 @@ export function Card4() {
           >
             Get start →
           </CardItem>
+          </Link>
         </div>
       </CardBody>
     </CardContainer>

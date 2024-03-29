@@ -1,6 +1,8 @@
 import { LampComponent } from '@/components/global/lamp'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-cards'
 import { CheckIcon } from 'lucide-react'
+import Link from 'next/link';
+
 
 
 export const Plans = () =>{
@@ -16,7 +18,7 @@ export const Plans = () =>{
                 className="text-xl font-bold text-neutral-600 dark:text-white "
               >
                 Hobby
-                <h2 className="text-6xl ">$0</h2>
+                <h2 className="text-6xl ">₹0</h2>
               </CardItem>
               <CardItem
                 translateZ="60"
@@ -33,6 +35,10 @@ export const Plans = () =>{
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
+                    Including Image Insight
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckIcon />
                     Limited Chatgpt-4 Access
                   </li>
                   <li className="flex items-center gap-2">
@@ -42,6 +48,7 @@ export const Plans = () =>{
                 </ul>
               </CardItem>
               <div className="flex justify-between items-center mt-8">
+              <Link href='/dashboard'> 
                 <CardItem
                   translateZ={20}
                   as="button"
@@ -49,6 +56,8 @@ export const Plans = () =>{
                 >
                   Try now →
                 </CardItem>
+                </Link>
+                <Link href='/dashboard'> 
                 <CardItem
                   translateZ={20}
                   as="button"
@@ -56,6 +65,7 @@ export const Plans = () =>{
                 >
                   Get Started Now
                 </CardItem>
+                </Link>
               </div>
             </CardBody>
           </CardContainer>
@@ -81,11 +91,15 @@ export const Plans = () =>{
                     <CheckIcon />Unlimited Voice generation
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckIcon />Unlimited Code generation
+                    <CheckIcon />
+                    Unlimited Image generation - Version 2
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Unlimited Image generation - Version 2
+                    Including Image Insight
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckIcon />Unlimited Code generation
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -94,6 +108,7 @@ export const Plans = () =>{
                 </ul>
               </CardItem>
               <div className="flex justify-between items-center mt-8">
+              <Link href='/dashboard'> 
                 <CardItem
                   translateZ={20}
                   as="button"
@@ -101,13 +116,17 @@ export const Plans = () =>{
                 >
                   Try now →
                 </CardItem>
+                </Link>
+                <Link href='/dashboard'> 
                 <CardItem
+                 
                   translateZ={20}
                   as="button"
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                 >
                   Get Started Now
                 </CardItem>
+                </Link>
               </div>
             </CardBody>
           </CardContainer>
@@ -133,11 +152,14 @@ export const Plans = () =>{
                     <CheckIcon />Unlimited Voice generation
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckIcon />Unlimited Code generation
-                  </li>
-                  <li className="flex items-center gap-2">
                     <CheckIcon />
                     Unlimited Image generation - Version 2
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckIcon />Unlimited Image Insight
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckIcon />Unlimited Code generation
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -154,6 +176,7 @@ export const Plans = () =>{
                 </ul>
               </CardItem>
               <div className="flex justify-between items-center mt-8">
+              <Link href='/dashboard'> 
                 <CardItem
                   translateZ={20}
                   as="button"
@@ -161,6 +184,9 @@ export const Plans = () =>{
                 >
                   Try now →
                 </CardItem>
+                </Link>
+                <Link href='/dashboard'> 
+                
                 <CardItem
                   translateZ={20}
                   as="button"
@@ -168,6 +194,7 @@ export const Plans = () =>{
                 >
                   Get Started Now
                 </CardItem>
+                </Link>
               </div>
             </CardBody>
           </CardContainer>

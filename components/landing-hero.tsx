@@ -24,7 +24,7 @@ export const LandingHero = () => {
                 "Mail Writing. ",
                 "Content Creation. ",
                 "Code Generation. ",
-                "Image Insight "
+                " "
 
               ],
               autoStart: true,

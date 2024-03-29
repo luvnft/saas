@@ -34,9 +34,9 @@ function Navbar({ className }: { className?: string }) {
                 description="Bring your ideas to life with our powerful Image Generation tool."
               />
               <ProductItem
-                title="Image Inshight"
+                title="Image Insight"
                 href="/image-insight"
-                src="/code.svg"
+                src="/image.svg"
                 description="Unlocking Vision: Simplifying Understanding with Intelligent Image Analysis."
               />
               <ProductItem
