@@ -25,13 +25,19 @@ function Navbar({ className }: { className?: string }) {
                 title="Conversation"
                 href="/conversation"
                 src="/con.svg"
-                description= "Engage in enlightening dialogues with AI where curiosity meets intelligence"
+                description= "Engage in enlightening dialogues with AI where curiosity meets intelligence."
               />
               <ProductItem
                 title="Image Generation"
                 href="/image"
                 src="/imag.svg"
                 description="Bring your ideas to life with our powerful Image Generation tool."
+              />
+              <ProductItem
+                title="Image Inshight"
+                href="/image-insight"
+                src="/code.svg"
+                description="Unlocking Vision: Simplifying Understanding with Intelligent Image Analysis."
               />
               <ProductItem
                 title="Text-to-Speech"

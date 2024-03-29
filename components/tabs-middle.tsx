@@ -16,16 +16,6 @@ export function TabsDemo() {
       ),
     },
     {
-      title: "Text-to-Speech Generation",
-      value: "services",
-      content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Text-to-Speech Generation</p>
-          <DummyContent src="/spe.svg" />
-        </div>
-      ),
-    },
-    {
       title: "Image Generation",
       value: "playground",
       content: (
@@ -35,6 +25,27 @@ export function TabsDemo() {
         </div>
       ),
     },
+    {
+      title: "Image Insight",
+      value: "Money",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Image insight</p>
+          <DummyContent src="/imag.svg" />
+        </div>
+      ),
+    },
+    {
+      title: "Text-to-Speech Generation",
+      value: "services",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Text-to-Speech Generation</p>
+          <DummyContent src="/spe.svg" />
+        </div>
+      ),
+    },
+    
     {
       title: "Entertainment Suggestion",
       value: "content",

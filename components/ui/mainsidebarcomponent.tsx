@@ -21,16 +21,23 @@ import {
             <GradientButton buttonText="Conversation" />
           </Link>
           </AccordionContent>
-          <AccordionContent>
-            <Link href="/text-to-speech" > 
-            <GradientButton buttonText="Text-to-Speech Generation" />
-          </Link>
-          </AccordionContent>
+          
           <AccordionContent>
             <Link href="/image" > 
             <GradientButton buttonText="Image Generation" />
           </Link>
           </AccordionContent>
+          <AccordionContent>
+            <Link href="/image-insight" > 
+            <GradientButton buttonText="Image Insight" />
+          </Link>
+          </AccordionContent>
+          <AccordionContent>
+            <Link href="/text-to-speech" > 
+            <GradientButton buttonText="Text-to-Speech Generation" />
+          </Link>
+          </AccordionContent>
+
           <AccordionContent>
             <Link href="/code" > 
             <GradientButton buttonText="Code Generation" />

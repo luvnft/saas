@@ -1,0 +1,73 @@
+.pageWrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .paragraph, .previewData {
+    margin: 0;
+    line-height: 1.4em;
+  }
+  
+  .link:link, .link:hover, .link:active, .link:visited {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    color: darkblue;
+  }
+  
+  .separator {
+    border: none;
+    border-top: 1px solid whitesmoke;
+    margin: 20px 0;
+  }
+  
+  .previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .previewWrapper {
+    background-color: whitesmoke;
+    color: darkslategray;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .previewImage {
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .center {
+    margin-top: auto;
+    margin-bottom: 5%;
+
+
+  }
+  .my-config {
+    --darkmode: 0;
+    --h-accent: 223;
+    --s-accent: 100%;
+    --l-accent: 61%;
+  }
+
+  
+  .previewData {
+    font-size: 13px;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }

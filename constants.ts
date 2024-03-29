@@ -1,5 +1,5 @@
 
-import { Code, Film, ImageIcon, Megaphone, MessageSquare } from "lucide-react";
+import { Code, Eye, Film, ImageIcon, Megaphone, MessageSquare } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 500;
 
@@ -11,13 +11,7 @@ export const tools = [
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
   },
-  {
-    label: 'Text to speech',
-    icon: Megaphone,
-    href: '/text-to-speech',
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-  },
+
   {
     label: 'Image Generation',
     icon: ImageIcon,
@@ -25,6 +19,22 @@ export const tools = [
     bgColor: "bg-pink-700/10",
     href: '/image',
   },
+
+  {
+    label: 'Image-Insight',
+    icon: Eye,
+    color: "text-blue-100",
+    bgColor: "bg-blue-100/10",
+    href: '/image-insight',
+  },
+  {
+    label: 'Text to speech',
+    icon: Megaphone,
+    href: '/text-to-speech',
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
+  },
+  
   {
     label: 'Entertainment Suggestions',
     icon: Film,
