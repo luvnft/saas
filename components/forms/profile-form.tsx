@@ -24,27 +24,41 @@ type Props = {
 
 const ProfileForm = ({ user, onUpdate }: Props) => {
   const [isLoading, setIsLoading] = useState(false)
+
+  // Provide default values in case user is null
+  const defaultValues = user
+    ? {
+        name: user.name,
+        email: user.email,
+      }
+    : {
+        name: '',
+        email: '',
+      };
+
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: 'onChange',
     resolver: zodResolver(EditUserProfileSchema),
-    defaultValues: {
-      name: user.name,
-      email: user.email,
-    },
+    defaultValues,
   })
 
   const handleSubmit = async (
     values: z.infer<typeof EditUserProfileSchema>
   ) => {
     setIsLoading(true)
-    await onUpdate(values.name)
+    // Ensure onUpdate is a function before calling it
+    if (typeof onUpdate === 'function') {
+      await onUpdate(values.name)
+    }
     setIsLoading(false)
   }
 
+  // Only reset form with user data if user is not null
   useEffect(() => {
-    form.reset({ name: user.name, email: user.email })
+    if (user) {
+      form.reset({ name: user.name, email: user.email })
+    }
   }, [user])
-
   return (
     <Form {...form}>
       <form
