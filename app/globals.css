@@ -123,4 +123,10 @@ body,
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
 

@@ -61,7 +61,8 @@ export const FreeCounter = ({
             <AvatarImage src="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
-          <div className="space-y-1">
+          <div className="mobile-only"> 
+        <div className="space-y-1">
             <h4 className="text-sm font-semibold">Enjoy unlimited generation at pro.</h4>
             <p className="text-sm">
               These free generations are limited to {MAX_FREE_COUNTS} per 24 Hours.
@@ -73,6 +74,7 @@ export const FreeCounter = ({
                 Refresh every 24-Hours. 
               </span>
             </div>
+          </div>
           </div>
         </div>
       </HoverCardContent>
