@@ -404,5 +404,3 @@ const [randomQuestion,] = useState(getRandomQuestion());
     </div>
    );
 }
- 
-export default ConversationPage;

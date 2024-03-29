@@ -275,5 +275,5 @@ useEffect(() => {
     </div>
    );
 }
- 
+
 export default PhotoPage;
