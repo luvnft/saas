@@ -8,6 +8,20 @@ datasource db {
   relationMode = "prisma"
 }
 
+model User {
+  id Int @id @default(autoincrement())
+
+  clerkId      String  @unique
+  name         String?
+  email        String  @unique
+  profileImage String?
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  localGoogleId    String?  @unique
+  googleResourceId String?  @unique
+}
+
 model UserApiLimit {
   id        String      @id @default(cuid())
   userId    String   @unique
@@ -34,4 +48,6 @@ model Image {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }
+
+
 
