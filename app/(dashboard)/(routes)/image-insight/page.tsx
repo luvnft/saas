@@ -62,7 +62,7 @@ function Minimal() {
       if (error?.response?.status === 403) {
         proModal.onOpen();
       } else {
-        toast.error("Something went wrong.");
+        toast.error("Something went wrong");
       }
     } finally {
       router.refresh();
@@ -232,7 +232,7 @@ function Minimal() {
       <img
         className={st.previewImage}
         key={file.uuid}
-        src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
+        src={`${file.cdnUrl}-/format/auto/`}
         width="200"
         height="200"
         alt={file.fileInfo.originalFilename || ''}
@@ -248,7 +248,7 @@ function Minimal() {
       {/* Add the URL display here */}
       <p className={st.previewData}>
         Image URL: 
-        <button onClick={() => window.open(`${file.cdnUrl}`, "_blank")} rel="noopener noreferrer">View Image</button>
+        <button onClick={() => window.open(`${file.cdnUrl}-/format/auto/`, "_blank")} rel="noopener noreferrer">View Image</button>
       </p>
     </div>
   ))}

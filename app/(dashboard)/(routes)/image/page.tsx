@@ -79,7 +79,33 @@ const PhotoPage = () => {
   }
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
   const modelImage = form.getValues("modelImage"); // Extracted variable
+  const [showSecondMessage, setShowSecondMessage] = useState(false);
 
+
+
+  useEffect(() => {
+    // Show a custom toast message based on the model image
+    if (modelImage === "dall-e-3") {
+      toast.success("DALL-3 is a highest-quality model and can generate only 1 image with 1024*1024 Quality. It may take longer to generate images or sometime fail.");
+
+      // Set a timeout to show the second message after 3 seconds
+      const timeoutId = setTimeout(() => {
+        setShowSecondMessage(true);
+      }, 3000);
+
+      // Clear the timeout on component unmount or when modelImage changes
+      return () => clearTimeout(timeoutId);
+    } else {
+      toast.success("DALL-2 is a low-quality model and can generate upto 5 images with different quality. It is faster than DALL-E 3.");
+    }
+  }, [modelImage])
+  useEffect(() => {
+    // Show the second message when showSecondMessage state is true
+    if (showSecondMessage) {
+      toast.success("You can switch back to DALL-E 2 for more images quality");
+    }
+  }, [showSecondMessage]);
+  
 useEffect(() => {
   if (modelImage === "dall-e-3") {
     form.setValue("amount", "1");

@@ -36,11 +36,11 @@ export const amountOptions = [
 export const modelforImage = [
   {
     value: "dall-e-2",
-    label: "Version 1"
+    label: "DALL-2"
   },
   {
     value: "dall-e-3",
-    label: "Version 2"
+    label: "DALL-3"
   },
 ];
 
