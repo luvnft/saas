@@ -26,5 +26,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         {
             url: 'https://cogify.social/refund'
         },
+        {
+            url: 'https://cogify.social/price'
+        },
+        {
+            url: 'https://cogify.social/dashboard'
+        },
+        {
+            url: 'https://cogify.social/conversation'
+        },
+        {
+            url: 'https://cogify.social/text-to-speech'
+        },
+        {
+            url: 'https://cogify.social/image-insight'
+        },
+        {
+            url: 'https://cogify.social/image'
+        },
+        {
+            url: 'https://cogify.social/entertainment'
+        },
+        {
+            url: 'https://cogify.social/code'
+        },
+        {
+            url: 'https://cogify.social/settings'
+        },
+        {
+            url: 'https://iamclint.tech'
+        },
+
     ]
 }
