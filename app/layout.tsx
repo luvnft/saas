@@ -40,9 +40,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://cogify.social'),
 }
 
-
-
-  
 export default async function RootLayout({
   children,
 }: {
@@ -53,6 +50,23 @@ export default async function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <head>
           <link rel="shortcut icon" href="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+          <link rel="icon" href="/favicon.ico" />
+          <title>Cogify</title>
+          {/* Meta for SEO */}
+          <meta name="description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code" />
+          <meta name="keywords" content="AI, creativity, prompt, generate, speak, entertain, code" />
+          <meta name="author" content="Shubham Sharma" />
+          {/* Open Graph meta tags for social media */}
+          <meta property="og:title" content="Cogify" />
+          <meta property="og:description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://cogify.social" />
+          <meta property="og:image" content="https://cogify.social/logo.png" />
+          {/* Twitter Card meta tags */}
+          <meta name="twitter:site" content="@shubhamsharmaui" />
+          <meta name="twitter:title" content="Cogify" />
+          <meta name="twitter:description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code" />
+          <meta name="twitter:image" content="https://cogify.social/logo.png" />
         </head>
         <CrispProvider />
         <body className={font.className}>
