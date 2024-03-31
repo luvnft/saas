@@ -24,31 +24,31 @@ function Navbar({ className }: { className?: string }) {
               <ProductItem
                 title="Conversation"
                 href="/conversation"
-                src="/con.svg"
+                src="/conversation.svg"
                 description= "Engage in enlightening dialogues with AI where curiosity meets intelligence."
               />
               <ProductItem
                 title="Image Generation"
                 href="/image"
-                src="/imag.svg"
+                src="/imagecartoon.svg"
                 description="Bring your ideas to life with our powerful Image Generation tool."
               />
               <ProductItem
                 title="Image Insight"
                 href="/image-insight"
-                src="/image.svg"
+                src="/imageins.svg"
                 description="Unlocking Vision: Simplifying Understanding with Intelligent Image Analysis."
               />
               <ProductItem
                 title="Text-to-Speech"
                 href="/text-to-speech"
-                src="/spe.svg"
+                src="/text.svg"
                 description="Transform text into lifelike speech with our advanced Text-to-Speech generation."
               />
               <ProductItem
                 title="Code Generation"
                 href="/code"
-                src="/code.svg"
+                src="/codecartoon.svg"
                 description="Efficiently create code with our streamlined Code Generation tool."
               />
             </div>
