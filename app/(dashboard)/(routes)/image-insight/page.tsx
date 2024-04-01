@@ -49,12 +49,16 @@ function Minimal() {
     try {
       const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = { role: "user", content: values.prompt };
       const newMessages = [...messages, userMessage];
+      //URL Which convert image to JPEG//
+      const fileUrls = files.map(file => `${file.cdnUrl}-/format/jpeg/`);
 
-      if (files.length > 0) {
-        const fileUrls = files.map(file => file.cdnUrl);
-        newMessages.push({ role: "user", content: fileUrls.join(", ") });
+      if (fileUrls.length > 0) {
+        // If there are uploaded files, add their CDN URLs as separate user messages
+        fileUrls.forEach(url => {
+          newMessages.push({ role: "user", content: url });
+        });
       }
-
+  
       const response = await axios.post('/api/vision', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
@@ -68,6 +72,7 @@ function Minimal() {
       router.refresh();
     }
   }
+  
 
   const [files, setFiles] = React.useState<any[]>([]);
   const ctxProviderRef = React.useRef<any>(null);
@@ -103,12 +108,37 @@ function Minimal() {
     <div className={st.pageWrapper}>
       <Heading
         title="Image Insight"
-        description="Our most advanced take in images and answer questions model."
+        description="Introducing our cutting-edge image interpretation and question-answering marvel"
         icon={Eye}
         iconColor="text-blue-500"
         bgColor="bg-blue-500/10"
       />
+      
       <hr className={st.separator} />
+      <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center items-center gap-2">
+
+      Kindly upload the image and then enter your message to get started.
+      </div>
+
+      <div className="flex justify-center mt-5 ">
+  <div className={st.center}>
+      <lr-config
+        ctx-name="my-uploader"
+        pubkey="cd4fd5fd4190239a70a6"
+        source-list="local, url, camera, dropbox, gdrive, onedrive, gphotos, instagram, facebook, evernote, flickr, box, vk, huddle"
+        multiple={true}
+        img-only="true"
+      ></lr-config>
+      <lr-file-uploader-regular
+        ctx-name="my-uploader"
+        css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@${PACKAGE_VERSION}/web/lr-file-uploader-regular.min.css`}
+      ></lr-file-uploader-regular>
+      <lr-upload-ctx-provider
+        ctx-name="my-uploader"
+        ref={ctxProviderRef}
+      ></lr-upload-ctx-provider>
+      </div>
+      </div>
       
       <div className="px-4 lg:px-8">
         <div>
@@ -135,41 +165,25 @@ function Minimal() {
                     <FormControl className="m-0 p-0">
                       {/* Replace Input with Textarea */}
                       <Textarea
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="Enter your text here"
-                        {...field}
-                      />
+  className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+  disabled={isLoading || files.length === 0} // Disable if loading or no files uploaded
+  placeholder="Enter your message here"
+  {...field}
+/>
                     </FormControl>
                   </FormItem>
                 )}
               />
-              <div className={st.center}> 
-      <lr-config
-        ctx-name="my-uploader"
-        pubkey="cd4fd5fd4190239a70a6"
-        source-list="local, url, camera, dropbox, facebook, gdrive, gphotos, instagram"
-        multiple={false}
-        img-only="true"
-      ></lr-config>
-      <lr-file-uploader-regular
-        ctx-name="my-uploader"
-        css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@${PACKAGE_VERSION}/web/lr-file-uploader-regular.min.css`}
-      ></lr-file-uploader-regular>
-      <lr-upload-ctx-provider
-        ctx-name="my-uploader"
-        ref={ctxProviderRef}
-      ></lr-upload-ctx-provider>
-      </div>
+              
 
               <Button
-                className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-12 w-full mt-5"
-                type="submit"
-                disabled={isLoading}
-                size="icon"
-              >
-                Generate
-              </Button>
+  className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5"
+  type="submit"
+  disabled={isLoading || files.length === 0} // Disable if loading or no files uploaded
+  size="icon"
+>
+  Generate
+</Button>
             </form>
           </Form>
         </div>
@@ -220,8 +234,10 @@ function Minimal() {
         </div>
         <div className={st.previews} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   {files.length > 0 && ( // Check if files array is not empty
-    <Button variant="secondary" style={{ margin: 'auto' }}> Uploded Image</Button>
-  )}
+ <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center items-center margin-auto">
+
+      Uploaded Images
+      </div>  )}
   </div>
         <div className={st.previews}>
   
@@ -232,7 +248,7 @@ function Minimal() {
       <img
         className={st.previewImage}
         key={file.uuid}
-        src={`${file.cdnUrl}-/format/auto/`}
+        src={`${file.cdnUrl}-/format/jpeg/`}
         width="200"
         height="200"
         alt={file.fileInfo.originalFilename || ''}
@@ -240,15 +256,17 @@ function Minimal() {
       />
 
       <p className={st.previewData}>
+        Name:
         {file.fileInfo.originalFilename}
       </p>
       <p className={st.previewData}>
+        Size:
         {formatSize(file.fileInfo.size)}
       </p>
       {/* Add the URL display here */}
       <p className={st.previewData}>
         Image URL: 
-        <button onClick={() => window.open(`${file.cdnUrl}-/format/auto/`, "_blank")} rel="noopener noreferrer">View Image</button>
+        <Button variant="link" onClick={() => window.open(`${file.cdnUrl}-/format/jpeg/`, "_blank")} rel="noopener noreferrer">View Image</Button>
       </p>
     </div>
   ))}
