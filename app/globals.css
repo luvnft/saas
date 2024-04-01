@@ -76,6 +76,24 @@ body,
     }
     
   }
+  .cookie-consent {
+    position: fixed;
+    bottom: 20px; /* Adjust the bottom distance as needed */
+    left: 20px; /* Position the component on the left side */
+    max-width: 400px; /* Limit the maximum width */
+    background-color: #41cfff;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    text-align: left; /* Align text to the left */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    font-size: 12px; /* Reduce font size */
+    
+  }
+  
+  .cookie-consent p {
+    margin: 0; /* Remove default margin */
+  }
+  
  
   .dark {
     --background: 20 14.3% 4.1%;
