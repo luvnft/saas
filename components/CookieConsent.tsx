@@ -31,7 +31,7 @@ const CookieConsent: React.FC = () => {
   }
 
   return (
-    <div className="cookie-consent">
+    <div className="cookie-consent desktop-only">
       <p>This website uses cookies to enhance the user experience.</p>
       <div className='flex justify-center mt-5'>
      
