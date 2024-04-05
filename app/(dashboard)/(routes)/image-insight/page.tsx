@@ -125,10 +125,12 @@ function Minimal() {
       <lr-config
         ctx-name="my-uploader"
         pubkey="cd4fd5fd4190239a70a6"
-        source-list="local, url, camera, dropbox, gdrive, onedrive, gphotos, instagram, facebook, evernote, flickr, box, vk, huddle"
+        source-list="local, url, camera, dropbox, gdrive, onedrive, gphotos, instagram, facebook"
         multiple={true}
         img-only="true"
-      ></lr-config>
+      >
+
+      </lr-config>
       <lr-file-uploader-regular
         ctx-name="my-uploader"
         css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@${PACKAGE_VERSION}/web/lr-file-uploader-regular.min.css`}
