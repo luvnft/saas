@@ -70,7 +70,7 @@ export const styleOption = [
   {
     value: "Digital Art",
     label: "Digital Art",
-    image: "/image/option/Digital Art.png"
+    image: "/image/option/Digital art.png"
 
   },
   {
