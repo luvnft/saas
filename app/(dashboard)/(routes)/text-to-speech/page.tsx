@@ -7,13 +7,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Megaphone, } from "lucide-react";
+import { Megaphone } from "lucide-react";
 
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { LoaderAudio } from "@/components/loader";
 import { Empty } from "@/components/ui/empty";
@@ -21,25 +27,25 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema, modelSelected } from "./constants";
 
-import { imagequestionsByPage } from './imagequestion';
+import { imagequestionsByPage } from "./imagequestion";
 import { Textarea } from "@/components/ui/textarea";
-
-
 
 const getRandomQuestion = () => {
   // Randomly select a page
   const pages = Object.keys(imagequestionsByPage);
   const randomPageIndex = Math.floor(Math.random() * pages.length);
   const randomPage = pages[randomPageIndex];
-  
+
   // Randomly select a question from that page
-  const questionsOnSelectedPage = imagequestionsByPage[randomPage as keyof typeof imagequestionsByPage];
-  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
+  const questionsOnSelectedPage =
+    imagequestionsByPage[randomPage as keyof typeof imagequestionsByPage];
+  const randomQuestionIndex = Math.floor(
+    Math.random() * questionsOnSelectedPage.length
+  );
   const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
-  
+
   return randomQuestion;
 };
-
 
 const MusicPage = () => {
   const proModal = useProModal();
@@ -50,8 +56,8 @@ const MusicPage = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      model: "alloy"
-    }
+      model: "alloy",
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -60,8 +66,8 @@ const MusicPage = () => {
     try {
       setMusic(undefined);
 
-      const response = await axios.post('/api/music', values);
-      console.log(response)
+      const response = await axios.post("/api/music", values);
+      console.log(response);
 
       setMusic(response.data.audio);
       form.reset();
@@ -74,10 +80,10 @@ const MusicPage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
   const [randomQuestion, setRandomQuestion] = useState(getRandomQuestion());
 
-  return ( 
+  return (
     <div>
       <Heading
         title="Text to speech Generation"
@@ -88,8 +94,8 @@ const MusicPage = () => {
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 
@@ -110,8 +116,8 @@ const MusicPage = () => {
                   <FormControl className="m-0 p-0">
                     <Textarea
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                      disabled={isLoading} 
-                      placeholder={randomQuestion} 
+                      disabled={isLoading}
+                      placeholder={randomQuestion}
                       {...field}
                     />
                   </FormControl>
@@ -123,10 +129,10 @@ const MusicPage = () => {
               name="model"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2 mt-5">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -136,10 +142,7 @@ const MusicPage = () => {
                     </FormControl>
                     <SelectContent>
                       {modelSelected.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
+                        <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
                       ))}
@@ -148,8 +151,12 @@ const MusicPage = () => {
                 </FormItem>
               )}
             />
-              <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5 " 
-              type="submit" disabled={isLoading} size="icon">
+            <Button
+              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5 "
+              type="submit"
+              disabled={isLoading}
+              size="icon"
+            >
               Generate
             </Button>
           </form>
@@ -159,9 +166,7 @@ const MusicPage = () => {
             <LoaderAudio />
           </div>
         )}
-        {!music && !isLoading && (
-          <Empty label="No speech generated." />
-        )}
+        {!music && !isLoading && <Empty label="No speech generated." />}
         {music && (
           <audio controls className="w-full mt-8">
             <source src={music} />
@@ -169,7 +174,7 @@ const MusicPage = () => {
         )}
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default MusicPage;

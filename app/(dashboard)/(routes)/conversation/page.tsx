@@ -7,7 +7,14 @@ import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 
 import { toast } from "react-hot-toast";
-import { Clipboard, Share, Speaker, EditIcon, Pause,Download } from 'lucide-react';
+import {
+  Clipboard,
+  Share,
+  Speaker,
+  EditIcon,
+  Pause,
+  Download,
+} from "lucide-react";
 import {
   Drawer,
   DrawerClose,
@@ -17,7 +24,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
+} from "@/components/ui/drawer";
 
 import {
   AlertDialog,
@@ -29,22 +36,16 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 
 import html2canvas from "html2canvas";
 
 import jsPDF from "jspdf";
 
-
-import { Textarea } from "@/components/ui/textarea"
-
-
-
-
+import { Textarea } from "@/components/ui/textarea";
 
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
-
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
@@ -57,40 +58,37 @@ import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
-
-
-
 import { formSchema } from "./constants";
-import { questionsByPage } from './questions';
-
-
-
-
-
+import { questionsByPage } from "./questions";
 
 const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
-
+  const [messages, setMessages] = useState<
+    OpenAI.Chat.CreateChatCompletionRequestMessage[]
+  >([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
       model: "gpt-4-turbo-preview",
-    }
+    },
   });
-  
+
   const isLoading = form.formState.isSubmitting;
-  
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    
     try {
-      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = { role: "user", content: values.prompt };
+      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
+        role: "user",
+        content: values.prompt,
+      };
       const newMessages = [...messages, userMessage];
-      
-      const response = await axios.post('/api/conversation', { messages: newMessages });
+
+      const response = await axios.post("/api/conversation", {
+        messages: newMessages,
+      });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
     } catch (error: any) {
@@ -102,45 +100,51 @@ const ConversationPage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
 
-const getRandomQuestion = () => {
-  // Randomly select a page
-  const pages = Object.keys(questionsByPage);
-  const randomPageIndex = Math.floor(Math.random() * pages.length);
-  const randomPage = pages[randomPageIndex];
-  
-  // Randomly select a question from that page
-  const questionsOnSelectedPage = questionsByPage[randomPage as keyof typeof questionsByPage];
-  const randomQuestionIndex = Math.floor(Math.random() * questionsOnSelectedPage.length);
-  const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
-  
-  return randomQuestion;
-};
-const [randomQuestion,] = useState(getRandomQuestion());
+  const getRandomQuestion = () => {
+    // Randomly select a page
+    const pages = Object.keys(questionsByPage);
+    const randomPageIndex = Math.floor(Math.random() * pages.length);
+    const randomPage = pages[randomPageIndex];
 
+    // Randomly select a question from that page
+    const questionsOnSelectedPage =
+      questionsByPage[randomPage as keyof typeof questionsByPage];
+    const randomQuestionIndex = Math.floor(
+      Math.random() * questionsOnSelectedPage.length
+    );
+    const randomQuestion = questionsOnSelectedPage[randomQuestionIndex];
 
+    return randomQuestion;
+  };
+  const [randomQuestion] = useState(getRandomQuestion());
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      toast.success("Message copied to clipboard");
-    }, () => {
-      toast.error("Failed to copy message");
-    });
+    navigator.clipboard.writeText(text).then(
+      () => {
+        toast.success("Message copied to clipboard");
+      },
+      () => {
+        toast.error("Failed to copy message");
+      }
+    );
   };
-  
 
   // Example share functionality (this is a simple implementation and may vary depending on requirements)
   const handleShare = (message: string) => {
     if (navigator.share) {
-      navigator.share({
-        title: 'Conversation Message',
-        text: message,
-      }).then(() => {
-        toast.success("Message shared successfully");
-      }).catch((error) => {
-        toast.error("Message did not share.");
-      });
+      navigator
+        .share({
+          title: "Conversation Message",
+          text: message,
+        })
+        .then(() => {
+          toast.success("Message shared successfully");
+        })
+        .catch((error) => {
+          toast.error("Message did not share.");
+        });
     } else {
       // Fallback for browsers that do not support the Share API
       copyToClipboard(message);
@@ -148,107 +152,107 @@ const [randomQuestion,] = useState(getRandomQuestion());
   };
   //Speaking//
 
-    const [speaking, setSpeaking] = useState(false);
-    const [paused, setPaused] = useState(false);
-    const speak = (text: string) => {
-      if (!speaking && text) {
-        const utterance = new SpeechSynthesisUtterance(text);
-        setSpeaking(true);
-        utterance.onend = () => setSpeaking(false);
-        speechSynthesis.speak(utterance);
-      } else if (paused) { // If paused, resume speaking
-        speechSynthesis.resume();
-        setPaused(false);
-      } else { // If speaking, pause
-        speechSynthesis.pause();
-        setPaused(true);
+  const [speaking, setSpeaking] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const speak = (text: string) => {
+    if (!speaking && text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      setSpeaking(true);
+      utterance.onend = () => setSpeaking(false);
+      speechSynthesis.speak(utterance);
+    } else if (paused) {
+      // If paused, resume speaking
+      speechSynthesis.resume();
+      setPaused(false);
+    } else {
+      // If speaking, pause
+      speechSynthesis.pause();
+      setPaused(true);
+    }
+  };
+
+  useEffect(() => {
+    const handleSpeechEnd = () => {
+      setSpeaking(false);
+    };
+
+    speechSynthesis.addEventListener("end", handleSpeechEnd);
+
+    return () => {
+      speechSynthesis.removeEventListener("end", handleSpeechEnd);
+    };
+  }, []);
+
+  //Edit Message//
+
+  const [editedMessage, setEditedMessage] = useState<string>(""); // State to hold the edited message
+  const editedMessageRef = useRef<HTMLTextAreaElement>(null);
+  const handleSaveEditedMessage = () => {
+    // Get the edited message from the Textarea
+    const newMessage = editedMessageRef.current?.value ?? "";
+    // Update the prompt input with the edited message
+    form.setValue("prompt", newMessage);
+    // Close the drawer
+    // You can also clear the edited message state here if needed
+    setEditedMessage("");
+  };
+  const [message, setMessage] =
+    useState<OpenAI.Chat.CreateChatCompletionRequestMessage | null>(null); // Define message state
+
+  //Download //
+  const handleConvertToJPG = () => {
+    if (editedMessageRef.current) {
+      html2canvas(editedMessageRef.current).then((canvas) => {
+        const imgData = canvas.toDataURL("image/jpeg");
+        const downloadLink = document.createElement("a");
+        downloadLink.href = imgData;
+        downloadLink.download = "message.jpg";
+        downloadLink.click();
+      });
+    }
+  };
+
+  const handleConvertToPDF = () => {
+    try {
+      if (
+        editedMessageRef.current &&
+        message !== null &&
+        message !== undefined
+      ) {
+        const textContent = message.content?.toString() ?? "";
+
+        // Create a new jsPDF instance
+        const pdf = new jsPDF();
+
+        // Add text content to the PDF
+        pdf.text(textContent, 10, 10);
+
+        pdf.save("message.pdf");
+      } else {
+        console.error(
+          "Either editedMessageRef is not defined or message is null or undefined."
+        );
       }
-    };
-  
-    useEffect(() => {
-      const handleSpeechEnd = () => {
-        setSpeaking(false);
-      };
-  
-      speechSynthesis.addEventListener("end", handleSpeechEnd);
-  
-      return () => {
-        speechSynthesis.removeEventListener("end", handleSpeechEnd);
-      };
-    }, []);
-    
-    
-//Edit Message//
+    } catch (error) {
+      console.error("An error occurred while generating PDF:", error);
+    }
+  };
 
-    const [editedMessage, setEditedMessage] = useState<string>(''); // State to hold the edited message
-    const editedMessageRef = useRef<HTMLTextAreaElement>(null);
-    const handleSaveEditedMessage = () => {
-      // Get the edited message from the Textarea
-      const newMessage = editedMessageRef.current?.value ?? '';
-      // Update the prompt input with the edited message
-      form.setValue('prompt', newMessage);
-      // Close the drawer
-      // You can also clear the edited message state here if needed
-      setEditedMessage('');
-    };
-      const [message, setMessage] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage | null>(null); // Define message state
-
-    
-    //Download //
-    const handleConvertToJPG = () => {
-      if (editedMessageRef.current) {
-        html2canvas(editedMessageRef.current).then((canvas) => {
-          const imgData = canvas.toDataURL("image/jpeg");
-          const downloadLink = document.createElement("a");
-          downloadLink.href = imgData;
-          downloadLink.download = "message.jpg";
-          downloadLink.click();
-        });
-      }
-    };
-  
-    const handleConvertToPDF = () => {
-      try {
-        if (editedMessageRef.current && message !== null && message !== undefined) {
-          const textContent = message.content?.toString() ?? '';
-    
-          // Create a new jsPDF instance
-          const pdf = new jsPDF();
-    
-          // Add text content to the PDF
-          pdf.text(textContent, 10, 10);
-    
-          pdf.save('message.pdf');
-        } else {
-          console.error('Either editedMessageRef is not defined or message is null or undefined.');
-        }
-      } catch (error) {
-        console.error('An error occurred while generating PDF:', error);
-      }
-    };
-    
-    
-
-    
-    
-  
-  
-
-  return ( 
+  return (
     <div>
-  <Heading
-    title="Conversation"
-    description="Our most advanced conversation model."
-    icon={MessageSquare}
-    iconColor="text-violet-500"
-    bgColor="bg-violet-500/10"
-  />
-  <div className="px-4 lg:px-8">
-    <div>
-      <Form {...form}>
-        <form 
-          onSubmit={form.handleSubmit(onSubmit)} 
-          className="
+      <Heading
+        title="Conversation"
+        description="Our most advanced conversation model."
+        icon={MessageSquare}
+        iconColor="text-violet-500"
+        bgColor="bg-violet-500/10"
+      />
+      <div className="px-4 lg:px-8">
+        <div>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="
             rounded-lg 
             border 
             w-full 
@@ -260,146 +264,196 @@ const [randomQuestion,] = useState(getRandomQuestion());
             grid-cols-12
             gap-2
           "
-        >
-          <FormField
-            name="prompt"
-            render={({ field }) => (
-              <FormItem className="col-span-12 lg:col-span-10">
-                <FormControl className="m-0 p-0">
-                  {/* Replace Input with Textarea */}
-                  <Textarea
-                    className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                    disabled={isLoading} 
-                    placeholder={randomQuestion} 
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-        
-          <Button 
-            className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5" 
-            type="submit" 
-            disabled={isLoading} 
-            size="icon"
-          >
-            Generate
-          </Button>
-        </form>
-      </Form>
+            >
+              <FormField
+                name="prompt"
+                render={({ field }) => (
+                  <FormItem className="col-span-12 lg:col-span-10">
+                    <FormControl className="m-0 p-0">
+                      {/* Replace Input with Textarea */}
+                      <Textarea
+                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        disabled={isLoading}
+                        placeholder={randomQuestion}
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
 
+              <Button
+                className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5"
+                type="submit"
+                disabled={isLoading}
+                size="icon"
+              >
+                Generate
+              </Button>
+            </form>
+          </Form>
         </div>
         <div className="space-y-4 mt-4">
-  {isLoading && (
-    <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-      <Loader />
-    </div>
-  )}
-  {messages.length === 0 && !isLoading && (
-    <Empty label="No conversation started." />
-  )}
-  <div className="flex flex-col-reverse gap-y-4">
-  {messages.map((message, index) => (
-  <div 
-    key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
-    className={cn(
-      "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
-      message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
-    )}
-  >
-    <div className="flex items-start gap-x-8">
-      {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-      <div className="text-sm whitespace-pre-wrap flex-1">
-        {message.content?.toString().split('\n').map((line, lineIndex) => {
-          if (line.includes("###")) {
-            return <h1 key={lineIndex}><strong>{line.replace(/###/g, '')}</strong></h1>;
-          } else if (line.includes("####")) {
-            return <h2 key={lineIndex}><strong>{line.replace(/####/g, '')}</strong></h2>;
-          } else {
-            return (
-              <p key={lineIndex}>
-                {line.split(/\*\*(.*?)\*\*/g).map((text, textIndex) => {
-                  return textIndex % 2 === 0 ? text : <strong key={textIndex}>{text}</strong>;
-                })}
-              </p>
-            );
-          }
-        })}
-      </div>
+          {isLoading && (
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+              <Loader />
+            </div>
+          )}
+          {messages.length === 0 && !isLoading && (
+            <Empty label="No conversation started." />
+          )}
+          <div className="flex flex-col-reverse gap-y-4">
+            {messages.map((message, index) => (
+              <div
+                key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
+                className={cn(
+                  "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
+                  message.role === "user"
+                    ? "bg-white border border-black/10"
+                    : "bg-muted"
+                )}
+              >
+                <div className="flex items-start gap-x-8">
+                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                  <div className="text-sm whitespace-pre-wrap flex-1">
+                    {message.content
+                      ?.toString()
+                      .split("\n")
+                      .map((line, lineIndex) => {
+                        if (line.includes("###")) {
+                          return (
+                            <h1 key={lineIndex}>
+                              <strong>{line.replace(/###/g, "")}</strong>
+                            </h1>
+                          );
+                        } else if (line.includes("####")) {
+                          return (
+                            <h2 key={lineIndex}>
+                              <strong>{line.replace(/####/g, "")}</strong>
+                            </h2>
+                          );
+                        } else {
+                          return (
+                            <p key={lineIndex}>
+                              {line
+                                .split(/\*\*(.*?)\*\*/g)
+                                .map((text, textIndex) => {
+                                  return textIndex % 2 === 0 ? (
+                                    text
+                                  ) : (
+                                    <strong key={textIndex}>{text}</strong>
+                                  );
+                                })}
+                            </p>
+                          );
+                        }
+                      })}
+                  </div>
 
+                  <div className="absolute top-0 right-0 flex gap-x-2">
+                    <Clipboard
+                      onClick={() =>
+                        copyToClipboard(message.content?.toString() ?? "")
+                      }
+                      size={24}
+                      className="cursor-pointer text-neutral-700 hover:text-neutral-900"
+                    />
+                    <Share
+                      onClick={() =>
+                        handleShare(message.content?.toString() ?? "")
+                      }
+                      size={24}
+                      className="cursor-pointer text-neutral-700 hover:text-neutral-900"
+                    />
+                    {speaking && !paused ? (
+                      <Pause
+                        onClick={() => speak(message.content?.toString() ?? "")}
+                        size={24}
+                        className="cursor-pointer text-red-500 hover:text-purple-700"
+                      />
+                    ) : (
+                      <Speaker
+                        onClick={() => speak(message.content?.toString() ?? "")}
+                        size={24}
+                        className={cn("cursor-pointer", {
+                          "text-neutral-700 hover:text-neutral-900":
+                            !speaking || paused,
+                        })}
+                      />
+                    )}
+                    <Drawer>
+                      <DrawerTrigger asChild>
+                        <EditIcon
+                          size={24}
+                          className="cursor-pointer text-neutral-700 hover:text-neutral-900"
+                        />
+                      </DrawerTrigger>
+                      <DrawerContent>
+                        <div className="mx-auto w-full max-w-sm">
+                          <DrawerHeader>
+                            <DrawerTitle>Edit Message</DrawerTitle>
+                            <DrawerDescription>
+                              Edit the message and click save.
+                            </DrawerDescription>
+                          </DrawerHeader>
+                          <Textarea
+                            defaultValue={message.content?.toString() ?? ""}
+                            ref={editedMessageRef}
+                          />
+                          <DrawerFooter>
+                            <Button
+                              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full"
+                              onClick={handleSaveEditedMessage}
+                            >
+                              Save
+                            </Button>
+                            <DrawerClose />
+                            <DrawerClose asChild>
+                              <Button variant="outline">Cancel</Button>
+                            </DrawerClose>
+                          </DrawerFooter>
+                        </div>
+                      </DrawerContent>
+                    </Drawer>
+                    <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Download />
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>
+                            Download the following text
+                          </AlertDialogTitle>
+                          <AlertDialogDescription>
+                            <Textarea
+                              defaultValue={message.content?.toString() ?? ""}
+                              ref={editedMessageRef}
+                            />
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancel</AlertDialogCancel>
+                          {/* Convert to JPG action */}
 
-          
-          <div className="absolute top-0 right-0 flex gap-x-2">
-            <Clipboard onClick={() => copyToClipboard(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
-            <Share  onClick={() => handleShare(message.content?.toString() ?? '')} size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
-            {speaking && !paused ? (
-            <Pause onClick={() => speak(message.content?.toString() ?? '')} size={24}
-              className="cursor-pointer text-red-500 hover:text-purple-700"/>) : (
-            <Speaker onClick={() => speak(message.content?.toString() ?? '')} size={24}
-              className={cn("cursor-pointer", {"text-neutral-700 hover:text-neutral-900": !speaking || paused,})}/>)}
-            <Drawer>
-              <DrawerTrigger asChild>
-                <EditIcon size={24} className="cursor-pointer text-neutral-700 hover:text-neutral-900" />
-              </DrawerTrigger>
-              <DrawerContent>
-                <div className="mx-auto w-full max-w-sm">
-                  <DrawerHeader>
-                    <DrawerTitle>Edit Message</DrawerTitle>
-                    <DrawerDescription>Edit the message and click save.</DrawerDescription>
-                  </DrawerHeader>
-                  <Textarea defaultValue={message.content?.toString() ?? ''} ref={editedMessageRef} />
-                  <DrawerFooter>
-                    <Button className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full" 
-                     onClick={handleSaveEditedMessage}>Save</Button>
-                    <DrawerClose />
-                    <DrawerClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                    </DrawerClose>
-                  </DrawerFooter>
+                          <AlertDialogAction onClick={handleConvertToJPG}>
+                            As JPG
+                          </AlertDialogAction>
+                          {/* Convert to PDF action */}
+                          <AlertDialogAction onClick={handleConvertToPDF}>
+                            As PDF
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </div>
                 </div>
-                  </DrawerContent>
-                  </Drawer>
-                  <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Download />
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Download the following text</AlertDialogTitle>
-          <AlertDialogDescription>
-          <Textarea defaultValue={message.content?.toString() ?? ''} ref={editedMessageRef} />
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          {/* Convert to JPG action */}
-          
-        <AlertDialogAction onClick={handleConvertToJPG}>As JPG</AlertDialogAction>
-        {/* Convert to PDF action */}
-        <AlertDialogAction onClick={handleConvertToPDF}>As PDF</AlertDialogAction>
-        
-
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-                  
-
-
-                </div>
-            
+              </div>
+            ))}
           </div>
         </div>
-     
-    ))}
-
-
-  
-</div>
-        </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default ConversationPage;

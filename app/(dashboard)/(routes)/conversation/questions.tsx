@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const questionsByPage = {
   page1: [
@@ -42,7 +42,7 @@ export const questionsByPage = {
     "Compose a poem about the beauty of nature.",
     "Craft a letter of recommendation for a colleague.",
     "Write a short story set in a dystopian future.",
-   "Compose a letter to your favorite musician sharing how their music has impacted you.",
+    "Compose a letter to your favorite musician sharing how their music has impacted you.",
     "Craft a funny story about a mischievous pet.",
     "Write a poem about the changing seasons.",
     "Create a list of tips for starting a small business.",
