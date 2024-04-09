@@ -64,13 +64,28 @@ const PhotoPage = () => {
     defaultValues: {
       prompt: "",
       amount: "1",
-      resolution: "512x512",
+      resolution: "512x512", // Default resolution for DALL-E 2
       modelImage: "dall-e-2",
-      styleOption: "No Style",
+      styleOption: "Emotion",
       colorOption: "Tone",
-      // Set the default value of the style field
     },
   });
+
+  const filteredResolutionOptions = (modelImage: string) => {
+    if (modelImage === "dall-e-3") {
+      // If DALL-E 3 is selected, exclude certain resolutions
+      return resolutionOptions.filter(
+        (option) => !["256x256", "512x512"].includes(option.value)
+      );
+    } else if (modelImage === "dall-e-2") {
+      // If DALL-E 2 is selected, exclude certain resolutions
+      return resolutionOptions.filter(
+        (option) => !["1024x1792", "1792x1024"].includes(option.value)
+      );
+    }
+    // Default case: return all resolution options
+    return resolutionOptions;
+  };
 
   const isLoading = form.formState.isSubmitting;
 
@@ -156,11 +171,11 @@ const PhotoPage = () => {
   useEffect(() => {
     if (modelImage === "dall-e-3") {
       form.setValue("amount", "1");
-      form.setValue("resolution", "1024x1024");
+      form.setValue("resolution", "1024x1024"); // Set default resolution to 1024x1024
     } else {
       // Reset default values for other models
       form.setValue("amount", "1");
-      form.setValue("resolution", "512x512");
+      form.setValue("resolution", "512x512"); // Set default resolution to 512x512 for DALL-E 2
     }
   }, [modelImage, form]);
 
@@ -205,7 +220,58 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
-            {form.getValues("modelImage") === "dall-e-3" && (
+            {["dall-e-3"].includes(form.getValues("modelImage")) && (
+              <FormField
+                control={form.control}
+                name="resolution"
+                render={({ field, fieldState: { error } }) => (
+                  <FormItem className="col-span-12 lg:col-span-2">
+                    <Select
+                      disabled={isLoading}
+                      onValueChange={(value) => {
+                        field.onChange(value);
+                        // This is to clear errors if the users pick an option after an error was shown
+                        form.clearErrors("resolution");
+                      }}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger
+                          className={`border-2 ${
+                            error ? "border-red-500" : "border-gray-300"
+                          } rounded-md shadow-sm`}
+                        >
+                          <SelectValue>
+                            {field.value
+                              ? resolutionOptions.find(
+                                  (option) => option.value === field.value
+                                )?.label
+                              : "Resolution"}
+                          </SelectValue>
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {filteredResolutionOptions(
+                          form.getValues("modelImage")
+                        ).map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {error && (
+                      <span className="text-red-500 text-sm mt-1">
+                        {"Kindly select the resolution" || "Required"}
+                      </span>
+                    )}
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {["dall-e-3"].includes(form.getValues("modelImage")) && (
               <FormField
                 control={form.control}
                 name="styleOption"
@@ -219,7 +285,9 @@ const PhotoPage = () => {
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
+                          <SelectValue>
+                            {field.value= "Style"}
+                          </SelectValue>
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -276,7 +344,9 @@ const PhotoPage = () => {
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
+                        <SelectValue>
+                            {field.value= "Color"}
+                          </SelectValue>
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -291,6 +361,7 @@ const PhotoPage = () => {
                 )}
               />
             )}
+
             {form.getValues("modelImage") === "dall-e-2" && (
               <FormField
                 control={form.control}
@@ -309,23 +380,20 @@ const PhotoPage = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {form.getValues("modelImage") === "dall-e-3" ? (
-                          <SelectItem key="1024x1024" value="1024x1024">
-                            1024x1024
+                        {filteredResolutionOptions(
+                          form.getValues("modelImage")
+                        ).map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
                           </SelectItem>
-                        ) : (
-                          resolutionOptions.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
-                              {option.label}
-                            </SelectItem>
-                          ))
-                        )}
+                        ))}
                       </SelectContent>
                     </Select>
                   </FormItem>
                 )}
               />
             )}
+
             {form.getValues("modelImage") === "dall-e-2" && (
               <FormField
                 control={form.control}
@@ -361,6 +429,7 @@ const PhotoPage = () => {
                 )}
               />
             )}
+
             <FormField
               control={form.control}
               name="modelImage"
@@ -388,8 +457,9 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
+
             <Button
-              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full"
+              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-12 w-full"
               type="submit"
               disabled={isLoading}
               size="icon"

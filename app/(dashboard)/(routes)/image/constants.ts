@@ -8,8 +8,8 @@ export const formSchema = z.object({
   resolution: z.string().min(1),
   modelImage: z.string().min(1),
   styleOption: z.string().min(1),
-  colorOption: z.string().min(1),});
-
+  colorOption: z.string().min(1),
+});
 export const amountOptions = [
   {
     value: "1",
@@ -59,7 +59,17 @@ export const resolutionOptions = [
     value: "1024x1024",
     label: "1024x1024",
   },
+  {
+    value: "1024x1792",
+    label: "1024x1792",
+  },
+  {
+    value: "1792x1024",
+    label: "1792x1024",
+  },
+ 
 ];
+
 export const styleOption = [
   
   {
