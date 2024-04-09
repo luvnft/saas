@@ -42,15 +42,17 @@ export async function POST(
       apiKey: process.env.OPENAI_API_KEY,
     });
 
-    if (!isPro) {
-      await incrementApiLimit();
-    }
+    
 
     const response = await openai.chat.completions.create({
       model: 'gpt-4-turbo-preview',
       stream: true,
       messages,
     });
+    
+    if (!isPro) {
+      await incrementApiLimit();
+    }
    
     // Convert the response into a friendly text-stream
     const stream = OpenAIStream(response);

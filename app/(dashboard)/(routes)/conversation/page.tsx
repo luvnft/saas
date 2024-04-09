@@ -1,6 +1,9 @@
 "use client";
 
 import { useChat } from "ai/react";
+import ReactMarkdown from 'react-markdown';
+import rehypeSanitize from 'rehype-sanitize';
+import EmailContent from './email';
 
 import * as z from "zod";
 import axios from "axios";
@@ -278,51 +281,28 @@ const Chat = () => {
             <Empty label="No conversation started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message, index) => (
-              <div
-                key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
-                className={cn(
-                  "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
-                )}
-              >
-                <div className="flex items-start gap-x-8">
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  <div className="text-sm whitespace-pre-wrap flex-1">
-                    {message.content
-                      ?.toString()
-                      .split("\n")
-                      .map((line, lineIndex) => {
-                        if (line.includes("###")) {
-                          return (
-                            <h1 key={lineIndex}>
-                              <strong>{line.replace(/###/g, "")}</strong>
-                            </h1>
-                          );
-                        } else if (line.includes("####")) {
-                          return (
-                            <h2 key={lineIndex}>
-                              <strong>{line.replace(/####/g, "")}</strong>
-                            </h2>
-                          );
-                        } else {
-                          return (
-                            <p key={lineIndex}>
-                              {line
-                                .split(/\*\*(.*?)\*\*/g)
-                                .map((text, textIndex) => {
-                                  return textIndex % 2 === 0 ? (
-                                    text
-                                  ) : (
-                                    <strong key={textIndex}>{text}</strong>
-                                  );
-                                })}
-                            </p>
-                          );
-                        }
-                      })}
+          {messages.map((message, index) => {
+            
+    // Simple check for email-like content. Consider enhancing this logic.
+    const isEmailLikeContent = /Subject |Dear [A-Za-z]+,|Warm regards,/g.test(message.content);
+    return (
+      <div
+        key={index} // It's better to use a unique ID if available
+        className={cn(
+          "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
+          message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+        )}
+      >
+        <div className="flex items-start gap-x-8">
+          {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+          <div className="text-sm whitespace-pre-wrap flex-1">
+            {
+              isEmailLikeContent ? 
+              <EmailContent content={message.content || ""} /> :
+              <ReactMarkdown rehypePlugins={[rehypeSanitize]}>
+                {message.content || ""}
+              </ReactMarkdown>
+            }
                   </div>
                   <div className="absolute top-0 right-0 flex gap-x-2">
                     <Clipboard
@@ -422,7 +402,7 @@ const Chat = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </div>
