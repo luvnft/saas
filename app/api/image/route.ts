@@ -44,18 +44,34 @@ export async function POST(
       return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
     }
 
-    const response = await openai.images.generate({
-      model: modelImage,
-      prompt,
-      n: parseInt(amount, 10),
-      size: resolution,
-    });
+    const generateImage = async function(prompt:any, resolution:any, modelImage:any) {
+      const response = await openai.images.generate({
+        model: modelImage,
+        prompt,
+        n: 1, // one image per call as per API limitation
+        size: resolution,
+      });
+      return response.data;
+    }
+
+    // Initialize an array to hold the promises
+    let imagePromises = [];
+
+    // For the specified amount, push image generation promises into the array
+    for (let i = 0; i < parseInt(amount, 10); i++) {
+      imagePromises.push(generateImage(prompt, resolution, modelImage));
+    }
+
+    // Await all the image generation promises
+    const images = await Promise.all(imagePromises);
 
     if (!isPro) {
       await incrementApiLimit();
     }
 
-    return NextResponse.json(response.data);
+    const imageUrls = images.map(response => response[0]); // Access the first image URL directly from the response array
+    return NextResponse.json(imageUrls); // Respond with image URLs
+
   } catch (error) {
     console.log('[IMAGE_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });

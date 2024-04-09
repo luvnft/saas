@@ -30,7 +30,15 @@ export const amountOptions = [
   {
     value: "5",
     label: "5 Photos"
-  }
+  },
+  {
+    value: "6",
+    label: "6 Photos"
+  },
+  {
+    value: "7",
+    label: "7 Photos"
+  },
 ];
 
 export const modelforImage = [

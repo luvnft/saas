@@ -394,7 +394,7 @@ const PhotoPage = () => {
               />
             )}
 
-            {form.getValues("modelImage") === "dall-e-2" && (
+           
               <FormField
                 control={form.control}
                 name="amount"
@@ -412,23 +412,19 @@ const PhotoPage = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {form.getValues("modelImage") === "dall-e-3" ? (
-                          <SelectItem key="1" value="1">
-                            1 Photo
-                          </SelectItem>
-                        ) : (
+                        {
                           amountOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
                             </SelectItem>
                           ))
-                        )}
+                        }
                       </SelectContent>
                     </Select>
                   </FormItem>
                 )}
               />
-            )}
+
 
             <FormField
               control={form.control}
