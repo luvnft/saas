@@ -9,7 +9,6 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 
 
-export const runtime = "edge";
 
 
 
