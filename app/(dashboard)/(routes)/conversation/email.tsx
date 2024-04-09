@@ -38,3 +38,4 @@ import { FiCopy } from 'react-icons/fi';
         );
       };
       export default EmailContent;
+      
