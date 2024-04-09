@@ -1,5 +1,7 @@
 "use client";
 
+import { useChat } from "ai/react";
+
 import * as z from "zod";
 import axios from "axios";
 import { MessageSquare } from "lucide-react";
@@ -61,12 +63,8 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
 
-const ConversationPage = () => {
-  const router = useRouter();
-  const proModal = useProModal();
-  const [messages, setMessages] = useState<
-    OpenAI.Chat.CreateChatCompletionRequestMessage[]
-  >([]);
+const Chat = () => {
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -77,30 +75,6 @@ const ConversationPage = () => {
   });
 
   const isLoading = form.formState.isSubmitting;
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
-        role: "user",
-        content: values.prompt,
-      };
-      const newMessages = [...messages, userMessage];
-
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages,
-      });
-      setMessages((current) => [...current, userMessage, response.data]);
-      form.reset();
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
-        proModal.onOpen();
-      } else {
-        toast.error("Something went wrong.");
-      }
-    } finally {
-      router.refresh();
-    }
-  };
 
   const getRandomQuestion = () => {
     // Randomly select a page
@@ -251,7 +225,7 @@ const ConversationPage = () => {
         <div>
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(onSubmit)}
+              onSubmit={handleSubmit}
               className="
             rounded-lg 
             border 
@@ -267,15 +241,15 @@ const ConversationPage = () => {
             >
               <FormField
                 name="prompt"
-                render={({ field }) => (
+                render={() => (
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl className="m-0 p-0">
-                      {/* Replace Input with Textarea */}
+                      {/* Replace Textarea with input */}
                       <Textarea
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
+                        value={input}
                         placeholder={randomQuestion}
-                        {...field}
+                        onChange={handleInputChange}
                       />
                     </FormControl>
                   </FormItem>
@@ -293,6 +267,7 @@ const ConversationPage = () => {
             </form>
           </Form>
         </div>
+
         <div className="space-y-4 mt-4">
           {isLoading && (
             <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
@@ -349,7 +324,6 @@ const ConversationPage = () => {
                         }
                       })}
                   </div>
-
                   <div className="absolute top-0 right-0 flex gap-x-2">
                     <Clipboard
                       onClick={() =>
@@ -456,4 +430,4 @@ const ConversationPage = () => {
   );
 };
 
-export default ConversationPage;
+export default Chat;

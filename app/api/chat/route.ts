@@ -1,15 +1,18 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { OpenAIStream, StreamingTextResponse } from 'ai';
+
 
 import { checkSubscription } from "@/lib/subscription";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+export const runtime = "edge";
+
+
+
 const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   role: "system",
   content: "You are a helpful assistant by cogify and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning.  If someone ask for image genration or code genration or music generation then tell them to use other features avaliable in cogify"
@@ -20,8 +23,7 @@ export async function POST(
 ) {
   try {
     const { userId } = auth();
-    const body = await req.json();
-    const { messages  } = body;
+    const { messages } = await req.json();
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -46,16 +48,21 @@ export async function POST(
       apiKey: process.env.OPENAI_API_KEY,
     });
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4-turbo-preview",
-      messages: [instructionMessage, ...messages], 
-    });
-
     if (!isPro) {
       await incrementApiLimit();
     }
 
-    return NextResponse.json(response.choices[0].message);
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4-turbo-preview',
+      stream: true,
+      messages,
+    });
+   
+    // Convert the response into a friendly text-stream
+    const stream = OpenAIStream(response);
+    // Respond with the stream
+    return new StreamingTextResponse(stream);
+
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
