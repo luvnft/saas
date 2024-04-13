@@ -34,10 +34,10 @@ const routes = [
     color: "text-violet-500",
   },
   {
-    label: 'Text to speech Generation',
-    icon: Megaphone,
-    color: "text-emerald-500",
-    href: '/text-to-speech',
+    label: 'Image Generation',
+    icon: ImageIcon,
+    color: "text-pink-700",
+    href: '/image',
   },
   {
     label: 'Image Insight',
@@ -45,11 +45,12 @@ const routes = [
     color: "text-Blue-500",
     href: '/image-insight',
   },
+ 
   {
-    label: 'Image Generation',
-    icon: ImageIcon,
-    color: "text-pink-700",
-    href: '/image',
+    label: 'Text to speech Generation',
+    icon: Megaphone,
+    color: "text-emerald-500",
+    href: '/text-to-speech',
   },
   {
     label: 'Entertainment Suggestions',

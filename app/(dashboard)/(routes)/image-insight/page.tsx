@@ -123,7 +123,7 @@ function Minimal() {
         Kindly upload the image and then enter your message to get started.
       </div>
 
-      <div className="flex justify-center mt-5 ">
+      <div className="justify-center ">
         <div className={st.center}>
           <lr-config
             ctx-name="my-uploader"
@@ -132,10 +132,10 @@ function Minimal() {
             multiple={true}
             img-only="true"
           ></lr-config>
-          <lr-file-uploader-regular
+          <lr-file-uploader-inline
             ctx-name="my-uploader"
             css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@${PACKAGE_VERSION}/web/lr-file-uploader-regular.min.css`}
-          ></lr-file-uploader-regular>
+          ></lr-file-uploader-inline>
           <lr-upload-ctx-provider
             ctx-name="my-uploader"
             ref={ctxProviderRef}
