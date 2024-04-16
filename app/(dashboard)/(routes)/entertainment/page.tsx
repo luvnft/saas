@@ -6,7 +6,10 @@ import { Film } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import ReactMarkdown from "react-markdown";
+import dynamic from 'next/dynamic';
+
+const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
+
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 

@@ -1,16 +1,20 @@
 "use client";
 
+"use client";
+
 import * as z from "zod";
 import axios from "axios";
 import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
-import Head from "next/head"; // Import Head from next/head
-
+import Head from "next/head";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import ReactMarkdown from "react-markdown";
+import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
+
+// Dynamically imported components
+const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
@@ -23,7 +27,6 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
-
 import { formSchema } from "./constants";
 
 const CodePage = () => {

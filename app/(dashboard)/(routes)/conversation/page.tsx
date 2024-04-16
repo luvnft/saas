@@ -1,12 +1,14 @@
 "use client";
 
 import { useChat } from "ai/react";
-import ReactMarkdown from 'react-markdown';
 import rehypeSanitize from 'rehype-sanitize';
-import EmailContent from './email';
+
+import dynamic from 'next/dynamic';
+
+const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
+const EmailContent = dynamic(() => import('./email'), { ssr: false });
 
 import * as z from "zod";
-import axios from "axios";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
@@ -43,13 +45,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-import html2canvas from "html2canvas";
-
-import jsPDF from "jspdf";
-
 import { Textarea } from "@/components/ui/textarea";
 
-import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 
 import { BotAvatar } from "@/components/bot-avatar";
@@ -177,9 +174,10 @@ const Chat = () => {
     useState<OpenAI.Chat.CreateChatCompletionRequestMessage | null>(null); // Define message state
 
   //Download //
-  const handleConvertToJPG = () => {
-    if (editedMessageRef.current) {
-      html2canvas(editedMessageRef.current).then((canvas) => {
+  const handleConvertToJPG = async () => {
+    const html2canvas = await import("html2canvas");
+      if (editedMessageRef.current) {
+      html2canvas.default(editedMessageRef.current).then((canvas) => {
         const imgData = canvas.toDataURL("image/jpeg");
         const downloadLink = document.createElement("a");
         downloadLink.href = imgData;
@@ -189,7 +187,9 @@ const Chat = () => {
     }
   };
 
-  const handleConvertToPDF = () => {
+  const handleConvertToPDF = async () => {
+    const jsPDF = (await import('jspdf')).jsPDF;
+
     try {
       if (
         editedMessageRef.current &&
