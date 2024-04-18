@@ -51,11 +51,12 @@ export const FreeCounter = ({
             <p>
               {apiLimitCount} / {MAX_FREE_COUNTS} Free Generations
             </p>
+            <div className="desktop-only"> 
             <HoverCard>
       <HoverCardTrigger asChild>
         <Button variant="link">Learn More</Button>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80">
+      <HoverCardContent className="w-80 ">
         <div className="flex justify-between space-x-4">
           <Avatar>
             <AvatarImage src="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
@@ -79,6 +80,7 @@ export const FreeCounter = ({
         </div>
       </HoverCardContent>
     </HoverCard>
+    </div>
             
             <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} />
           </div>
