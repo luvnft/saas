@@ -29,6 +29,7 @@ import { formSchema, modelSelected } from "./constants";
 
 import { imagequestionsByPage } from "./imagequestion";
 import { Textarea } from "@/components/ui/textarea";
+import Head from "next/head";
 
 const getRandomQuestion = () => {
   // Randomly select a page
@@ -85,6 +86,13 @@ const MusicPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>Text-to-speech - Cogify</title>
+        <meta
+          name="description"
+          content="The the real time real voice generation for free"
+        />
+      </Head>
       <Heading
         title="Text to speech Generation"
         description="Turn your prompt into Real speech."

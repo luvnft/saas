@@ -1,21 +1,25 @@
 "use client";
 
+"use client";
+
 import * as z from "zod";
 import axios from "axios";
-import { Film } from "lucide-react";
+import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
+import Head from "next/head";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import dynamic from 'next/dynamic';
-
-const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
-
+import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
+
+// Dynamically imported components
+const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
@@ -23,10 +27,7 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
-
 import { formSchema } from "./constants";
-import { Textarea } from "@/components/ui/textarea";
-import Head from "next/head";
 
 const CodePage = () => {
   const router = useRouter();
@@ -52,9 +53,7 @@ const CodePage = () => {
       };
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post("/api/entertainment", {
-        messages: newMessages,
-      });
+      const response = await axios.post("/api/code", { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
 
       form.reset();
@@ -72,16 +71,16 @@ const CodePage = () => {
   return (
     <div>
       <Head>
-        <title>Entertainment Suggestion - Cogify</title>
+        <title>Code Generation - Cogify</title>
         <meta
           name="description"
-          content="Get the perfect Entertainment Suggestions in your hand."
+          content="Generate code snippets from descriptive text."
         />
       </Head>
       <Heading
-        title="Entertaiment Suggestion"
-        description="Get a awesome movie or series suggestion."
-        icon={Film}
+        title="Code Generation"
+        description="Generate code using descriptive text."
+        icon={Code}
         iconColor="text-green-700"
         bgColor="bg-green-700/10"
       />
@@ -111,7 +110,7 @@ const CodePage = () => {
                       <Textarea
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Thrill, action, love, drama, all combination - Money Heist."
+                        placeholder="Simple toggle button using react hooks."
                         {...field}
                       />
                     </FormControl>

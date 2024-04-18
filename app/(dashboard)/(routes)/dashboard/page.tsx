@@ -7,12 +7,20 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 import { tools } from "@/constants";
+import Head from "next/head";
 
 export default function HomePage() {
   const router = useRouter();
 
   return (
     <div>
+      <Head>
+        <title>Dashboard - Cogify</title>
+        <meta
+          name="description"
+          content="Access CHATGPT 4 Unlimited for free including Image Generation."
+        />
+      </Head>
       <div className="mb-8 space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           Explore the power of AI

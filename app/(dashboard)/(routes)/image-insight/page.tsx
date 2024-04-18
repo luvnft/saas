@@ -24,6 +24,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { formSchema } from "./constants";
 import st from "./styles.module.css";
 import { Eye, Image, ImageOff, MessageSquare } from "lucide-react";
+import Head from "next/head";
 
 LR.registerBlocks(LR);
 
@@ -110,6 +111,13 @@ function Minimal() {
 
   return (
     <div className={st.pageWrapper}>
+      <Head>
+        <title>Image Insight - Cogify</title>
+        <meta
+          name="description"
+          content="Know everything about your image for free. "
+        />
+      </Head>
       <Heading
         title="Image Insight"
         description="Introducing our cutting-edge image interpretation and question-answering marvel"

@@ -62,6 +62,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
+import Head from "next/head";
 
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -217,6 +218,13 @@ const Chat = () => {
 
   return (
     <div>
+      <Head>
+        <title>Conversation- Cogify</title>
+        <meta
+          name="description"
+          content="Generate AI prompt with CHATGPT 4 for free!."
+        />
+      </Head>
       <Heading
         title="Conversation"
         description="Our most advanced conversation model."

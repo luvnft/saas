@@ -36,6 +36,7 @@ import {
 
 import { audioquestionsByPage } from "./audioquestion";
 import { Textarea } from "@/components/ui/textarea";
+import Head from "next/head";
 
 
 const getRandomQuestion = () => {
@@ -182,6 +183,13 @@ const PhotoPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>Image Generation - Cogify</title>
+        <meta
+          name="description"
+          content="Get AI based Image with DAll-e3 for free "
+        />
+      </Head>
       <Heading
         title="Image Generation"
         description="Turn your prompt into an image."
