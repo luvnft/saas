@@ -63,17 +63,17 @@ export const Loaderimage = () => {
 }
 export const LoaderAudio = () => {
   const [progress, setProgress] = React.useState(0);
-  const [startTime, setStartTime] = React.useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (progress < 100) {
+        setProgress(prevProgress => prevProgress + 10);
+      } else {
+        clearInterval(interval);
+      }
+    }, 500); // 5 seconds in milliseconds
 
-  React.useEffect(() => {
-    setStartTime(Date.now());
-    const timer = setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      const progressPercentage = (elapsedTime / 3000) * 100;
-      setProgress(progressPercentage >= 100 ? 100 : progressPercentage);
-    }, 50); // Adjust this interval for smoother animation
-    return () => clearInterval(timer);
-  }, [startTime]);
+    return () => clearInterval(interval);
+  }, [progress]);
 
   return(
     <div className="h-full flex flex-col gap-y-4 items-center justify-center">
@@ -91,6 +91,12 @@ export const LoaderAudio = () => {
       <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
         <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
       </div>
+      <div>
+        <CircularProgress value={progress} color='grey' size='70px' thickness='7px'>
+          <CircularProgressLabel>{`${progress}%`}</CircularProgressLabel>
+        </CircularProgress>
+      </div>
+      
     </div>
   );
 }
