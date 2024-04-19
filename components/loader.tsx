@@ -1,25 +1,15 @@
 "use client"
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 
 import Image from "next/image";
 import * as React from "react";
 import { Progress } from "@/components/ui/progress";
+import { useState, useEffect } from "react";
 
 
 
 export const Loader = () => {
-  const [progress, setProgress] = React.useState(0);
-  const [startTime, setStartTime] = React.useState(0);
-
-  React.useEffect(() => {
-    setStartTime(Date.now());
-    const timer = setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      const progressPercentage = (elapsedTime / 3000) * 100;
-      setProgress(progressPercentage >= 100 ? 100 : progressPercentage);
-    }, 50); // Adjust this interval for smoother animation
-    return () => clearInterval(timer);
-  }, [startTime]);
-
+  
   return (
     <div className="h-full flex flex-col gap-y-4 items-center justify-center">
       <div className="w-10 h-10 relative animate-spin">
@@ -29,27 +19,26 @@ export const Loader = () => {
         fill />
       </div>
       <p className="text-sm text-muted-foreground">Cogify is thinking...</p>
-      <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
-        <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
-      </div>
+      
           </div>
   );
 };
 
 export const Loaderimage = () => {
-  const [progress, setProgress] = React.useState(0);
-  const [startTime, setStartTime] = React.useState(0);
+  const [progress, setProgress] = useState(0);
 
-  React.useEffect(() => {
-    setStartTime(Date.now());
-    const timer = setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      const progressPercentage = (elapsedTime / 3000) * 100;
-      setProgress(progressPercentage >= 100 ? 100 : progressPercentage);
-    }, 50); // Adjust this interval for smoother animation
-    return () => clearInterval(timer);
-  }, [startTime]);
-  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (progress < 100) {
+        setProgress(prevProgress => prevProgress + 10);
+      } else {
+        clearInterval(interval);
+      }
+    }, 1600); // 16 seconds in milliseconds
+
+    return () => clearInterval(interval);
+  }, [progress]);
+
   return(
     <div className="h-full flex flex-col gap-y-4 items-center justify-center">
       <div className="w-10 h-10 relative animate-spin">
@@ -64,8 +53,10 @@ export const Loaderimage = () => {
       <p className="text-sm text-muted-foreground">
       Cogify is generating image...
       </p>
-      <div className="w-[60%]" style={{ backgroundColor: 'white', height: '10px' }}>
-        <Progress value={progress} style={{ backgroundColor: 'black', height: '100%', borderRadius: '5px'}} />
+      <div>
+        <CircularProgress value={progress} color='grey' size='70px' thickness='7px'>
+          <CircularProgressLabel>{`${progress}%`}</CircularProgressLabel>
+        </CircularProgress>
       </div>
           </div>
   );
