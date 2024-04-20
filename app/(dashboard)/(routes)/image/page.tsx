@@ -161,14 +161,7 @@ const PhotoPage = () => {
       );
     }
   }, [modelImage]);
-  useEffect(() => {
-    // Show the second message when showSecondMessage state is true
-    if (showSecondMessage) {
-      toast.success(
-        "You can switch back to DALL-E 2 for more images at a time"
-      );
-    }
-  }, [showSecondMessage]);
+
 
   useEffect(() => {
     if (modelImage === "dall-e-3") {
