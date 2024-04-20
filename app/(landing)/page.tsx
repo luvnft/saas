@@ -5,18 +5,19 @@ import { Footer } from "@/components/footer";
 import { TypewriterEffectSmoothDemo } from "@/components/typing-effect";
 import Navbar from "@/components/ui/navbar";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
-import { clients } from "@/lib/constant";
 import CookieConsentComponent from "@/components/CookieConsent";
+import { HeroHighlights } from "./(try)/conversation/text";
+
+
 
 const LandingPage = () => {
   return (
     <div>
       <Navbar />
       <LandingHero />
-      <div className="text-sm md:text-xl font-bold text-zinc-800 flex justify-center ">
-        Start exploring the power of AI
-      </div>
       <TabsDemo />
+      <HeroHighlights/>
+
 
       <LandingContent />
 
