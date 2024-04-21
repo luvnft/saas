@@ -15,6 +15,7 @@ export const Loader = () => {
       <div className="w-10 h-10 relative animate-spin">
         <Image alt="Logo" 
         src="/logo.png" 
+        draggable={false}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         fill />
       </div>
@@ -45,6 +46,7 @@ export const Loaderimage = () => {
         <Image
           alt="Logo"
           src="/logo.png"
+          draggable={false}
           
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -83,6 +85,7 @@ export const LoaderAudio = () => {
           src="/logo.png"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
+          draggable={false}
         />
       </div>
       <p className="text-sm text-muted-foreground">
