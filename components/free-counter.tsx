@@ -53,9 +53,7 @@ export const FreeCounter = ({
             </p>
             <div className="desktop-only"> 
             <HoverCard>
-      <HoverCardTrigger asChild>
-        <Button variant="link">Learn More</Button>
-      </HoverCardTrigger>
+     
       <HoverCardContent className="w-80 ">
         <div className="flex justify-between space-x-4">
           <Avatar>
