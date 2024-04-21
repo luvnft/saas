@@ -1,10 +1,9 @@
-"use state"
+"use state";
 
 import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
-import Link from 'next/link';
-
+import Link from "next/link";
 
 export function Card1() {
   return (
@@ -27,7 +26,7 @@ export function Card1() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Create an alien planet&apos;s ecosystem, featuring bizarre flora and fauna, strange geology, and atmospheric anomalies
+          A dog eating biscuit with his owner wearing blue shirt and white shoe inside a forest{" "}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
@@ -39,23 +38,23 @@ export function Card1() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
-          <Link href='/dashboard'>
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-          >
-            Try now →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Try now →
+            </CardItem>
           </Link>
-          <Link href='/dashboard'>
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-          >
-            Get start →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Get start →
+            </CardItem>
           </Link>
         </div>
       </CardBody>
@@ -84,7 +83,7 @@ export function Card2() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Craft mandalas incorporating vibrant colors and unique patterns that will inspire feelings of happiness and well-being.
+         Few montains with snow androma galaxy in the background, a large comet from Galaxy{" "}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
@@ -96,23 +95,23 @@ export function Card2() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
-        <Link href='/dashboard'> 
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-          >
-            Try now →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Try now →
+            </CardItem>
           </Link>
-          <Link href='/dashboard'>
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-        >
-            Get start →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Get start →
+            </CardItem>
           </Link>
         </div>
       </CardBody>
@@ -140,7 +139,7 @@ export function Card3() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Reimagine scenes from the literary classic 1700&apos;s, blending indian traditional and modern elements to add a unique artistic touch for a marriage.
+          A girl having some groceries, rushing to her home while there is a war outside with tank {"COMIC STYLE"}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
@@ -152,23 +151,23 @@ export function Card3() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
-        <Link href='/dashboard'> 
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-          >
-            Try now →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Try now →
+            </CardItem>
           </Link>
-          <Link href='/dashboard'> 
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-          >
-            Get start →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Get start →
+            </CardItem>
           </Link>
         </div>
       </CardBody>
@@ -196,7 +195,7 @@ export function Card4() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Create an anime character with large, detailed eyes and distinctive Japanese anime aesthetics
+          A charming street in early BC in india, where all the vendors are female wearing saree and selling clay items{" "}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
@@ -208,23 +207,23 @@ export function Card4() {
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
-        <Link href='/dashboard'> 
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-          >
-            Try now →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Try now →
+            </CardItem>
           </Link>
-          <Link href='/dashboard'> 
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-          >
-            Get start →
-          </CardItem>
+          <Link href="/dashboard">
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Get start →
+            </CardItem>
           </Link>
         </div>
       </CardBody>
