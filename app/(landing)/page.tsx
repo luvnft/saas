@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { TypewriterEffectSmoothDemo } from "@/components/typing-effect";
 import Navbar from "@/components/ui/navbar";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
+import { clients } from "@/lib/constant";
 import CookieConsentComponent from "@/components/CookieConsent";
 import { HeroHighlights } from "./(try)/conversation/text";
 

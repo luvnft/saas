@@ -22,7 +22,7 @@ export function HeroHighlights() {
       >
         Start exploring the power of generative AI {" "}
         <Highlight className="text-black dark:text-white">
-          Free Always, No Ads, No Tracking, No Bakc*odi!!!
+          Free Always, No Ads, No Tracking!!!
         </Highlight>
       </motion.h1>
     </HeroHighlight>
