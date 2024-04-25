@@ -481,7 +481,7 @@ const PhotoPage = () => {
               <div className="relative aspect-square">
                 <Image
                   src={src}
-                  alt="Generated"
+                  alt="Generated Image"
                   width={1} // Set your desired width
                   height={1} // Set your desired height
                   layout="responsive" // Use responsive layout for better performance
