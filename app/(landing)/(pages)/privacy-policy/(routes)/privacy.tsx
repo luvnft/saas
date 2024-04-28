@@ -8,7 +8,7 @@ export const PrivacyPolicy = () => {
     
     <div className="items-center" style={styles.container}>
       <p > <br/><br/>
-      Welcome to <a style={{ fontWeight: 'bold' }} href='https://Cogify.studio/'> https://Cogify.studio </a> and/or we&apos;re passionate about pushing the boundaries of artificial intelligence to enhance creativity and productivity. Our mission is to empower users with cutting edge AI tools for various tasks, from generating prompts to creating stunning images and converting text to speech seamlessly.<br/><br/>
+      Welcome to <a style={{ fontWeight: 'bold' }} href='https://Cogify.social/'> https://Cogify.social </a> and/or we&apos;re passionate about pushing the boundaries of artificial intelligence to enhance creativity and productivity. Our mission is to empower users with cutting edge AI tools for various tasks, from generating prompts to creating stunning images and converting text to speech seamlessly.<br/><br/>
       With a dedicated team of experts in AI and machine learning, we strive to provide innovative solutions that simplify complex processes. Cogify is more than just a platform; it&apos;s a gateway to limitless possibilities, whether you&apos;re a writer seeking inspiration, a designer in need of visuals, or a developer looking for efficient code generation.<br/><br/>
       
 We believe in democratizing AI, making advanced technologies accessible to everyone. Transparency, reliability, and user satisfaction are at the core of everything we do. Join us on the journey to harness the power of AI and unlock your creativity with Cogify<br/><br/>
