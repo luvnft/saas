@@ -4,7 +4,6 @@ import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 
 
-import { monitorOpenAI } from '@newrelic/openai-observability';
 
 import { checkSubscription } from "@/lib/subscription";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
@@ -13,10 +12,7 @@ const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   role: "system",
   content: "You are a helpful assistant by cogify and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning.  If someone ask for image genration or code genration or music generation then tell them to use other features avaliable in cogify"
 };
-monitorOpenAI(OpenAI, {
-  applicationName: 'cogify',
-  newRelicApiKey: 'eu01xx5f9b8c90af1d54048c9f5f3ad5FFFFNRAL',  // set the environment variable NEW_RELIC_INSERT_KEY or enter your insert key here
-});
+
 
 
 export async function POST(
