@@ -27,7 +27,7 @@ export const Plans = () =>{
                 Generative AI at your tip where {"you'll"} get total of 50 generation for free
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />50 Free generation
+                    <CheckIcon />500 Free generation
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
