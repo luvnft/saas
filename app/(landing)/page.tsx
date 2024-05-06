@@ -8,6 +8,7 @@ import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
 import { clients } from "@/lib/constant";
 import CookieConsentComponent from "@/components/CookieConsent";
 import { HeroHighlights } from "./(try)/conversation/text";
+import { PlaceholdersAndVanishInputDemo } from "./(try)/conversation/placeholder";
 
 
 
@@ -16,7 +17,9 @@ const LandingPage = () => {
     <div>
       <Navbar />
       <LandingHero />
+      <PlaceholdersAndVanishInputDemo/>
       <TabsDemo />
+
       <HeroHighlights/>
 
 
