@@ -26,7 +26,7 @@ export function Card1() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          A dog eating biscuit with his owner wearing blue shirt and white shoe inside a forest{" "}
+          A dog owner feeding his dog with biscuits where his owner wearing blue shirt and white shoe inside a forest{" "}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
