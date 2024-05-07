@@ -71,7 +71,7 @@ const Chat = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      model: "gpt-4-turbo-preview",
+      model: "gpt-4",
     },
   });
 
