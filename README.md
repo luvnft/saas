@@ -104,7 +104,6 @@ This command fetches the public IP of your server, which you might need for acce
 ```bash
 curl ifconfig.me
 ```
-Check For your IP.
 
 ### Step 7: Configure MySQL to Allow Remote Connections:
 By default, MySQL doesn't allow connections from remote hosts. Edit the MySQL config file to change this:
