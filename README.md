@@ -35,17 +35,91 @@ To set up your own version of Cogify.Social, follow these steps:
    ```bash
    cp .env.example .env
    ```
+5. **Run the prisma for database:**
+   ```bash
+   npx prisma db generate
+   npx prisma db push
+   ```
 
-4. **Run the development server:**
+6. **Run the development server:**
    ```bash
    npm run dev
    ```
+
+✨**IMPORTANT**
+
+ **Run the database in server:**
+## Setting Up and Hosting the Database on Ubuntu 🐬
+
+Cogify.Social uses a MySQL database to manage data. Here is a step-by-step guide to help you create and host the database on an Ubuntu server:
+
+### Prerequisites:
+Make sure you have Ubuntu server set up and you have administrative (sudo) rights.
+
+### Step 1: Update Ubuntu packages:
+```bash
+sudo apt update
+```
+
+### Step 2: Install MySQL Server:
+```bash
+sudo apt install mysql-server
+```
+
+### Step 3: Check MySQL Service Status:
+This step ensures that MySQL is installed and running on your system.
+```bash
+sudo systemctl status mysql
+```
+
+### Step 4: Secure Access to MySQL:
+Log into MySQL shell as the root user:
+```bash
+sudo mysql
+```
+
+### Step 5: Create a New MySQL User:
+Once inside MySQL Shell, you might want to create a new user and grant privileges for better security and management. Execute the following SQL commands:
+```sql
+SELECT user FROM mysql.user;
+CREATE USER 'USERNAME'@'%' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO 'USERNAME'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Step 6: Obtain Your Server IP Address:
+This command fetches the public IP of your server, which you might need for accessing your MySQL server remotely.
+```bash
+curl ifconfig.me
+```
+Check For your IP.
+
+### Step 7: Configure MySQL to Allow Remote Connections:
+By default, MySQL doesn't allow connections from remote hosts. Edit the MySQL config file to change this:
+```bash
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+In the editor, look for the line that says `bind-address` and change its value from `127.0.0.1` to `0.0.0.0`.
+
+### Step 8: Restart MySQL to Apply Changes:
+```bash
+sudo systemctl restart mysql
+```
+
+### Enjoy Your Database 🎉:
+Your MySQL database is now set up and configured to accept connections remotely using the public IP of your server.
+
+ℹ️ **Note:** For security purposes, it is highly recommended to use a firewall to restrict access to your MySQL server and to use SSL for data encryption if your database will be accessed over the internet.
+✅ **For cloud server like azure and AWS etc:** Open port 3306, 80 TCP. 
+💭**Your database URL: DATABASE_URL= mysql://USERNAME:PASSWORD@YOURSERVERIP:3306/sample?usessl=true**
+
 
 The site should now be running on [http://localhost:3000](http://localhost:3000)!
 
 ### Built With 🛠️
 
-- **Next.js 13** - The React framework for production
+- **Next.js 14** - The React framework for production
 - **React** - A JavaScript library for building user interfaces
 - **TypeScript (TSX)** - Superset of JavaScript for type-safe code
 - **Clerk** - For secure user management and authentication
