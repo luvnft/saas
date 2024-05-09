@@ -13,8 +13,8 @@ Powered by cutting-edge technologies like Next.js 13, React, TypeScript, and mor
 - **Whatsapp integration:** Send your message to [Here](https://wa.me/919831047163) to continue these awesome features in whatsapp. Start enjoying by saying **Hi**. 
 - **Text to Speech:** Convert your text into natural-sounding speech seamlessly with more then 5 speaking model. 🗣️
 - **More features are on the way**
-- ### We build everything at no cost, Including Web domain, Chatgpt API Key, 24*7 Web hosting, SMTP Email Hosting for marketing etc - **Everything** . 
-Fill this form and we will reach out to you with all the information quickly. [Help](https://cogify.social/help)
+- ### We build everything at no cost, Including Web domain, Chatgpt API Key, 24*7 Web hosting, SMTP Email Hosting for marketing etc - **Everything** .
+- Fill this form and we will reach out to you with all the information quickly. [Help](https://cogify.social/help)
 
 <img width="1788" alt="Cogify Image Generation" src="https://github.com/Shubham-sharma8/saas/assets/96993718/63efb566-c281-4220-bfc4-906632841317">
 
