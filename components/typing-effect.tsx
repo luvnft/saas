@@ -8,7 +8,7 @@ export function TypewriterEffectSmoothDemo() {
   const { isSignedIn } = useAuth();
   const words = [
     {
-      text: "we",
+      text: "We",
     },
     {
       text: "are",
