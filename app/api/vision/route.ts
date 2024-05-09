@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4-turbo-2024-04-09", // Use the Vision model
+      model: "gpt-4-vision-preview", // Use the Vision model
       messages: visionMessages // Pass the modified messages array directly
     });
 
