@@ -13,31 +13,31 @@ export const formSchema = z.object({
 export const amountOptions = [
   {
     value: "1",
-    label: "1 Photo"
+    label: "1 Image"
   },
   {
     value: "2",
-    label: "2 Photos"
+    label: "2 Images"
   },
   {
     value: "3",
-    label: "3 Photos"
+    label: "3 Images"
   },
   {
     value: "4",
-    label: "4 Photos"
+    label: "4 Images"
   },
   {
     value: "5",
-    label: "5 Photos"
+    label: "5 Images"
   },
   {
     value: "6",
-    label: "6 Photos"
+    label: "6 Images"
   },
   {
     value: "7",
-    label: "7 Photos"
+    label: "7 Images"
   },
 ];
 
