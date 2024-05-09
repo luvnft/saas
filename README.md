@@ -1,5 +1,6 @@
 <img width="1788" alt="Cogify.social" src="https://github.com/Shubham-sharma8/saas/assets/96993718/ef81b3ff-bcf1-4ced-9442-08cece819a77">
-# Cogify.Social Platform - Your Gateway to Enhanced AI-Based SAAS! 🎉
+
+# Cogify.Social Platform - Your Gateway to Enhanced AI-Based SAAS! 🎉🤖
 
 Welcome to the git repository for Cogify.Social, the ultimate interactive web platform designed to Chatgpt-4 based conversation **Free always, no ads and Whatsapp usability**. 
 Powered by cutting-edge technologies like Next.js 13, React, TypeScript, and more, this platform offers users a rich blend of features including Chatgpt-4 conversations, AI-driven image generation, insightful image analysis, and lifelike text-to-speech functionalities and much more. Dive into a world where technology meets creativity, fully live-hosted and free to use, backed by an open-source community's excellence.
@@ -157,7 +158,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 
 ### Connect With Us 🌐
 
-Join our dynamic community and start contributing. For more information, or to join our team, please visit [https://cogify.social/join-us](https://cogify.social/join-us).
+Join our dynamic community and start contributing. For more information, or to join our team, please visit [Join-us](https://cogify.social/join-us).
+
+### I build everything at no cost, Including Web domain, Chatgpt API Key, 24*7 Web hosting, SMTP Email Hosting for marketing etc - **Everything** . 
+Fill this form and we will reach out to you with all the information quickly. [Help](https://cogify.social/help)
 
 We're excited to see how you use and enhance Cogify.Social. Get started today and unleash your creativity! 🌟
 [Cogify.social
