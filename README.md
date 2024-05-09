@@ -1,7 +1,8 @@
 <img width="1788" alt="Cogify.social" src="https://github.com/Shubham-sharma8/saas/assets/96993718/ef81b3ff-bcf1-4ced-9442-08cece819a77">
-# Cogify.Social Platform - Your Gateway to Enhanced Social Interactions! 🎉
+# Cogify.Social Platform - Your Gateway to Enhanced AI-Based SAAS! 🎉
 
-Welcome to the git repository for Cogify.Social, the ultimate interactive web platform designed to revolutionize your online social experiences. Powered by cutting-edge technologies like Next.js 13, React, TypeScript, and more, this platform offers users a rich blend of features including conversations, AI-driven image generation, insightful image analysis, and lifelike text-to-speech functionalities. Dive into a world where technology meets creativity, fully live-hosted and free to use, backed by an open-source community's excellence.
+Welcome to the git repository for Cogify.Social, the ultimate interactive web platform designed to Chatgpt-4 based conversation **Free always, no ads and Whatsapp usability**. 
+Powered by cutting-edge technologies like Next.js 13, React, TypeScript, and more, this platform offers users a rich blend of features including Chatgpt-4 conversations, AI-driven image generation, insightful image analysis, and lifelike text-to-speech functionalities and much more. Dive into a world where technology meets creativity, fully live-hosted and free to use, backed by an open-source community's excellence.
 
 ### Features 🚀
 
@@ -49,6 +50,9 @@ To set up your own version of Cogify.Social, follow these steps:
    ```bash
    npm run dev
    ```
+
+**The site should now be running on [http://localhost:3000](http://localhost:3000)!**
+
 
 ✨**IMPORTANT**
 
@@ -117,9 +121,8 @@ Your MySQL database is now set up and configured to accept connections remotely 
 ℹ️ **Note:** For security purposes, it is highly recommended to use a firewall to restrict access to your MySQL server and to use SSL for data encryption if your database will be accessed over the internet.
 ✅ **For cloud server like azure and AWS etc:** Open port 3306, 80 TCP. 
 💭**Your database URL: DATABASE_URL= mysql://USERNAME:PASSWORD@YOURSERVERIP:3306/sample?usessl=true**
+🛑**Invalid Website:** If you getting this error in your button right. Create an account with [Crisp](https://crisp.chat/) and update /components/crisp-chat.tsx with your credentials. 
 
-
-The site should now be running on [http://localhost:3000](http://localhost:3000)!
 
 ### Built With 🛠️
 
@@ -131,6 +134,8 @@ The site should now be running on [http://localhost:3000](http://localhost:3000)
 - **Tailwind CSS** - A utility-first CSS framework for rapidly building custom designs
 - **Prisma** - Next-generation ORM for Node.js and TypeScript
 - **Stripe** - Integrated payment solutions
+- **crisp** - For support and quick help.
+
 ### Whatsapp 📱
 
 ![Whatsapp](https://github.com/Shubham-sharma8/saas/assets/96993718/fbc281dc-8616-4263-94df-42d742068303)
