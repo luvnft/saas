@@ -57,7 +57,7 @@ To set up your own version of Cogify.Social, follow these steps:
 **The site should now be running on [http://localhost:3000](http://localhost:3000)!**
 
 
-✨**IMPORTANT**
+# ✨**IMPORTANT**
 
  **Run the database in server:**
 ## Setting Up and Hosting the Database on Ubuntu 🐬
@@ -163,7 +163,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 Join our dynamic community and start contributing. For more information, or to join our team, please visit [Join-us](https://cogify.social/join-us).
 
 
-
 We're excited to see how you use and enhance Cogify.Social. Get started today and unleash your creativity! 🌟
-[Cogify.social
-](hts://cogify.social/)
+[Cogify.social](hts://cogify.social/)
