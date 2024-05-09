@@ -126,7 +126,7 @@ Your MySQL database is now set up and configured to accept connections remotely 
 
 💭**Your database URL: DATABASE_URL= mysql://USERNAME:PASSWORD@YOURSERVERIP:3306/sample?usessl=true**
 
-🛑**Invalid Website:** If you getting this error in your button right. Create an account with [Crisp](https://crisp.chat/) and update /components/crisp-chat.tsx with your credentials. 
+🛑**Invalid Website:** If you getting this error in your button right. Create an account with [Crisp](https://crisp.chat/) and update **components/crisp-chat.tsx** with your credentials. 
 
 
 # Built With 🛠️
