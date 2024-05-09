@@ -131,9 +131,9 @@ The site should now be running on [http://localhost:3000](http://localhost:3000)
 - **Tailwind CSS** - A utility-first CSS framework for rapidly building custom designs
 - **Prisma** - Next-generation ORM for Node.js and TypeScript
 - **Stripe** - Integrated payment solutions
-### Whatsapp 📱![IMG_1950](https://github.com/Shubham-sharma8/saas/assets/96993718/cfd54b80-e0a5-48b9-a1b4-d49756fc027d)
-![IMG_1951](https://github.com/Shubha![IMG_1953](https://github.com/Shubham-sharma8/saas/assets/96993718/8e637b02-99c9-451e-bd30-6c1d06cf9733)
-m-sharma8/saas/assets/96993718/dcf7c3df-5157-4f54-b0cd-b6898ad8aa3b)
+### Whatsapp 📱
+
+![Whatsapp](https://github.com/Shubham-sharma8/saas/assets/96993718/fbc281dc-8616-4263-94df-42d742068303)
 
 
 ### Contribution Guidelines 🤝
