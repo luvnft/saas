@@ -9,8 +9,8 @@ export const formSchema = z.object({
 
 export const modelOption = [
   {
-    value: "gpt-3.5-turbo",
-    label: "GPT-3.5-turbo",
+    value: "gpt-4-turbo-2024-04-09",
+    label: "gpt-4-turbo-2024-04-09",
     data: "GPT-3.5 stands as the pinnacle of your choices, offering unparalleled excellence in generating flawless outputs swiftly, all while maintaining remarkably low latency."
   },
   {
