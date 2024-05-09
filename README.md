@@ -139,7 +139,7 @@ Your MySQL database is now set up and configured to accept connections remotely 
 - **Tailwind CSS** - A utility-first CSS framework for rapidly building custom designs
 - **Prisma** - Next-generation ORM for Node.js and TypeScript
 - **Stripe** - Integrated payment solutions
-- **crisp** - For support and quick help.
+- **Crisp** - For support and quick help.
 
 ### Whatsapp 📱
 
