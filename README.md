@@ -117,7 +117,7 @@ In the editor, look for the line that says `bind-address` and change its value f
 sudo systemctl restart mysql
 ```
 
-### Enjoy Your Database 🎉:
+###  Your Database is now ready 🎉:
 Your MySQL database is now set up and configured to accept connections remotely using the public IP of your server.
 
 ℹ️ **Note:** For security purposes, it is highly recommended to use a firewall to restrict access to your MySQL server and to use SSL for data encryption if your database will be accessed over the internet.
