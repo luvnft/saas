@@ -121,8 +121,11 @@ sudo systemctl restart mysql
 Your MySQL database is now set up and configured to accept connections remotely using the public IP of your server.
 
 ℹ️ **Note:** For security purposes, it is highly recommended to use a firewall to restrict access to your MySQL server and to use SSL for data encryption if your database will be accessed over the internet.
+
 ✅ **For cloud server like azure and AWS etc:** Open port 3306, 80 TCP. 
+
 💭**Your database URL: DATABASE_URL= mysql://USERNAME:PASSWORD@YOURSERVERIP:3306/sample?usessl=true**
+
 🛑**Invalid Website:** If you getting this error in your button right. Create an account with [Crisp](https://crisp.chat/) and update /components/crisp-chat.tsx with your credentials. 
 
 
