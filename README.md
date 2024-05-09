@@ -5,10 +5,14 @@ Welcome to the git repository for Cogify.Social, the ultimate interactive web pl
 
 ### Features 🚀
 
-- **Live Conversations:** Engage in real-time discussions with users across the globe. 💬
-- **AI-Powered Image Generation:** Bring your imaginations to life with just a few clicks. 🎨
-- **Image Insights:** Get deep insights into the content and context of images. 🔍
-- **Text to Speech:** Convert your text into natural-sounding speech seamlessly. 🗣️
+- **Live Conversations:** Engage in best AI-Based conversation with CHATGPT-4-TURBO. Including streaming, always free forever, no ads.  💬
+- **AI-Powered Image Generation:** Bring your imaginations to life with just a few clicks. Generate up to 7 images at once with CHATGPT-4 Dall-E-3 🎨
+- **Image Insights:** Get deep insights into the content and context of images. And ask questions regarding your image🔍
+- **Whatsapp integration:** Send your message to [Here](https://wa.me/919831047163) to continue these awesome features in whatsapp. Start enjoying by saying **Hi**. 
+- **Text to Speech:** Convert your text into natural-sounding speech seamlessly with more then 5 speaking model. 🗣️
+- **More features are on the way**
+
+<img width="1788" alt="Screenshot 2024-05-09 at 9 42 37 PM" src="https://github.com/Shubham-sharma8/saas/assets/96993718/63efb566-c281-4220-bfc4-906632841317">
 
 ### Live Demo
 
