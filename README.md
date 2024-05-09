@@ -6,4 +6,5 @@ https://cogify.social/join-us
 
 Visit us now at 
 
-Cogify.social
+[Cogify.social
+](https://cogify.social/)
