@@ -22,7 +22,7 @@ Fill this form and we will reach out to you with all the information quickly. [H
 
 Check out Cogify.Social live in action! Visit: [Cogify.social](http://cogify.social)
 
-### Installation and Setup
+# Installation and Setup
 
 To set up your own version of Cogify.Social, follow these steps:
 
@@ -127,7 +127,7 @@ Your MySQL database is now set up and configured to accept connections remotely 
 🛑**Invalid Website:** If you getting this error in your button right. Create an account with [Crisp](https://crisp.chat/) and update /components/crisp-chat.tsx with your credentials. 
 
 
-### Built With 🛠️
+# Built With 🛠️
 
 - **Next.js 14** - The React framework for production
 - **React** - A JavaScript library for building user interfaces
@@ -144,7 +144,7 @@ Your MySQL database is now set up and configured to accept connections remotely 
 ![Whatsapp](https://github.com/Shubham-sharma8/saas/assets/96993718/fbc281dc-8616-4263-94df-42d742068303)
 
 
-### Contribution Guidelines 🤝
+# Contribution Guidelines 🤝
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 - Reporting a bug 🐛
