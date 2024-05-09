@@ -20,13 +20,13 @@ To set up your own version of Cogify.Social, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/cogify/cogify.social.git
-   cd cogify.social
+   git clone https://github.com/Shubham-sharma8/saas
+   cd saas
    ```
 
 2. **Install dependencies:**
    ```bash
-   npm install
+   npm i
    ```
 
 3. **Environment Variables:**
@@ -136,7 +136,7 @@ We love your input! We want to make contributing to this project as easy and tra
 - Submitting a fix 🔧
 - Proposing new features 💡
 
-Feel free to contribute or check our [contribution guidelines](https://cogify.social/join-us) for more details.
+Feel free to contribute or check our [contribution guidelines](https://cogify.social/[term-of-service](https://cogify.social/term-of-service)) for more details.
 
 ### License 📜
 
