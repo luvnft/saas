@@ -94,6 +94,14 @@ body,
     margin: 0; /* Remove default margin */
   }
   
+.bg-green-whatsapp {
+  background-color: #014018; /* WhatsApp green color */
+}
+
+.border-green-whatsapp {
+  border-color: #045822; /* Border color matching WhatsApp green */
+}
+
  
   .dark {
     --background: 20 14.3% 4.1%;

@@ -8,6 +8,8 @@ import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
 import { clients } from "@/lib/constant";
 import CookieConsentComponent from "@/components/CookieConsent";
 import { HeroHighlights } from "./(try)/conversation/text";
+import { GridDemo } from "./(try)/conversation/grid"; // Import the GridDemo component
+import  RetroGridFinal  from "@/components/magicui/retro";
 
 
 
@@ -16,13 +18,16 @@ const LandingPage = () => {
     <div>
       <Navbar />
       <HeroHighlights/>
+      {/* <GridDemo/>  */}
+      
       <TabsDemo />
 
-
-
       <LandingContent />
+      <RetroGridFinal/>
 
-      <TypewriterEffectSmoothDemo />
+
+      {/* <TypewriterEffectSmoothDemo /> */}
+      
 
       {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
   <InfiniteMovingCards
