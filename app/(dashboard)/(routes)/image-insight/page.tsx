@@ -78,7 +78,7 @@ function Minimal() {
     }
   };
 
-  const [files, setFiles] = React.useState<any[]>([]);
+const [files, setFiles] = React.useState<any[]>([]);
   const ctxProviderRef = React.useRef<any>(null);
 
   React.useEffect(() => {
