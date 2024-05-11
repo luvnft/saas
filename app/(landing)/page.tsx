@@ -19,11 +19,11 @@ const LandingPage = () => {
       <Navbar />
       <HeroHighlights/>
       {/* <GridDemo/>  */}
-      
-      <TabsDemo />
-
-      <LandingContent />
       <RetroGridFinal/>
+      <TabsDemo />
+      
+      <LandingContent />
+      
 
 
       {/* <TypewriterEffectSmoothDemo /> */}
@@ -37,7 +37,9 @@ const LandingPage = () => {
     speed="slow"
   />
 </div> */}
+
       <CookieConsentComponent />
+      <TypewriterEffectSmoothDemo/>
 
       <Footer />
     </div>

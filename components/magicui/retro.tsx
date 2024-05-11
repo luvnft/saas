@@ -62,7 +62,7 @@ const WhatsAppIcon = (props: any) => (
 
   const RetroGridFinal = () => {
     return (
-      <div className="relative flex flex-col h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl">
+      <div className="relative flex flex-col h-full w-full items-center md:flex-rowjustify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl">
         <span className="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl font-bold leading-none tracking-tighter text-transparent mb-10">
           Available on Whatsapp
         </span>
@@ -76,7 +76,7 @@ const WhatsAppIcon = (props: any) => (
         </button>
       </Link>
 
-          <TypewriterEffectSmoothDemo />
+          
         
         {/* Apply a margin to create a gap for larger screens */}
         {/* <div className="w-full md:w-1/2 text-left md:ml-23 mb-22 md:mb-0">
