@@ -18,7 +18,7 @@ export function LampComponent() {
         className="mt-20 bg-gradient-to-br from-neutral-300 to-neutral-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
         Just Kidding
-        <br /> We are free! 
+        <br /> We are free! <br /> Just lazy to edit this! 
       </motion.h1>
     </LampContainer>
   )
