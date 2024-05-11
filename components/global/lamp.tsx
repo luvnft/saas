@@ -17,7 +17,7 @@ export function LampComponent() {
         }}
         className="mt-20 bg-gradient-to-br from-neutral-300 to-neutral-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Jusk Kidding
+        Just Kidding
         <br /> We are free! 💳
       </motion.h1>
     </LampContainer>
