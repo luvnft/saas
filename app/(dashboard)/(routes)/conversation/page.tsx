@@ -1,17 +1,22 @@
+
 "use client";
 
 import { useChat } from "ai/react";
-import rehypeSanitize from 'rehype-sanitize';
-
-import dynamic from 'next/dynamic';
-
-const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
-const EmailContent = dynamic(() => import('./email'), { ssr: false });
 
 import * as z from "zod";
+import axios from "axios";
+import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
+
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
+const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css'; // Import Prism's CSS for styling
+import '@/app/(style)/prism-cb.css'; // Import Prism's CSS for styling
+
+
+
 
 import { toast } from "react-hot-toast";
 import {
@@ -45,8 +50,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
+import html2canvas from "html2canvas";
+
+import jsPDF from "jspdf";
+
 import { Textarea } from "@/components/ui/textarea";
 
+import { useRouter } from "next/navigation";
 import OpenAI from "openai";
 
 import { BotAvatar } from "@/components/bot-avatar";
@@ -62,7 +72,6 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
-import Head from "next/head";
 
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -71,7 +80,7 @@ const Chat = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      model: "gpt-4-turbo",
+      model: "gpt-4-turbo-preview",
     },
   });
 
@@ -157,8 +166,13 @@ const Chat = () => {
       speechSynthesis.removeEventListener("end", handleSpeechEnd);
     };
   }, []);
+  useEffect(() => {
+    // Call Prism.highlightAll() to highlight all code blocks
+    Prism.highlightAll();
+  }, []);
 
   //Edit Message//
+  
 
   const [editedMessage, setEditedMessage] = useState<string>(""); // State to hold the edited message
   const editedMessageRef = useRef<HTMLTextAreaElement>(null);
@@ -175,10 +189,9 @@ const Chat = () => {
     useState<OpenAI.Chat.CreateChatCompletionRequestMessage | null>(null); // Define message state
 
   //Download //
-  const handleConvertToJPG = async () => {
-    const html2canvas = await import("html2canvas");
-      if (editedMessageRef.current) {
-      html2canvas.default(editedMessageRef.current).then((canvas) => {
+  const handleConvertToJPG = () => {
+    if (editedMessageRef.current) {
+      html2canvas(editedMessageRef.current).then((canvas) => {
         const imgData = canvas.toDataURL("image/jpeg");
         const downloadLink = document.createElement("a");
         downloadLink.href = imgData;
@@ -188,9 +201,7 @@ const Chat = () => {
     }
   };
 
-  const handleConvertToPDF = async () => {
-    const jsPDF = (await import('jspdf')).jsPDF;
-
+  const handleConvertToPDF = () => {
     try {
       if (
         editedMessageRef.current &&
@@ -218,13 +229,6 @@ const Chat = () => {
 
   return (
     <div>
-      <Head>
-        <title>Conversation- Cogify</title>
-        <meta
-          name="description"
-          content="Generate AI prompt with CHATGPT 4 for free!."
-        />
-      </Head>
       <Heading
         title="Conversation"
         description="Our most advanced conversation model."
@@ -289,29 +293,46 @@ const Chat = () => {
             <Empty label="No conversation started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
-          {messages.map((message, index) => {
-            
-    // Simple check for email-like content. Consider enhancing this logic.
-    const isEmailLikeContent = /Subject |Dear [A-Za-z]+,|Warm regards,/g.test(message.content);
-    return (
-      <div
-        key={index} // It's better to use a unique ID if available
-        className={cn(
-          "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
-          message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
-        )}
-      >
-        <div className="flex items-start gap-x-8">
-          {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-          <div className="text-sm whitespace-pre-wrap flex-1">
-            {
-              isEmailLikeContent ? 
-              <EmailContent content={message.content || ""} /> :
-              <ReactMarkdown rehypePlugins={[rehypeSanitize]}>
-                {message.content || ""}
-              </ReactMarkdown>
-            }
+            {messages.map((message, index) => (
+              <div
+                key={index} // Using index as key is not recommended for dynamic lists, consider using a unique ID
+                className={cn(
+                  "relative p-8 w-full flex items-start gap-x-8 rounded-lg",
+                  message.role === "user"
+                    ? "bg-white border border-black/10"
+                    : "bg-muted"
+                )}
+              >
+                <div className="flex items-start gap-x-8">
+                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+
+                  <div className="text-sm whitespace-pre-wrap flex-1">
+                  <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, inlist, className, children, ...props }) => {
+                      const match = className ? className.replace(/language-/, '') : ''; // Extract language from className
+                      // Check if the code block has a language specified
+                      
+                      return !inlist && Prism.languages[match] ? (
+                        <pre className={`language-${match[1]}`}>
+                          <code className={`language-${match[1]}`}>{String(children).replace(/\n$/, '')}</code>
+                        </pre>
+                      ) : (
+                        <code {...props} />
+                      );
+                    },
+                  }}
+                  className="text-sm overflow-hidden leading-7"
+                >
+                  {message.content?.toString()}
+                </ReactMarkdown>
                   </div>
+
                   <div className="absolute top-0 right-0 flex gap-x-2">
                     <Clipboard
                       onClick={() =>
@@ -410,7 +431,7 @@ const Chat = () => {
                   </div>
                 </div>
               </div>
-            )})}
+            ))}
           </div>
         </div>
       </div>
