@@ -39,7 +39,7 @@ function Minimal() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      model: "gpt-4-vision-preview",
+      model: "gpt-4o",
     },
   });
 
