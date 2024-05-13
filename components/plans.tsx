@@ -39,7 +39,7 @@ export const Plans = () =>{
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Limited Chatgpt-4 Access
+                    Limited gpt-4o Access
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -103,7 +103,7 @@ export const Plans = () =>{
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Unlimited Chatgpt-4 Access
+                    Unlimited gpt-4o Access
                   </li>
                 </ul>
               </CardItem>
@@ -163,7 +163,7 @@ export const Plans = () =>{
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Unlimited Chatgpt-4 Access
+                    Unlimited gpt-4o Access
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
