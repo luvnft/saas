@@ -25,7 +25,7 @@ window.location.href = "/conversation";  };
   return (
     <div className=" flex flex-col justify-center  items-center px-4">
       <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
-        Ask Anything - Cogify
+          Now running on GPT-4o
       </h2>
       <PlaceholdersAndVanishInput
         placeholders={placeholders}

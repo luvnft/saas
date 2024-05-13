@@ -87,7 +87,7 @@ export function HeroHighlights() {
       
       <div className="flex flex-col justify-center space-y-6"> 
   <Highlight className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center">
-    Ask Anything - Cogify
+   Now Powered by GPT-4o
   </Highlight>
 
   <PlaceholdersAndVanishInput
