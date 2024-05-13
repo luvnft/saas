@@ -90,7 +90,7 @@ const WhatsAppIcon = (props: any) => (
       <span>Say &apos;hi&apos; on Whatsapp!</span>
     </button>
   </Link>
-  <Link href={"https://wa.me/919831047163?text=Hi"}>
+  <Link href={"https://cogify_bot.t.me"}>
     <button className="w-60 h-10 rounded-xl bg-black border border-green-whatsapp text-white text-sm flex items-center justify-center space-x-2 mb-4"> {/* Reduced mb here */}
       <TeleIcon className="h-7 w-7" />
       <span>Say &apos;hi&apos; on Telegram!</span>
