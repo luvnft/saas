@@ -1,5 +1,5 @@
 
-import { Code, Eye, Film, ImageIcon, Megaphone, MessageSquare } from "lucide-react";
+import { Code, Eye, Film, ImageIcon, Megaphone, MessageSquare, MessageSquarePlus } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 500;
 
@@ -18,6 +18,13 @@ export const tools = [
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
     href: '/image',
+  },
+  {
+    label: 'WebGPT',
+    icon: MessageSquarePlus,
+    href: '/webgpt',
+    color: "text-black-500",
+    bgColor: "bg-black-500/10",
   },
 
   {
@@ -53,7 +60,5 @@ export const tools = [
   
 ];
 
-export const items = [
-  
-];
+
 

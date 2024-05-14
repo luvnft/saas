@@ -1,24 +1,20 @@
 
 "use client";
 
-import { useChat } from "ai/react";
+
 
 import * as z from "zod";
 import axios from "axios";
 import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
 
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, MessageSquarePlus } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
-import Prism from 'prismjs';
-import 'prismjs/themes/prism.css'; // Import Prism's CSS for styling
-import '@/app/(style)/prism-cb.css'; // Import Prism's CSS for styling
-
-
 
 
 import { toast } from "react-hot-toast";
+
 import {
   Clipboard,
   Share,
@@ -74,7 +70,6 @@ import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
 
 const Chat = () => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -167,10 +162,6 @@ const Chat = () => {
       speechSynthesis.removeEventListener("end", handleSpeechEnd);
     };
   }, []);
-  useEffect(() => {
-    // Call Prism.highlightAll() to highlight all code blocks
-    Prism.highlightAll();
-  }, []);
 
   //Edit Message//
   
@@ -201,6 +192,38 @@ const Chat = () => {
       });
     }
   };
+  const router = useRouter();
+  const proModal = useProModal();
+  const [messages, setMessages] = useState<
+    OpenAI.Chat.CreateChatCompletionRequestMessage[]
+  >([]);
+  
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
+        role: "user",
+        content: values.prompt,
+      };
+      const newMessages = [...messages, userMessage];
+      //URL Which convert image to JPEG//
+      
+      const response = await axios.post("/api/internet", {
+        messages: newMessages,
+      });
+      setMessages((current) => [...current, userMessage, response.data]);
+      form.reset();
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
+      }
+    } finally {
+      router.refresh();
+    }
+  };
+
 
   const handleConvertToPDF = () => {
     try {
@@ -227,21 +250,23 @@ const Chat = () => {
       console.error("An error occurred while generating PDF:", error);
     }
   };
+  
 
   return (
     <div>
       <Heading
-        title="Conversation"
-        description="Our most advanced conversation model."
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
+        title="WebGPT"
+        description="Power of GPT-4o connected with internet. (Might be slow and no streaming eggect of output)"
+        icon={MessageSquarePlus}
+        iconColor="text-black-500"
+        bgColor="bg-black-500/10"
       />
       <div className="px-4 lg:px-8">
         <div>
           <Form {...form}>
             <form
-              onSubmit={handleSubmit}
+
+              onSubmit={form.handleSubmit(onSubmit)}
               className="
             rounded-lg 
             border 
@@ -257,15 +282,14 @@ const Chat = () => {
             >
               <FormField
                 name="prompt"
-                render={() => (
+                render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl className="m-0 p-0">
                       {/* Replace Textarea with input */}
                       <Textarea
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        value={input}
                         placeholder={randomQuestion}
-                        onChange={handleInputChange}
+                        {...field}
                       />
                     </FormControl>
                   </FormItem>
@@ -309,29 +333,27 @@ const Chat = () => {
 
                   <div className="text-sm whitespace-pre-wrap flex-1">
                   <ReactMarkdown
-                  components={{
-                    pre: ({ node, ...props }) => (
-                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                        <pre {...props} />
-                      </div>
-                    ),
-                    code: ({ node, inlist, className, children, ...props }) => {
-                      const match = className ? className.replace(/language-/, '') : ''; // Extract language from className
-                      // Check if the code block has a language specified
-                      
-                      return !inlist && Prism.languages[match] ? (
-                        <pre className={`language-${match[1]}`}>
-                          <code className={`language-${match[1]}`}>{String(children).replace(/\n$/, '')}</code>
-                        </pre>
-                      ) : (
-                        <code {...props} />
-                      );
-                    },
-                  }}
-                  className="text-sm overflow-hidden leading-7"
-                >
-                  {message.content?.toString()}
-                </ReactMarkdown>
+      components={{
+        pre: ({ node, ...props }) => (
+          <div className="overflow-auto w-full my-2 bg-black p-2 rounded-lg">
+            <pre {...props} />
+          </div>
+        ),
+        a: ({ node, ...props }) => (
+          <a
+            {...props}
+            style={{
+              color: 'blue',
+              fontWeight: 'bold',
+              textDecoration: 'underline',
+            }}
+          />
+        ),
+      }}
+      className="text-sm overflow-hidden leading-7"
+    >
+      {message.content?.toString()}
+    </ReactMarkdown>
                   </div>
 
                   <div className="absolute top-0 right-0 flex gap-x-2">

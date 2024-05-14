@@ -27,11 +27,18 @@ function Navbar({ className }: { className?: string }) {
                 src="/conversation.svg"
                 description= "Engage in enlightening dialogues with AI where curiosity meets intelligence."
               />
+              
               <ProductItem
                 title="Image Generation"
                 href="/image"
                 src="/imagecartoon.svg"
                 description="Bring your ideas to life with our powerful Image Generation tool."
+              />
+              <ProductItem
+                title="WebGPT"
+                href="/webgpt"
+                src="/webgpt.svg"
+                description= "Power of GPT-4o connected with internet. Get more information from the web and CHATGPT combined."
               />
               <ProductItem
                 title="Image Insight"

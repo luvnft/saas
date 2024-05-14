@@ -26,6 +26,16 @@ export function TabsDemo() {
       ),
     },
     {
+      title: "WebGPT",
+      value: "webgpt",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>WebGPT</p>
+          <DummyContent src="/webgpt_tab.svg" />
+        </div>
+      ),
+    },
+    {
       title: "Image Insight",
       value: "Money",
       content: (

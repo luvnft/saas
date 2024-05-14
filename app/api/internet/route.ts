@@ -54,13 +54,12 @@ export async function POST(req: Request) {
 
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
-      stream: true,
       messages,
     });
 
-    // Respond with the stream
-    return new StreamingTextResponse(OpenAIStream(response));
+    
 
+    return NextResponse.json(response.choices[0].message);
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });

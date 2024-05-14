@@ -15,18 +15,25 @@ export const projects = [
     link: "/conversation",
   },
   {
-    title: "Text-to-Speech Generation",
-    description:
-      "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
-    link: "/text-to-speech",
-  },
-  {
     title: "Image Generation",
     description:
       "Bring your ideas to life with our powerful Image Generation tool.      .",
     link: "/image",
   },
 
+  {
+    title: "WebGPT",
+    description:
+      "Power of GPT-4o connected with internet.",
+    link: "/webgpt",
+  },
+  {
+    title: "Text-to-Speech Generation",
+    description:
+      "Transform text into lifelike speech with our advanced Text-to-Speech generation.     ",
+    link: "/text-to-speech",
+  },
+  
   {
     title: "Code Generation",
     description:

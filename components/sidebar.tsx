@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { Code, Eye, Film, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, Settings } from "lucide-react";
+import { Code, Eye, Film, HomeIcon, ImageIcon, LayoutDashboard, Megaphone, MessageSquare, MessageSquarePlus, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -38,6 +38,13 @@ const routes = [
     icon: ImageIcon,
     color: "text-pink-700",
     href: '/image',
+  },
+  {
+    label: 'WebGPT',
+    icon: MessageSquarePlus,
+    href: '/webgpt',
+    color: "text-black-500",
+    bgColor: "bg-black-500/10",
   },
   {
     label: 'Image Insight',
