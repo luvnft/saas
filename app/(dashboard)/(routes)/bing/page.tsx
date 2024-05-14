@@ -309,11 +309,19 @@ const Chat = () => {
                   <div className="text-sm whitespace-pre-wrap flex-1">
                   <ReactMarkdown
                   components={{
-                    pre: ({ node, ...props }) => (
-                      <div className="overflow-auto w-full my-2 bg-black p-2 rounded-lg">
-                        <pre {...props} />
-                      </div>
-                    ),
+                    
+                    pre: ({ node, inlist, className, children, ...props }) => {
+                      const match = className ? className.replace(/language-/, '') : ''; // Extract language from className
+                      // Check if the code block has a language specified
+                      
+                      return !inlist && Prism.languages[match] ? (
+                        <pre className={`language-${match[1]}`}>
+                          <code className={`language-${match[1]}`}>{String(children).replace(/\n$/, '')}</code>
+                        </pre>
+                      ) : (
+                        <code {...props} />
+                      );
+                    },
                   }}
                   className="text-sm overflow-hidden leading-7"
                 >

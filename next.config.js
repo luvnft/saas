@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
+  async rewrites() {
+
+    return [
+        {
+            source: '/api/(dashboard)/(routes)/bing/page.tsx',
+            destination: '/app/api/internet/route.ts',
+        },
+    ];
+},
+
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'googleusercontent.com' },
