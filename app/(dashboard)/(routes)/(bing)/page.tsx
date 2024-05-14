@@ -83,6 +83,7 @@ const Chat = () => {
       model: "gpt-4o",
     },
   });
+  
 
   const isLoading = form.formState.isSubmitting;
 
@@ -309,8 +310,12 @@ const Chat = () => {
                   <div className="text-sm whitespace-pre-wrap flex-1">
                   <ReactMarkdown
                   components={{
-                    
-                    pre: ({ node, inlist, className, children, ...props }) => {
+                    pre: ({ node, ...props }) => (
+                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, inlist, className, children, ...props }) => {
                       const match = className ? className.replace(/language-/, '') : ''; // Extract language from className
                       // Check if the code block has a language specified
                       
