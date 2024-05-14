@@ -7,7 +7,8 @@ Powered by cutting-edge technologies like Next.js 13, React, TypeScript, and mor
 
 ### Features 🚀
 
-- **Live Conversations:** Engage in best AI-Based conversation with CHATGPT-4-TURBO. Including streaming, always free forever, no ads.  💬
+- **Live Conversations:** Engage in best AI-Based conversation with GPT-4o. Including streaming, always free forever, no ads.  💬
+- **Web connected GPT-4o:** Experience the power of OPEN AI GPT-4o connected to realtime internet. 🛜
 - **AI-Powered Image Generation:** Bring your imaginations to life with just a few clicks. Generate up to 7 images at once with Dall-E-3 🎨
 - **Image Insights:** Get deep insights into the content and context of images. And ask questions regarding your image🔍
 - **Whatsapp integration:** Send your message to [Here](https://wa.me/919831047163) to continue these awesome features in whatsapp. Start enjoying by saying **Hi**. 
