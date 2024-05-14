@@ -256,7 +256,7 @@ const Chat = () => {
     <div>
       <Heading
         title="WebGPT"
-        description="Power of GPT-4o connected with internet. (Might be slow and no streaming eggect of output)"
+        description="Power of GPT-4o connected with internet. (Might be slow and no streaming effect of output)"
         icon={MessageSquarePlus}
         iconColor="text-black-500"
         bgColor="bg-black-500/10"
