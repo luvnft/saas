@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://cogify.social',
     title: 'Cogify',
-    description: 'Try all new GPT-4o services, Dall 3 image generation, text-to-speech, Gpt4-o + Internet at free and unlimited usage. No ads, no tracking. We provide the best available AI services for free.',
+    description: "Try all new GPT-4o services, Dall 3 image generation, text-to-speech, Gpt4-o + Internet at free and unlimited usage. No ads, no tracking. We provide the best available AI services for free.",
     images: [
       {
         url: 'https://cogify.social/logo.png',
@@ -46,14 +46,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@shubhamsharmaui',
     title: 'Cogify',
-    description: 'Try all new GPT-4o services, Dall 3 image generation, text-to-speech, Gpt4-o + Internet at free and unlimited usage. No ads, no tracking. We provide the best available AI services for free.',
-    images: 'https://cogify.social/opengraph-image.png',
+    description: "Try all new GPT-4o services, Dall 3 image generation, text-to-speech, Gpt4-o + Internet at free and unlimited usage. No ads, no tracking. We provide the best available AI services for free.",
+    images: 'https://cogify.social/logo.png',
   },
   alternates: {
     canonical: 'https://cogify.social',
   },
 };
-
 export default async function RootLayout({
   children,
 }: {
@@ -63,18 +62,10 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
-          <link rel="preload" href="/fonts/Inter-VariableFont_wght.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
           <link rel="shortcut icon" href="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <meta name="theme-color" content="#00bcd4" />
-          <meta name="description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code" />
-          <meta name="keywords" content=", gpt4-o, chagpt-4, chatgpt4, cogify, cogify.social, chatgpt4-o, free, chatgpt4 free, AI, creativity, prompt, generate, speak, entertain, code" />
+          <meta name="description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code and more" />
+          <meta name="keywords" content="ChatGPT, GPT-4o, ChatGPT4-o free, DALL-E 3, GPT-4o free, Cogify, cogify.social, AI creativity, AI prompt generation, AI text-to-speech, GPT-4o plus internet, AI code generation, AI entertainment, free AI services, unlimited AI, no ads AI, no tracking AI" />
           <meta name="author" content="Shubham Sharma" />
 
           {/* Open Graph meta tags */}
@@ -92,24 +83,6 @@ export default async function RootLayout({
           <meta name="twitter:title" content="Cogify" />
           <meta name="twitter:description" content="Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code" />
           <meta name="twitter:image" content="https://cogify.social/logo.png" />
-
-          {/* Structured Data */}
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Cogify",
-              "url": "https://cogify.social",
-              "logo": "https://cogify.social/logo.png",
-              "sameAs": [
-                "https://twitter.com/shubhamsharmaui",
-                // Add other social media profiles here
-              ],
-            })}
-          </script>
-
-          {/* Content-Security-Policy for better security */}
-          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';" />
         </head>
         <CrispProvider />
         <body className={font.className}>
