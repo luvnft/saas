@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s - Cogify',
   },
   
-  description: "Unleash AI Creativity - Prompt, Generate, Speak, Entertain, Code",
+  description: "Try all new GPT-4o services, Dall 3 image generation, text-to-speech, Gpt4-o + Internet at free and unlimited usage. No ads, no traking. We provide the best avaliable AI services for free.",
   metadataBase: new URL('https://cogify.social'),
 }
 
