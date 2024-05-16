@@ -2,7 +2,6 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import axios from 'axios';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
 
 export async function POST(req: Request) {
   try {
@@ -44,20 +43,23 @@ export async function POST(req: Request) {
 
     const results = await search(messages[messages.length - 1].content);
 
-    const bingResults = results.map((result: any) => ({
-      role: 'system',
-      content: `Source:\nTitle: ${result.name}\nURL: ${result.url}\nContent: ${result.snippet}\nDescription: ${result.description}`
-    }));
-    
+    const results_prompts = results.map((result: any) => 
+      `Source:\nTitle: ${result.name}\nURL: ${result.url}\nContent: ${result.snippet}\nDescription: ${result.description}`);
 
-    messages.push(...bingResults);
+    const prompt = "Use these sources to answer the question:\n\n" +
+               results_prompts.join("\n\n") + "\n\nQuestion: " +
+               messages[messages.length - 1].content + "\n\nAnswer:";
 
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
-      messages,
+      messages: [
+        ...messages,
+        {
+          role: 'system',
+          content: prompt
+        }
+      ]
     });
-
-    
 
     return NextResponse.json(response.choices[0].message);
   } catch (error) {
