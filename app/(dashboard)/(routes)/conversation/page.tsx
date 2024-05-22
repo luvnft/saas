@@ -14,7 +14,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism.css'; // Import Prism's CSS for styling
 import '@/app/(style)/prism-cb.css'; // Import Prism's CSS for styling
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 
 
 import {
@@ -86,6 +86,26 @@ import { modelOption} from "./constants";
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
 
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Function to adjust the height of the textarea
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight(); // Adjust height on component mount
+  }, [input]);
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    handleInputChange(event);
+    adjustTextareaHeight(); // Adjust height on content change
+  };
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -93,27 +113,6 @@ const Chat = () => {
       model: "gpt-4o",
     },
   });
-  const [textAreaHeight, setTextAreaHeight] = useState('auto');
-  const [textAreaValue, setTextAreaValue] = useState(input);
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const defaultHeight = 'auto';
-
-  useEffect(() => {
-    if (textAreaValue) {
-      setTextAreaHeight('auto');
-      if (textAreaRef.current) {
-      setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
-    }
-  } else {
-    setTextAreaHeight(defaultHeight);
-  }
-}, [textAreaValue]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextAreaValue(event.target.value);
-    handleInputChange(event);
-  };
-
   
   const isLoading = form.formState.isSubmitting;
 
@@ -290,15 +289,13 @@ const Chat = () => {
               render={() => (
                 <FormItem className="col-span-12 lg:col-span-8">
                   <FormControl className="m-0 p-0">
-                    <Textarea
-                      ref={textAreaRef}
-                      style={{ height: textAreaHeight }}
-                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                      value={textAreaValue}
+                  <Textarea
+                      ref={textareaRef}
+                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent resize-none overflow-hidden"
+                      value={input}
                       placeholder={randomQuestion}
                       onChange={handleChange}
-                    
-                      />
+                    />
                     </FormControl>
                   </FormItem>
                 )}
