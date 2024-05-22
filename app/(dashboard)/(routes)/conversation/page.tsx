@@ -9,13 +9,21 @@ import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
 
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState, useRef, useEffect } from "react";
 const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css'; // Import Prism's CSS for styling
 import '@/app/(style)/prism-cb.css'; // Import Prism's CSS for styling
 
+import React, { useState, useEffect, useRef } from 'react';
 
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 
 
@@ -73,6 +81,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
+import { modelOption} from "./constants";
 
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -84,7 +93,28 @@ const Chat = () => {
       model: "gpt-4o",
     },
   });
+  const [textAreaHeight, setTextAreaHeight] = useState('auto');
+  const [textAreaValue, setTextAreaValue] = useState(input);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const defaultHeight = 'auto';
 
+  useEffect(() => {
+    if (textAreaValue) {
+      setTextAreaHeight('auto');
+      if (textAreaRef.current) {
+      setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
+    }
+  } else {
+    setTextAreaHeight(defaultHeight);
+  }
+}, [textAreaValue]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextAreaValue(event.target.value);
+    handleInputChange(event);
+  };
+
+  
   const isLoading = form.formState.isSubmitting;
 
   const getRandomQuestion = () => {
@@ -238,43 +268,72 @@ const Chat = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="px-4 lg:px-8">
-        <div>
-          <Form {...form}>
-            <form
-              onSubmit={handleSubmit}
-              className="
-            rounded-lg 
-            border 
-            w-full 
-            p-4 
-            px-3 
-            md:px-6 
-            focus-within:shadow-sm
-            grid
-            grid-cols-12
-            gap-2
-          "
-            >
-              <FormField
-                name="prompt"
-                render={() => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
-                      {/* Replace Textarea with input */}
-                      <Textarea
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        value={input}
-                        placeholder={randomQuestion}
-                        onChange={handleInputChange}
+      <div>
+        <Form {...form}>
+          <form
+            onSubmit={handleSubmit}
+            className="
+              rounded-lg 
+              border 
+              w-full 
+              p-4 
+              px-3 
+              md:px-6 
+              focus-within:shadow-sm
+              grid
+              grid-cols-12
+              gap-2
+            "
+          >
+            <FormField
+              name="prompt"
+              render={() => (
+                <FormItem className="col-span-12 lg:col-span-8">
+                  <FormControl className="m-0 p-0">
+                    <Textarea
+                      ref={textAreaRef}
+                      style={{ height: textAreaHeight }}
+                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                      value={textAreaValue}
+                      placeholder={randomQuestion}
+                      onChange={handleChange}
+                    
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
+              <FormField
+              control={form.control}
+              name="model"
+              render={({ field }) => (
+                <FormItem className="col-span-12 lg:col-span-2 mt-5">
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue defaultValue={field.value} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {modelOption.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
 
               <Button
-                className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5"
-                type="submit"
+              className="rounded-md bg-zinc-800 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-500 col-span-12 lg:col-span-2 w-full mt-5 "
+              type="submit"
                 disabled={isLoading}
                 size="icon"
               >

@@ -20,7 +20,7 @@ export async function POST(
 ) {
   try {
     const { userId } = auth();
-    const { messages } = await req.json();
+    const { messages, model = "gpt-4o" } = await req.json();
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -48,7 +48,7 @@ export async function POST(
     
 
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: model,
       stream: true,
       messages,
     });
