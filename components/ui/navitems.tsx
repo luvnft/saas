@@ -25,6 +25,7 @@ function Navbar({ className }: { className?: string }) {
                 title="Conversation"
                 href="/conversation"
                 src="/conversation.svg"
+                
                 description= "Engage in enlightening dialogues with AI where curiosity meets intelligence."
               />
               
