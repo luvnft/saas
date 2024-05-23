@@ -23,22 +23,7 @@ export const amountOptions = [
     value: "3",
     label: "3 Images"
   },
-  {
-    value: "4",
-    label: "4 Images"
-  },
-  {
-    value: "5",
-    label: "5 Images"
-  },
-  {
-    value: "6",
-    label: "6 Images"
-  },
-  {
-    value: "7",
-    label: "7 Images"
-  },
+  
 ];
 
 export const modelforImage = [
