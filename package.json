@@ -7,10 +7,10 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prinstall": "prisma generate && prisma db push",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate && prisma db push",
     "export": "next export"
   },
   "dependencies": {
