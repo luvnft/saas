@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
+import {db} from "@/lib/db";
 
 
 
@@ -58,7 +59,19 @@ export async function POST(
     }
    
     // Convert the response into a friendly text-stream
-    const stream = OpenAIStream(response);
+    const userMessage = messages[messages.length - 1].content; // Extracting the content of the user's message
+
+    const stream = OpenAIStream(response,{
+      onCompletion: async (completion:string) => {
+        const data = await db.message.create({
+          data: {
+            userId,
+            answer: completion,
+            question: userMessage,
+          },
+        });
+      },
+    });
     // Respond with the stream
     return new StreamingTextResponse(stream);
 

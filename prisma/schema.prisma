@@ -27,12 +27,21 @@ model UserSubscription {
   stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
 }
 
+
 model Image {
   id        String     @id @default(cuid())
   userId    String     @unique
   imageUrl  String     @unique
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+}
+
+model Message {
+  id       String @id @default(uuid())
+  userId     String
+  question   String   @db.LongText
+  answer     String   @db.LongText
+  created_at DateTime @default(now())
 }
 
 
