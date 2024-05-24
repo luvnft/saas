@@ -61,7 +61,22 @@ export async function POST(
     // Convert the response into a friendly text-stream
     const userMessage = messages[messages.length - 1].content; // Extracting the content of the user's message
 
-    const stream = OpenAIStream(response);
+    const stream = OpenAIStream(response,{
+      onCompletion: async (completion:string) => {
+        try {
+          const data = await prismadb.message.create({
+            data: {
+              userId,
+              answer: completion,
+              question: userMessage,
+            },
+          });
+        }
+        catch (error) {
+          console.log('[DATABASE_ERROR]', error);
+        }
+      },
+    });
     return new StreamingTextResponse(stream);
 
   } catch (error) {
