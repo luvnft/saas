@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import axios from 'axios';
 
+import { OpenAIStream, StreamingTextResponse } from 'ai';
+
+import { checkSubscription } from "@/lib/subscription";
+import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
+
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
@@ -50,8 +55,9 @@ export async function POST(req: Request) {
                results_prompts.join("\n\n") + "\n\nQuestion: " +
                messages[messages.length - 1].content + "\n\nAnswer:";
 
-    const response = await openai.chat.completions.create({
+     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
+      stream: true,
       messages: [
         ...messages,
         {
@@ -60,8 +66,17 @@ export async function POST(req: Request) {
         }
       ]
     });
+    const freeTrial = await checkApiLimit();
+    const isPro = await checkSubscription();
 
-    return NextResponse.json(response.choices[0].message);
+
+    if (!isPro) {
+      await incrementApiLimit();
+    }
+    const stream = OpenAIStream(response);
+    // Respond with the stream
+    return new StreamingTextResponse(stream);
+
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });

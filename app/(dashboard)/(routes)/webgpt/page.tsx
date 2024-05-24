@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';  // <- Dynamically import ReactMarkdown
 
 import { MessageSquare, MessageSquarePlus } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ChangeEvent } from "react";
 const ReactMarkdown = dynamic(() => import('react-markdown'), { loading: () => <p>Loading...</p> });
 
 
@@ -54,6 +54,8 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { useRouter } from "next/navigation";
 import OpenAI from "openai";
+import { useChat } from "ai/react";
+
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
@@ -70,6 +72,29 @@ import { formSchema } from "./constants";
 import { questionsByPage } from "./questions";
 
 const Chat = () => {
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    api: "/api/internet",
+  });
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Function to adjust the height of the textarea
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight(); // Adjust height on component mount
+  }, [input]);
+
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    handleInputChange(event);
+    adjustTextareaHeight(); // Adjust height on content change
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -194,35 +219,10 @@ const Chat = () => {
   };
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<
-    OpenAI.Chat.CreateChatCompletionRequestMessage[]
-  >([]);
+  
   
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
-        role: "user",
-        content: values.prompt,
-      };
-      const newMessages = [...messages, userMessage];
-      //URL Which convert image to JPEG//
-      
-      const response = await axios.post("/api/internet", {
-        messages: newMessages,
-      });
-      setMessages((current) => [...current, userMessage, response.data]);
-      form.reset();
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
-        proModal.onOpen();
-      } else {
-        toast.error("Something went wrong");
-      }
-    } finally {
-      router.refresh();
-    }
-  };
+  
 
 
   const handleConvertToPDF = () => {
@@ -266,7 +266,7 @@ const Chat = () => {
           <Form {...form}>
             <form
 
-              onSubmit={form.handleSubmit(onSubmit)}
+onSubmit={handleSubmit}
               className="
             rounded-lg 
             border 
@@ -287,10 +287,12 @@ const Chat = () => {
                     <FormControl className="m-0 p-0">
                       {/* Replace Textarea with input */}
                       <Textarea
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        placeholder={randomQuestion}
-                        {...field}
-                      />
+                      ref={textareaRef}
+                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent resize-none overflow-hidden"
+                      value={input}
+                      placeholder={randomQuestion}
+                      onChange={handleChange}
+                    />
                     </FormControl>
                   </FormItem>
                 )}
