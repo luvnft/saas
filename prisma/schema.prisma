@@ -36,7 +36,7 @@ model Image {
   updatedAt DateTime   @updatedAt
 }
 
-model Message {
+model message {
   id       String @id @default(uuid())
   userId     String
   question   String   @db.LongText

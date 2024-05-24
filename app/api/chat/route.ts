@@ -63,7 +63,7 @@ export async function POST(
 
     const stream = OpenAIStream(response,{
       onCompletion: async (completion:string) => {
-        const data = await db.Message.create({
+        const data = await db.message.create({
           data: {
             userId,
             answer: completion,

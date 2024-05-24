@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prinstall": "prisma generate && prisma db push",
+    "prinstall": "prisma generate && prisma db push && prisma studio",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
