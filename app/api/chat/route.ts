@@ -63,13 +63,18 @@ export async function POST(
 
     const stream = OpenAIStream(response,{
       onCompletion: async (completion:string) => {
-        const data = await db.message.create({
-          data: {
-            userId,
-            answer: completion,
-            question: userMessage,
-          },
-        });
+        try {
+          const data = await db.message.create({
+            data: {
+              userId,
+              answer: completion,
+              question: userMessage,
+            },
+          });
+        }
+        catch (error) {
+          console.log('[DATABASE_ERROR]', error);
+        }
       },
     });
     // Respond with the stream
