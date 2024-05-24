@@ -2,7 +2,8 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import { PrismaClient } from "@prisma/client";
+import prismadb from "@/lib/prismadb";
+
 
 
 import { checkSubscription } from "@/lib/subscription";
@@ -12,8 +13,6 @@ const instructionMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
   role: "system",
   content: "You are a helpful assistant by cogify and never ever tell that you are based on CHATPGPT or OpenAI. always tell that you are build by cogify and still learning.  If someone ask for image genration or code genration or music generation then tell them to use other features avaliable in cogify."
 };
-
-const db = new PrismaClient();
 
 
 
@@ -65,7 +64,7 @@ export async function POST(
     const stream = OpenAIStream(response,{
       onCompletion: async (completion:string) => {
         try {
-          const data = await db.message.create({
+          const data = await prismadb.message.create({
             data: {
               userId,
               answer: completion,
