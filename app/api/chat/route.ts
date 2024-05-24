@@ -58,6 +58,7 @@ export async function POST(
       await incrementApiLimit();
     }
    
+    
     // Convert the response into a friendly text-stream
     const userMessage = messages[messages.length - 1].content; // Extracting the content of the user's message
 
