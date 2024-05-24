@@ -77,7 +77,6 @@ export async function POST(
         }
       },
     });
-    // Respond with the stream
     return new StreamingTextResponse(stream);
 
   } catch (error) {
